@@ -1,0 +1,130 @@
+{
+  "scene_id": "r_KITCHEN_SCENE13",
+  "suites": [
+    "libero_10_r"
+  ],
+  "num_tasks": 1,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "moka_pot_1"
+  ],
+  "fixtures": [
+    "flat_stove_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "flat_stove_1_turn_off",
+        "args": [
+          "flat_stove_1",
+          "turn_off"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "flat_stove_1_turn_on",
+        "args": [
+          "flat_stove_1",
+          "turn_on"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_flat_stove_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_moka_pot_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "moka_pot_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_1_on_flat_stove_1",
+        "args": [
+          "moka_pot_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_flat_stove_1_cook_region",
+        "args": [
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_akita_black_bowl_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_akita_black_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_flat_stove_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_flat_stove_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_moka_pot_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_moka_pot_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_1_in_flat_stove_1_cook_region",
+        "args": [
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_1_in_kitchen_table_akita_black_bowl_init_region",
+        "args": [
+          "moka_pot_1",
+          "kitchen_table_akita_black_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_1_in_kitchen_table_flat_stove_init_region",
+        "args": [
+          "moka_pot_1",
+          "kitchen_table_flat_stove_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_1_in_kitchen_table_moka_pot_init_region",
+        "args": [
+          "moka_pot_1",
+          "kitchen_table_moka_pot_init_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

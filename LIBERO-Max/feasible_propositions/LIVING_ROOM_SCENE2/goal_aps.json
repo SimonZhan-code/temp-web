@@ -1,0 +1,443 @@
+{
+  "scene_id": "LIVING_ROOM_SCENE2",
+  "num_tasks": 16,
+  "goal_alphabet": [
+    {
+      "name": "in_alphabet_soup_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "alphabet_soup_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_butter_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "butter_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_cream_cheese_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "cream_cheese_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_milk_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "milk_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_orange_juice_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "orange_juice_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_tomato_sauce_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "tomato_sauce_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "incontact_butter_1_milk_1",
+      "args": [
+        "incontact",
+        "butter_1",
+        "milk_1"
+      ]
+    },
+    {
+      "name": "incontact_butter_1_orange_juice_1",
+      "args": [
+        "incontact",
+        "butter_1",
+        "orange_juice_1"
+      ]
+    },
+    {
+      "name": "incontact_tomato_sauce_1_milk_1",
+      "args": [
+        "incontact",
+        "tomato_sauce_1",
+        "milk_1"
+      ]
+    },
+    {
+      "name": "incontact_tomato_sauce_1_orange_juice_1",
+      "args": [
+        "incontact",
+        "tomato_sauce_1",
+        "orange_juice_1"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "suite": "libero_10",
+      "language_instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "suite": "libero_10",
+      "language_instruction": "put both the cream cheese box and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_butter_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_butter_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the alphabet soup and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_butter_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the cream cheese box and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_butter_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_tomato_sauce_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the cream cheese box and the tomato sauce in the basket",
+      "goals": [
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_milk_and_the_butter_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the milk and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_milk_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "incontact_butter_1_milk_1",
+          "args": [
+            "incontact",
+            "butter_1",
+            "milk_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_milk_and_the_tomato_sauce_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the milk and the tomato sauce in the basket",
+      "goals": [
+        {
+          "name": "in_milk_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "incontact_tomato_sauce_1_milk_1",
+          "args": [
+            "incontact",
+            "tomato_sauce_1",
+            "milk_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_orange_juice_and_the_butter_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the orange juice and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_orange_juice_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "incontact_butter_1_orange_juice_1",
+          "args": [
+            "incontact",
+            "butter_1",
+            "orange_juice_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_orange_juice_and_the_tomato_sauce_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the orange juice and the tomato sauce in the basket",
+      "goals": [
+        {
+          "name": "in_orange_juice_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "incontact_tomato_sauce_1_orange_juice_1",
+          "args": [
+            "incontact",
+            "tomato_sauce_1",
+            "orange_juice_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_put_both_the_tomato_sauce_and_the_butter_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the tomato_sauce and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_butter_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_pick_up_the_alphabet_soup_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the alphabet soup and put it in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_pick_up_the_butter_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the butter and put it in the basket",
+      "goals": [
+        {
+          "name": "in_butter_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_pick_up_the_milk_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the milk and put it in the basket",
+      "goals": [
+        {
+          "name": "in_milk_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_pick_up_the_orange_juice_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the orange juice and put it in the basket",
+      "goals": [
+        {
+          "name": "in_orange_juice_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE2_pick_up_the_tomato_sauce_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the tomato sauce and put it in the basket",
+      "goals": [
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

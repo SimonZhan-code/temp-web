@@ -1,0 +1,19 @@
+model_type: "random_policy"
+
+model_path: ""
+precision: "32"
+is_lora: False
+
+action_dim: 14
+num_action_chunks: 1
+add_value_head: False
+
+# Random sampling range for all action dimensions.
+action_low: -1.0
+action_high: 1.0
+
+# Gripper sampling mode: none | zero_one | binary
+gripper_mode: "zero_one"
+
+# Optional explicit gripper indices. Null -> inferred from action_dim.
+gripper_indices: null

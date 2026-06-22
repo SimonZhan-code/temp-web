@@ -1,0 +1,153 @@
+{
+  "scene_id": "r_KITCHEN_SCENE16",
+  "suites": [
+    "libero_10_r"
+  ],
+  "num_tasks": 1,
+  "alphabet_fixed": true,
+  "objects": [
+    "black_book_1",
+    "white_yellow_mug_1"
+  ],
+  "fixtures": [
+    "microwave_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "microwave_1_is_close",
+        "args": [
+          "microwave_1",
+          "is_close"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "microwave_1_is_open",
+        "args": [
+          "microwave_1",
+          "is_open"
+        ],
+        "init_value": true
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "black_book_1_on_microwave_1",
+        "args": [
+          "black_book_1",
+          "on",
+          "microwave_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_on_microwave_1",
+        "args": [
+          "white_yellow_mug_1",
+          "on",
+          "microwave_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "black_book_1_in_kitchen_table_black_book_front_region",
+        "args": [
+          "black_book_1",
+          "kitchen_table_black_book_front_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_kitchen_table_black_book_init_region",
+        "args": [
+          "black_book_1",
+          "kitchen_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_kitchen_table_microwave_init_region",
+        "args": [
+          "black_book_1",
+          "kitchen_table_microwave_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_kitchen_table_white_yellow_mug_init_region",
+        "args": [
+          "black_book_1",
+          "kitchen_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_microwave_1_heating_region",
+        "args": [
+          "black_book_1",
+          "microwave_1_heating_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_microwave_1_top_side",
+        "args": [
+          "black_book_1",
+          "microwave_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_kitchen_table_black_book_front_region",
+        "args": [
+          "white_yellow_mug_1",
+          "kitchen_table_black_book_front_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_kitchen_table_black_book_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "kitchen_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_kitchen_table_microwave_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "kitchen_table_microwave_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_kitchen_table_white_yellow_mug_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "kitchen_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_microwave_1_heating_region",
+        "args": [
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_microwave_1_top_side",
+        "args": [
+          "white_yellow_mug_1",
+          "microwave_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+robosuite==1.4.1
+robomimic==0.2.0
+bddl==1.0.1
+gym
+torch
+numpy
+scipy
+opencv-python
+filelock
+pyyaml
+omegaconf
+imageio[ffmpeg]
+Pillow
+cloudpickle
+easydict

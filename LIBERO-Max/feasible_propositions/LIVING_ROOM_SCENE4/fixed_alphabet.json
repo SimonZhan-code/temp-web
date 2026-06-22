@@ -1,0 +1,291 @@
+{
+  "scene_id": "LIVING_ROOM_SCENE4",
+  "suites": [
+    "libero_90"
+  ],
+  "num_tasks": 5,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "chocolate_pudding_1",
+    "new_salad_dressing_1",
+    "wooden_tray_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_wooden_tray_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wooden_tray_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_wooden_tray_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "wooden_tray_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_on_wooden_tray_1",
+        "args": [
+          "chocolate_pudding_1",
+          "on",
+          "wooden_tray_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_on_wooden_tray_1",
+        "args": [
+          "new_salad_dressing_1",
+          "on",
+          "wooden_tray_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_living_room_table_akita_black_bowl_left_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "living_room_table_akita_black_bowl_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_living_room_table_akita_black_bowl_right_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "living_room_table_akita_black_bowl_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_living_room_table_salad_dressing_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "living_room_table_salad_dressing_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_living_room_table_wooden_tray_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "living_room_table_wooden_tray_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_tray_1_contain_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_tray_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_living_room_table_akita_black_bowl_left_init_region",
+        "args": [
+          "akita_black_bowl_2",
+          "living_room_table_akita_black_bowl_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_living_room_table_akita_black_bowl_right_init_region",
+        "args": [
+          "akita_black_bowl_2",
+          "living_room_table_akita_black_bowl_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "akita_black_bowl_2",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_living_room_table_salad_dressing_init_region",
+        "args": [
+          "akita_black_bowl_2",
+          "living_room_table_salad_dressing_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_living_room_table_wooden_tray_init_region",
+        "args": [
+          "akita_black_bowl_2",
+          "living_room_table_wooden_tray_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_tray_1_contain_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_tray_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_akita_black_bowl_left_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_akita_black_bowl_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_akita_black_bowl_right_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_akita_black_bowl_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_salad_dressing_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_salad_dressing_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_wooden_tray_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_wooden_tray_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_wooden_tray_1_contain_region",
+        "args": [
+          "chocolate_pudding_1",
+          "wooden_tray_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_in_living_room_table_akita_black_bowl_left_init_region",
+        "args": [
+          "new_salad_dressing_1",
+          "living_room_table_akita_black_bowl_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_in_living_room_table_akita_black_bowl_right_init_region",
+        "args": [
+          "new_salad_dressing_1",
+          "living_room_table_akita_black_bowl_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "new_salad_dressing_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_in_living_room_table_salad_dressing_init_region",
+        "args": [
+          "new_salad_dressing_1",
+          "living_room_table_salad_dressing_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_in_living_room_table_wooden_tray_init_region",
+        "args": [
+          "new_salad_dressing_1",
+          "living_room_table_wooden_tray_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "new_salad_dressing_1_in_wooden_tray_1_contain_region",
+        "args": [
+          "new_salad_dressing_1",
+          "wooden_tray_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_tray_1_in_living_room_table_akita_black_bowl_left_init_region",
+        "args": [
+          "wooden_tray_1",
+          "living_room_table_akita_black_bowl_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_tray_1_in_living_room_table_akita_black_bowl_right_init_region",
+        "args": [
+          "wooden_tray_1",
+          "living_room_table_akita_black_bowl_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_tray_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "wooden_tray_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_tray_1_in_living_room_table_salad_dressing_init_region",
+        "args": [
+          "wooden_tray_1",
+          "living_room_table_salad_dressing_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_tray_1_in_living_room_table_wooden_tray_init_region",
+        "args": [
+          "wooden_tray_1",
+          "living_room_table_wooden_tray_init_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

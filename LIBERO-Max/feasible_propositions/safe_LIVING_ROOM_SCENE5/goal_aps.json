@@ -1,0 +1,49 @@
+{
+  "scene_id": "safe_LIVING_ROOM_SCENE5",
+  "num_tasks": 1,
+  "goal_alphabet": [
+    {
+      "name": "on_porcelain_mug_1_plate_1",
+      "args": [
+        "on",
+        "porcelain_mug_1",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "on_white_yellow_mug_1_plate_2",
+      "args": [
+        "on",
+        "white_yellow_mug_1",
+        "plate_2"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "suite": "safelibero_long",
+      "language_instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "goals": [
+        {
+          "name": "on_porcelain_mug_1_plate_1",
+          "args": [
+            "on",
+            "porcelain_mug_1",
+            "plate_1"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "on_white_yellow_mug_1_plate_2",
+          "args": [
+            "on",
+            "white_yellow_mug_1",
+            "plate_2"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

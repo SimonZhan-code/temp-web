@@ -1,0 +1,47 @@
+{
+  "scene_id": "r_KITCHEN_SCENE14",
+  "num_tasks": 1,
+  "goal_alphabet": [
+    {
+      "name": "close_white_cabinet_1_bottom_region",
+      "args": [
+        "close",
+        "white_cabinet_1_bottom_region"
+      ]
+    },
+    {
+      "name": "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+      "args": [
+        "in",
+        "akita_black_bowl_1",
+        "white_cabinet_1_bottom_region"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE14_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "suite": "libero_10_r",
+      "language_instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "goals": [
+        {
+          "name": "close_white_cabinet_1_bottom_region",
+          "args": [
+            "close",
+            "white_cabinet_1_bottom_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+          "args": [
+            "in",
+            "akita_black_bowl_1",
+            "white_cabinet_1_bottom_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

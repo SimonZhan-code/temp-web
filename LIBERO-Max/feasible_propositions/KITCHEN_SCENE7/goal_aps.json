@@ -1,0 +1,78 @@
+{
+  "scene_id": "KITCHEN_SCENE7",
+  "num_tasks": 3,
+  "goal_alphabet": [
+    {
+      "name": "on_white_bowl_1_kitchen_table_plate_right_region",
+      "args": [
+        "on",
+        "white_bowl_1",
+        "kitchen_table_plate_right_region"
+      ]
+    },
+    {
+      "name": "on_white_bowl_1_plate_1",
+      "args": [
+        "on",
+        "white_bowl_1",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "open_microwave_1",
+      "args": [
+        "open",
+        "microwave_1"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE7_open_the_microwave",
+      "suite": "libero_90",
+      "language_instruction": "open the microwave",
+      "goals": [
+        {
+          "name": "open_microwave_1",
+          "args": [
+            "open",
+            "microwave_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE7_put_the_white_bowl_on_the_plate",
+      "suite": "libero_90",
+      "language_instruction": "put the white bowl on the plate",
+      "goals": [
+        {
+          "name": "on_white_bowl_1_plate_1",
+          "args": [
+            "on",
+            "white_bowl_1",
+            "plate_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE7_put_the_white_bowl_to_the_right_of_the_plate",
+      "suite": "libero_90",
+      "language_instruction": "put the white bowl to the right of the plate",
+      "goals": [
+        {
+          "name": "on_white_bowl_1_kitchen_table_plate_right_region",
+          "args": [
+            "on",
+            "white_bowl_1",
+            "kitchen_table_plate_right_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

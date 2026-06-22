@@ -1,0 +1,146 @@
+{
+  "scene_id": "KITCHEN_SCENE7",
+  "suites": [
+    "libero_90"
+  ],
+  "num_tasks": 3,
+  "alphabet_fixed": true,
+  "objects": [
+    "plate_1",
+    "white_bowl_1"
+  ],
+  "fixtures": [
+    "microwave_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "microwave_1_is_close",
+        "args": [
+          "microwave_1",
+          "is_close"
+        ],
+        "init_value": true
+      },
+      {
+        "name": "microwave_1_is_open",
+        "args": [
+          "microwave_1",
+          "is_open"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "plate_1_on_microwave_1",
+        "args": [
+          "plate_1",
+          "on",
+          "microwave_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_on_microwave_1",
+        "args": [
+          "white_bowl_1",
+          "on",
+          "microwave_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_on_plate_1",
+        "args": [
+          "white_bowl_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "plate_1_in_kitchen_table_microwave_init_region",
+        "args": [
+          "plate_1",
+          "kitchen_table_microwave_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_kitchen_table_plate_init_region",
+        "args": [
+          "plate_1",
+          "kitchen_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_kitchen_table_plate_right_region",
+        "args": [
+          "plate_1",
+          "kitchen_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_microwave_1_heating_region",
+        "args": [
+          "plate_1",
+          "microwave_1_heating_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_microwave_1_top_side",
+        "args": [
+          "plate_1",
+          "microwave_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_microwave_init_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_microwave_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_plate_init_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_plate_right_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_microwave_1_heating_region",
+        "args": [
+          "white_bowl_1",
+          "microwave_1_heating_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_microwave_1_top_side",
+        "args": [
+          "white_bowl_1",
+          "microwave_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

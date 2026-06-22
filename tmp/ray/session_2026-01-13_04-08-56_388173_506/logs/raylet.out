@@ -1,0 +1,360 @@
+[2026-01-13 04:08:58,551 I 1323 1323] (raylet) main.cc:226: Setting cluster ID to: 60e5239b84afd7faeb17e340291105b7c20fa45d38d9b74386435edb
+[2026-01-13 04:08:58,561 I 1323 1323] (raylet) main.cc:341: Raylet is not set to kill unknown children.
+[2026-01-13 04:08:58,562 I 1323 1323] (raylet) io_service_pool.cc:36: IOServicePool is running with 1 io_service.
+[2026-01-13 04:08:58,562 I 1323 1323] (raylet) main.cc:469: Setting node ID node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:08:58,562 I 1323 1323] (raylet) store_runner.cc:50: Allowing the Plasma store to use up to 19.4296GB of memory.
+[2026-01-13 04:08:58,562 I 1323 1323] (raylet) store_runner.cc:66: Starting object store with directory /dev/shm, fallback /workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506, and huge page support disabled
+[2026-01-13 04:08:58,562 I 1323 1354] (raylet) dlmalloc.cc:324: Setting dlmalloc config: plasma_directory=/dev/shm, fallback_directory=/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506, hugepage_enabled=0, fallback_enabled=1
+[2026-01-13 04:08:58,562 I 1323 1354] (raylet) dlmalloc.cc:153: create_and_mmap_buffer(19429720072, /dev/shm/plasmaXXXXXX)
+[2026-01-13 04:08:58,563 I 1323 1354] (raylet) store.cc:576: Plasma store debug dump: 
+Current usage: 0 / 19.4296 GB
+- num bytes created total: 0
+0 pending objects of total size 0MB
+- objects spillable: 0
+- bytes spillable: 0
+- objects unsealed: 0
+- bytes unsealed: 0
+- objects in use: 0
+- bytes in use: 0
+- objects evictable: 0
+- bytes evictable: 0
+
+- objects created by worker: 0
+- bytes created by worker: 0
+- objects restored: 0
+- bytes restored: 0
+- objects received: 0
+- bytes received: 0
+- objects errored: 0
+- bytes errored: 0
+
+[2026-01-13 04:08:58,564 I 1323 1323] (raylet) grpc_server.cc:141: ObjectManager server started, listening on port 33967.
+[2026-01-13 04:08:58,565 I 1323 1323] (raylet) worker_killing_policy.cc:107: Running GroupByOwner policy.
+[2026-01-13 04:08:58,565 I 1323 1323] (raylet) memory_monitor.cc:48: MemoryMonitor initialized with usage threshold at 63758548992 bytes (0.95 system memory), total system memory bytes: 67114262528
+[2026-01-13 04:08:58,565 I 1323 1323] (raylet) node_manager.cc:227: Initializing NodeManager node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:08:58,566 I 1323 1323] (raylet) grpc_server.cc:141: NodeManager server started, listening on port 42297.
+[2026-01-13 04:08:58,568 I 1323 1400] (raylet) agent_manager.cc:80: Monitor agent process with name dashboard_agent
+[2026-01-13 04:08:58,568 I 1323 1323] (raylet) event.cc:500: Ray Event initialized for RAYLET
+[2026-01-13 04:08:58,568 I 1323 1402] (raylet) agent_manager.cc:80: Monitor agent process with name runtime_env_agent
+[2026-01-13 04:08:58,568 I 1323 1323] (raylet) event.cc:331: Set ray event level to warning
+[2026-01-13 04:08:58,570 I 1323 1323] (raylet) raylet.cc:260: Raylet of id, a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348 started. Raylet consists of node_manager and object_manager. node_manager address: 10.105.17.31:42297 object_manager address: 10.105.17.31:33967 hostname: simonzhan-Research-Hero
+[2026-01-13 04:08:58,571 I 1323 1323] (raylet) node_manager.cc:450: [state-dump] NodeManager:
+[state-dump] Node ID: a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[state-dump] Node name: 10.105.17.31
+[state-dump] InitialConfigResources: {node:__internal_head__: 1, CPU: 32, accelerator_type:G: 1, memory: 4.53358e+10, node:10.105.17.31: 1, GPU: 1, object_store_memory: 1.94296e+10}
+[state-dump] ClusterTaskManager:
+[state-dump] ========== Node: a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348 =================
+[state-dump] Infeasible queue length: 0
+[state-dump] Schedule queue length: 0
+[state-dump] Dispatch queue length: 0
+[state-dump] num_waiting_for_resource: 0
+[state-dump] num_waiting_for_plasma_memory: 0
+[state-dump] num_waiting_for_remote_node_resources: 0
+[state-dump] num_worker_not_started_by_job_config_not_exist: 0
+[state-dump] num_worker_not_started_by_registration_timeout: 0
+[state-dump] num_tasks_waiting_for_workers: 0
+[state-dump] num_cancelled_tasks: 0
+[state-dump] cluster_resource_scheduler state: 
+[state-dump] Local id: 3972446146260233724 Local resources: {"total":{node:__internal_head__: [10000], CPU: [320000], accelerator_type:G: [10000], node:10.105.17.31: [10000], memory: [453357907970000], GPU: [10000], object_store_memory: [194296246270000]}}, "available": {node:__internal_head__: [10000], CPU: [320000], accelerator_type:G: [10000], node:10.105.17.31: [10000], memory: [453357907970000], GPU: [10000], object_store_memory: [194296246270000]}}, "labels":{"ray.io/node_id":"a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348",} is_draining: 0 is_idle: 1 Cluster resources (at most 20 nodes are shown): node id: 3972446146260233724{"total":{node:__internal_head__: 10000, CPU: 320000, accelerator_type:G: 10000, memory: 453357907970000, node:10.105.17.31: 10000, GPU: 10000, object_store_memory: 194296246270000}}, "available": {node:__internal_head__: 10000, CPU: 320000, memory: 453357907970000, accelerator_type:G: 10000, node:10.105.17.31: 10000, GPU: 10000, object_store_memory: 194296246270000}}, "labels":{"ray.io/node_id":"a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348",}, "is_draining": 0, "draining_deadline_timestamp_ms": -1} { "placement group locations": [], "node to bundles": []}
+[state-dump] Waiting tasks size: 0
+[state-dump] Number of executing tasks: 0
+[state-dump] Number of pinned task arguments: 0
+[state-dump] Number of total spilled tasks: 0
+[state-dump] Number of spilled waiting tasks: 0
+[state-dump] Number of spilled unschedulable tasks: 0
+[state-dump] Resource usage {
+[state-dump] }
+[state-dump] Backlog Size per scheduling descriptor :{workerId: num backlogs}:
+[state-dump] 
+[state-dump] Running tasks by scheduling class:
+[state-dump] ==================================================
+[state-dump] 
+[state-dump] ClusterResources:
+[state-dump] LocalObjectManager:
+[state-dump] - num pinned objects: 0
+[state-dump] - pinned objects size: 0
+[state-dump] - num objects pending restore: 0
+[state-dump] - num objects pending spill: 0
+[state-dump] - num bytes pending spill: 0
+[state-dump] - num bytes currently spilled: 0
+[state-dump] - cumulative spill requests: 0
+[state-dump] - cumulative restore requests: 0
+[state-dump] - spilled objects pending delete: 0
+[state-dump] 
+[state-dump] ObjectManager:
+[state-dump] - num local objects: 0
+[state-dump] - num unfulfilled push requests: 0
+[state-dump] - num object pull requests: 0
+[state-dump] - num chunks received total: 0
+[state-dump] - num chunks received failed (all): 0
+[state-dump] - num chunks received failed / cancelled: 0
+[state-dump] - num chunks received failed / plasma error: 0
+[state-dump] Event stats:
+[state-dump] Global stats: 0 total (0 active)
+[state-dump] Queueing time: mean = -nan s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] Execution time:  mean = -nan s, total = 0.000 s
+[state-dump] Event stats:
+[state-dump] PushManager:
+[state-dump] - num pushes in flight: 0
+[state-dump] - num chunks in flight: 0
+[state-dump] - num chunks remaining: 0
+[state-dump] - max chunks allowed: 409
+[state-dump] OwnershipBasedObjectDirectory:
+[state-dump] - num listeners: 0
+[state-dump] - cumulative location updates: 0
+[state-dump] - num location updates per second: 0.000
+[state-dump] - num location lookups per second: 0.000
+[state-dump] - num locations added per second: 0.000
+[state-dump] - num locations removed per second: 0.000
+[state-dump] BufferPool:
+[state-dump] - create buffer state map size: 0
+[state-dump] PullManager:
+[state-dump] - num bytes available for pulled objects: 19429624627
+[state-dump] - num bytes being pulled (all): 0
+[state-dump] - num bytes being pulled / pinned: 0
+[state-dump] - get request bundles: BundlePullRequestQueue{0 total, 0 active, 0 inactive, 0 unpullable}
+[state-dump] - wait request bundles: BundlePullRequestQueue{0 total, 0 active, 0 inactive, 0 unpullable}
+[state-dump] - task request bundles: BundlePullRequestQueue{0 total, 0 active, 0 inactive, 0 unpullable}
+[state-dump] - first get request bundle: N/A
+[state-dump] - first wait request bundle: N/A
+[state-dump] - first task request bundle: N/A
+[state-dump] - num objects queued: 0
+[state-dump] - num objects actively pulled (all): 0
+[state-dump] - num objects actively pulled / pinned: 0
+[state-dump] - num bundles being pulled: 0
+[state-dump] - num pull retries: 0
+[state-dump] - max timeout seconds: 0
+[state-dump] - max timeout request is already processed. No entry.
+[state-dump] 
+[state-dump] WorkerPool:
+[state-dump] - registered jobs: 0
+[state-dump] - process_failed_job_config_missing: 0
+[state-dump] - process_failed_rate_limited: 0
+[state-dump] - process_failed_pending_registration: 0
+[state-dump] - process_failed_runtime_env_setup_failed: 0
+[state-dump] - num PYTHON workers: 0
+[state-dump] - num PYTHON drivers: 0
+[state-dump] - num PYTHON pending start requests: 0
+[state-dump] - num PYTHON pending registration requests: 0
+[state-dump] - num object spill callbacks queued: 0
+[state-dump] - num object restore queued: 0
+[state-dump] - num util functions queued: 0
+[state-dump] - num idle workers: 0
+[state-dump] TaskDependencyManager:
+[state-dump] - task deps map size: 0
+[state-dump] - get req map size: 0
+[state-dump] - wait req map size: 0
+[state-dump] - local objects map size: 0
+[state-dump] WaitManager:
+[state-dump] - num active wait requests: 0
+[state-dump] Subscriber:
+[state-dump] Channel WORKER_OBJECT_LOCATIONS_CHANNEL
+[state-dump] - cumulative subscribe requests: 0
+[state-dump] - cumulative unsubscribe requests: 0
+[state-dump] - active subscribed publishers: 0
+[state-dump] - cumulative published messages: 0
+[state-dump] - cumulative processed messages: 0
+[state-dump] Channel WORKER_OBJECT_EVICTION
+[state-dump] - cumulative subscribe requests: 0
+[state-dump] - cumulative unsubscribe requests: 0
+[state-dump] - active subscribed publishers: 0
+[state-dump] - cumulative published messages: 0
+[state-dump] - cumulative processed messages: 0
+[state-dump] Channel WORKER_REF_REMOVED_CHANNEL
+[state-dump] - cumulative subscribe requests: 0
+[state-dump] - cumulative unsubscribe requests: 0
+[state-dump] - active subscribed publishers: 0
+[state-dump] - cumulative published messages: 0
+[state-dump] - cumulative processed messages: 0
+[state-dump] num async plasma notifications: 0
+[state-dump] Event stats:
+[state-dump] Global stats: 29 total (14 active)
+[state-dump] Queueing time: mean = 638.950 us, max = 3.740 ms, min = 5.486 us, total = 18.530 ms
+[state-dump] Execution time:  mean = 381.946 us, total = 11.076 ms
+[state-dump] Event stats:
+[state-dump] 	PeriodicalRunner.RunFnPeriodically - 12 total (2 active, 1 running), Execution time: mean = 84.228 us, total = 1.011 ms, Queueing time: mean = 1.543 ms, max = 3.740 ms, min = 12.665 us, total = 18.514 ms
+[state-dump] 	ray::rpc::InternalKVGcsService.grpc_client.GetInternalConfig.OnReplyReceived - 1 total (0 active), Execution time: mean = 7.630 ms, total = 7.630 ms, Queueing time: mean = 9.812 us, max = 9.812 us, min = 9.812 us, total = 9.812 us
+[state-dump] 	ray::rpc::InternalKVGcsService.grpc_client.GetInternalConfig - 1 total (0 active), Execution time: mean = 1.058 ms, total = 1.058 ms, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	MemoryMonitor.CheckIsMemoryUsageAboveThreshold - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	ray::rpc::InternalPubSubGcsService.grpc_client.GcsSubscriberCommandBatch.OnReplyReceived - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	ray::rpc::InternalPubSubGcsService.grpc_client.GcsSubscriberCommandBatch - 1 total (0 active), Execution time: mean = 253.598 us, total = 253.598 us, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	RayletWorkerPool.deadline_timer.kill_idle_workers - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	NodeManager.deadline_timer.flush_free_objects - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	ray::rpc::NodeInfoGcsService.grpc_client.RegisterNode - 1 total (0 active), Execution time: mean = 989.458 us, total = 989.458 us, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	NodeManager.GCTaskFailureReason - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	NodeManager.deadline_timer.spill_objects_when_over_threshold - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	NodeManager.deadline_timer.record_metrics - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	NodeManager.deadline_timer.debug_state_dump - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	NodeManager.CheckForUnexpectedWorkerDisconnects - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	ray::rpc::InternalPubSubGcsService.grpc_client.GcsSubscriberPoll - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	ClusterResourceManager.ResetRemoteNodeView - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] 	ray::rpc::NodeInfoGcsService.grpc_client.RegisterNode.OnReplyReceived - 1 total (0 active), Execution time: mean = 134.673 us, total = 134.673 us, Queueing time: mean = 5.486 us, max = 5.486 us, min = 5.486 us, total = 5.486 us
+[state-dump] 	NodeManager.ScheduleAndDispatchTasks - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+[state-dump] DebugString() time ms: 0
+[state-dump] 
+[state-dump] 
+[2026-01-13 04:08:58,571 I 1323 1323] (raylet) accessor.cc:768: Received notification for node, IsAlive = 1 node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:08:58,663 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1423, the token is 0
+[2026-01-13 04:08:58,664 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1424, the token is 1
+[2026-01-13 04:08:58,665 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1425, the token is 2
+[2026-01-13 04:08:58,666 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1426, the token is 3
+[2026-01-13 04:08:58,666 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1427, the token is 4
+[2026-01-13 04:08:58,667 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1428, the token is 5
+[2026-01-13 04:08:58,668 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1429, the token is 6
+[2026-01-13 04:08:58,669 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1430, the token is 7
+[2026-01-13 04:08:58,670 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1431, the token is 8
+[2026-01-13 04:08:58,670 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1432, the token is 9
+[2026-01-13 04:08:58,671 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1433, the token is 10
+[2026-01-13 04:08:58,672 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1434, the token is 11
+[2026-01-13 04:08:58,673 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1435, the token is 12
+[2026-01-13 04:08:58,674 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1436, the token is 13
+[2026-01-13 04:08:58,675 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1437, the token is 14
+[2026-01-13 04:08:58,676 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1438, the token is 15
+[2026-01-13 04:08:58,676 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1439, the token is 16
+[2026-01-13 04:08:58,677 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1440, the token is 17
+[2026-01-13 04:08:58,678 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1441, the token is 18
+[2026-01-13 04:08:58,705 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1442, the token is 19
+[2026-01-13 04:08:58,706 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1443, the token is 20
+[2026-01-13 04:08:58,707 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1444, the token is 21
+[2026-01-13 04:08:58,708 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1445, the token is 22
+[2026-01-13 04:08:58,710 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1446, the token is 23
+[2026-01-13 04:08:58,711 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1447, the token is 24
+[2026-01-13 04:08:58,712 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1448, the token is 25
+[2026-01-13 04:08:58,714 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1449, the token is 26
+[2026-01-13 04:08:58,715 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1450, the token is 27
+[2026-01-13 04:08:58,717 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1451, the token is 28
+[2026-01-13 04:08:58,720 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1452, the token is 29
+[2026-01-13 04:08:58,722 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1453, the token is 30
+[2026-01-13 04:08:58,728 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 1454, the token is 31
+[2026-01-13 04:08:59,161 I 1323 1354] (raylet) object_store.cc:38: Object store current usage 8e-09 / 19.4296 GB.
+[2026-01-13 04:08:59,569 I 1323 1323] (raylet) worker_pool.cc:724: Job 01000000 already started in worker pool.
+[2026-01-13 04:09:00,596 I 1323 1323] (raylet) runtime_env_agent_client.cc:384: Create runtime env for job 01000000
+[2026-01-13 04:09:00,598 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 3399, the token is 32
+[2026-01-13 04:09:00,613 I 1323 1323] (raylet) runtime_env_agent_client.cc:384: Create runtime env for job 01000000
+[2026-01-13 04:09:00,615 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 3401, the token is 33
+[2026-01-13 04:09:00,632 I 1323 1323] (raylet) runtime_env_agent_client.cc:384: Create runtime env for job 01000000
+[2026-01-13 04:09:00,635 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 3403, the token is 34
+[2026-01-13 04:09:00,651 I 1323 1323] (raylet) runtime_env_agent_client.cc:384: Create runtime env for job 01000000
+[2026-01-13 04:09:00,653 I 1323 1323] (raylet) worker_pool.cc:527: Started worker process with pid 3405, the token is 35
+[2026-01-13 04:09:07,662 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=2, has_creation_task_exception=true worker_id=e4be876b23bfedda93a775c380a5d43a52519f0d281ec4ae6ca6b106
+[2026-01-13 04:09:07,662 I 1323 1323] (raylet) node_manager.cc:1539: Formatted creation task exception: Traceback (most recent call last):
+
+  File "python/ray/_raylet.pyx", line 1890, in ray._raylet.execute_task
+
+  File "python/ray/_raylet.pyx", line 1998, in ray._raylet.execute_task
+
+  File "python/ray/_raylet.pyx", line 1897, in ray._raylet.execute_task
+
+  File "python/ray/_raylet.pyx", line 1831, in ray._raylet.execute_task.function_executor
+
+  File "python/ray/_raylet.pyx", line 4576, in ray._raylet.CoreWorker.run_async_func_or_coro_in_event_loop
+
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+
+  File "python/ray/_raylet.pyx", line 4563, in async_func
+
+  File "/opt/venv/openvla/lib/python3.11/site-packages/ray/_private/async_compat.py", line 50, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+
+  File "/opt/venv/openvla/lib/python3.11/site-packages/ray/_private/function_manager.py", line 689, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/opt/venv/openvla/lib/python3.11/site-packages/ray/util/tracing/tracing_helper.py", line 463, in _resume_span
+    return method(self, *_args, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/workspace/rlinf/scheduler/worker/worker.py", line 71, in sync_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+
+  File "/workspace/rlinf/workers/rollout/hf/huggingface_worker.py", line 41, in __init__
+    self.device = torch.cuda.current_device()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 971, in current_device
+    _lazy_init()
+
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+
+RuntimeError: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "python/ray/_raylet.pyx", line 2317, in ray._raylet.task_execution_handler
+
+  File "python/ray/_raylet.pyx", line 2190, in ray._raylet.execute_task_with_cancellation_handler
+
+  File "python/ray/_raylet.pyx", line 1839, in ray._raylet.execute_task
+
+  File "python/ray/_raylet.pyx", line 1840, in ray._raylet.execute_task
+
+  File "python/ray/_raylet.pyx", line 2084, in ray._raylet.execute_task
+
+  File "python/ray/_raylet.pyx", line 1106, in ray._raylet.store_task_errors
+
+ray.exceptions.ActorDiedError: The actor died because of an error raised in its creation task, [36mray::RolloutGroup:0:MultiStepRolloutWorker.__init__()[39m (pid=3399, ip=10.105.17.31, actor_id=fc266d0e2f76da99bc13377a01000000, repr=<rlinf.workers.rollout.hf.huggingface_worker.MultiStepRolloutWorker object at 0x79c194172c90>)
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+           ^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/scheduler/worker/worker.py", line 71, in sync_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/workers/rollout/hf/huggingface_worker.py", line 41, in __init__
+    self.device = torch.cuda.current_device()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 971, in current_device
+    _lazy_init()
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW
+ worker_id=e4be876b23bfedda93a775c380a5d43a52519f0d281ec4ae6ca6b106
+[2026-01-13 04:09:07,664 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,688 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=e1839ffd0f0684275758e09ddfedf69f4a87af3cd9e2a4a500cc92dd
+[2026-01-13 04:09:07,691 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=56d932d3d47f3714df1dea7b0de86e9f0cbf1cbd8194002ad8c7124a
+[2026-01-13 04:09:07,691 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=33b73cb85dca6ce11df49e1874b8df2f87d8ac2c1330283088aa5113
+[2026-01-13 04:09:07,694 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=68a094302707047ba032dad0b6d468df44076b112acba12476e3faa4
+[2026-01-13 04:09:07,696 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=6e8b26cd91a3f3219fa63468f06ddb38bfcef5f00deb9df89468ee2c
+[2026-01-13 04:09:07,696 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=02d613c490551ff98c5be460f2403187674d9f22105fc480b589601e
+[2026-01-13 04:09:07,703 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=fb617ec0381cdb48b4e7c3887eb983b46bc17d63f78b0f430bd92d71
+[2026-01-13 04:09:07,704 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=1, has_creation_task_exception=false worker_id=1c2072b6ae41ebda2d01a407dc6da82385bf7c18aabf571eabec41df
+[2026-01-13 04:09:07,714 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,719 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,719 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,720 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,720 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,721 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,721 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:07,722 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:08,730 I 1323 1323] (raylet) node_manager.cc:1523: Disconnecting client, graceful=true, disconnect_type=3, has_creation_task_exception=false worker_id=01000000ffffffffffffffffffffffffffffffffffffffffffffffff
+[2026-01-13 04:09:08,731 I 1323 1323] (raylet) node_manager.cc:1615: Driver (pid=506) is disconnected. worker_id=01000000ffffffffffffffffffffffffffffffffffffffffffffffff job_id=01000000
+[2026-01-13 04:09:08,733 I 1323 1323] (raylet) worker_pool.cc:724: Job 01000000 already started in worker pool.
+[2026-01-13 04:09:08,983 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:09,173 I 1323 1323] (raylet) main.cc:504: received SIGTERM. Existing local drain request = None
+[2026-01-13 04:09:09,173 I 1323 1323] (raylet) main.cc:307: Raylet graceful shutdown triggered, reason = EXPECTED_TERMINATION, reason message = received SIGTERM
+[2026-01-13 04:09:09,173 I 1323 1323] (raylet) main.cc:310: Shutting down...
+[2026-01-13 04:09:09,173 I 1323 1323] (raylet) accessor.cc:518: Unregistering node node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:09:09,174 I 1323 1323] (raylet) accessor.cc:531: Finished unregistering node info, status = OK node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:09:09,175 W 1323 1354] (raylet) store.cc:368: Disconnecting client due to connection error with code 2: End of file
+[2026-01-13 04:09:09,179 I 1323 1323] (raylet) agent_manager.cc:115: Killing agent dashboard_agent, pid 1399.
+[2026-01-13 04:09:09,197 I 1323 1400] (raylet) agent_manager.cc:82: Agent process with name dashboard_agent exited, exit code 0.
+[2026-01-13 04:09:09,197 I 1323 1323] (raylet) agent_manager.cc:115: Killing agent runtime_env_agent, pid 1401.
+[2026-01-13 04:09:09,204 I 1323 1402] (raylet) agent_manager.cc:82: Agent process with name runtime_env_agent exited, exit code 0.
+[2026-01-13 04:09:09,204 I 1323 1323] (raylet) io_service_pool.cc:48: IOServicePool is stopped.
+[2026-01-13 04:09:09,282 I 1323 1323] (raylet) stats.h:120: Stats module has shutdown.

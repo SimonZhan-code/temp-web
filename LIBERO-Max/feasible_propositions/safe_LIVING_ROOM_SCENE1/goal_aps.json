@@ -1,0 +1,49 @@
+{
+  "scene_id": "safe_LIVING_ROOM_SCENE1",
+  "num_tasks": 1,
+  "goal_alphabet": [
+    {
+      "name": "in_alphabet_soup_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "alphabet_soup_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_cream_cheese_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "cream_cheese_1",
+        "basket_1_contain_region"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "suite": "safelibero_long",
+      "language_instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

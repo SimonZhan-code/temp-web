@@ -1,0 +1,2675 @@
+{
+  "scene_id": "safe_spatial",
+  "suites": [
+    "safelibero_spatial"
+  ],
+  "num_tasks": 4,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "box_base_1",
+    "cookies_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "milk_obstacle_1",
+    "moka_pot_obstacle_1",
+    "plate_1",
+    "red_coffee_mug_obstacle_1",
+    "white_storage_box_obstacle_1",
+    "wine_bottle_obstacle_1",
+    "yellow_book_obstacle_1"
+  ],
+  "fixtures": [
+    "flat_stove_1",
+    "wooden_cabinet_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "flat_stove_1_turn_off",
+        "args": [
+          "flat_stove_1",
+          "turn_off"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "flat_stove_1_turn_on",
+        "args": [
+          "flat_stove_1",
+          "turn_on"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_close",
+        "args": [
+          "wooden_cabinet_1",
+          "is_close"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_open",
+        "args": [
+          "wooden_cabinet_1",
+          "is_open"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_flat_stove_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_plate_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_wooden_cabinet_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_flat_stove_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_plate_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_wooden_cabinet_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_on_flat_stove_1",
+        "args": [
+          "box_base_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_on_plate_1",
+        "args": [
+          "box_base_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_on_wooden_cabinet_1",
+        "args": [
+          "box_base_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_on_flat_stove_1",
+        "args": [
+          "cookies_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_on_plate_1",
+        "args": [
+          "cookies_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_on_wooden_cabinet_1",
+        "args": [
+          "cookies_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_on_flat_stove_1",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_on_plate_1",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_on_wooden_cabinet_1",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_on_flat_stove_1",
+        "args": [
+          "milk_obstacle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_on_plate_1",
+        "args": [
+          "milk_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_on_wooden_cabinet_1",
+        "args": [
+          "milk_obstacle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_on_flat_stove_1",
+        "args": [
+          "moka_pot_obstacle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_on_plate_1",
+        "args": [
+          "moka_pot_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_on_wooden_cabinet_1",
+        "args": [
+          "moka_pot_obstacle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_flat_stove_1",
+        "args": [
+          "plate_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_wooden_cabinet_1",
+        "args": [
+          "plate_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_on_flat_stove_1",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_on_plate_1",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_on_wooden_cabinet_1",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_on_flat_stove_1",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_on_plate_1",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_on_wooden_cabinet_1",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_on_flat_stove_1",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_on_plate_1",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_on_wooden_cabinet_1",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_on_flat_stove_1",
+        "args": [
+          "yellow_book_obstacle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_on_plate_1",
+        "args": [
+          "yellow_book_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_on_wooden_cabinet_1",
+        "args": [
+          "yellow_book_obstacle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_flat_stove_1_cook_region",
+        "args": [
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_box_base_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_box_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_cabinet_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_milk_carton_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_moka_pot_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_next_to_box_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_next_to_plate_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_plate_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_ramekin_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_red_mug_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_storage_box_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_stove_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_table_center",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_table_front",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_wine_bottle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_yellow_book_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_flat_stove_1_cook_region",
+        "args": [
+          "akita_black_bowl_2",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_box_base_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_box_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_cabinet_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_milk_carton_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_moka_pot_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_next_to_box_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_next_to_plate_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_next_to_ramekin_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_plate_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_ramekin_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_red_mug_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_storage_box_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_stove_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_table_center",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_table_front",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_wine_bottle_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_yellow_book_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_flat_stove_1_cook_region",
+        "args": [
+          "box_base_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "box_base_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_box_base_region",
+        "args": [
+          "box_base_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_box_region",
+        "args": [
+          "box_base_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_cabinet_region",
+        "args": [
+          "box_base_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_milk_carton_region",
+        "args": [
+          "box_base_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_moka_pot_region",
+        "args": [
+          "box_base_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_next_to_box_region",
+        "args": [
+          "box_base_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_next_to_plate_region",
+        "args": [
+          "box_base_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "box_base_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_plate_region",
+        "args": [
+          "box_base_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_ramekin_region",
+        "args": [
+          "box_base_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_red_mug_region",
+        "args": [
+          "box_base_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_storage_box_region",
+        "args": [
+          "box_base_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_stove_region",
+        "args": [
+          "box_base_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_table_center",
+        "args": [
+          "box_base_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_table_front",
+        "args": [
+          "box_base_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_wine_bottle_region",
+        "args": [
+          "box_base_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_main_table_yellow_book_region",
+        "args": [
+          "box_base_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "box_base_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "box_base_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "box_base_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "box_base_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_flat_stove_1_cook_region",
+        "args": [
+          "cookies_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "cookies_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_box_base_region",
+        "args": [
+          "cookies_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_box_region",
+        "args": [
+          "cookies_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_cabinet_region",
+        "args": [
+          "cookies_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_milk_carton_region",
+        "args": [
+          "cookies_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_moka_pot_region",
+        "args": [
+          "cookies_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_next_to_box_region",
+        "args": [
+          "cookies_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_next_to_plate_region",
+        "args": [
+          "cookies_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "cookies_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_plate_region",
+        "args": [
+          "cookies_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_ramekin_region",
+        "args": [
+          "cookies_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_red_mug_region",
+        "args": [
+          "cookies_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_storage_box_region",
+        "args": [
+          "cookies_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_stove_region",
+        "args": [
+          "cookies_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_table_center",
+        "args": [
+          "cookies_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_table_front",
+        "args": [
+          "cookies_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_wine_bottle_region",
+        "args": [
+          "cookies_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_yellow_book_region",
+        "args": [
+          "cookies_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_flat_stove_1_cook_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_box_base_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_box_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_cabinet_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_milk_carton_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_moka_pot_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_next_to_box_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_next_to_plate_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_plate_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_ramekin_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_red_mug_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_storage_box_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_stove_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_table_center",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_table_front",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_wine_bottle_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_yellow_book_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "milk_obstacle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_box_base_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_box_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_cabinet_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_milk_carton_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_moka_pot_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_next_to_box_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_next_to_plate_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_plate_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_ramekin_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_red_mug_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_storage_box_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_stove_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_table_center",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_table_front",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_main_table_yellow_book_region",
+        "args": [
+          "milk_obstacle_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "milk_obstacle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "milk_obstacle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "milk_obstacle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "milk_obstacle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_box_base_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_box_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_cabinet_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_milk_carton_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_moka_pot_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_next_to_box_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_next_to_plate_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_plate_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_ramekin_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_red_mug_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_storage_box_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_stove_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_table_center",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_table_front",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_main_table_yellow_book_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "moka_pot_obstacle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "moka_pot_obstacle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_flat_stove_1_cook_region",
+        "args": [
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "plate_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_box_base_region",
+        "args": [
+          "plate_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_box_region",
+        "args": [
+          "plate_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_cabinet_region",
+        "args": [
+          "plate_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_milk_carton_region",
+        "args": [
+          "plate_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_moka_pot_region",
+        "args": [
+          "plate_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_next_to_box_region",
+        "args": [
+          "plate_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_next_to_plate_region",
+        "args": [
+          "plate_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "plate_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_plate_region",
+        "args": [
+          "plate_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_ramekin_region",
+        "args": [
+          "plate_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_red_mug_region",
+        "args": [
+          "plate_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_storage_box_region",
+        "args": [
+          "plate_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_stove_region",
+        "args": [
+          "plate_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_table_center",
+        "args": [
+          "plate_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_table_front",
+        "args": [
+          "plate_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_wine_bottle_region",
+        "args": [
+          "plate_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_yellow_book_region",
+        "args": [
+          "plate_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_box_base_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_box_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_cabinet_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_milk_carton_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_moka_pot_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_next_to_box_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_next_to_plate_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_plate_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_ramekin_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_red_mug_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_storage_box_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_stove_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_table_center",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_table_front",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_main_table_yellow_book_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_box_base_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_box_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_cabinet_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_milk_carton_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_moka_pot_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_next_to_box_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_next_to_plate_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_plate_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_ramekin_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_red_mug_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_storage_box_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_stove_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_table_center",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_table_front",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_main_table_yellow_book_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_box_base_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_box_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_cabinet_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_milk_carton_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_moka_pot_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_next_to_box_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_next_to_plate_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_plate_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_ramekin_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_red_mug_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_storage_box_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_stove_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_table_center",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_table_front",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_main_table_yellow_book_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_box_base_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_box_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_cabinet_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_milk_carton_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_moka_pot_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_next_to_box_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_next_to_plate_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_plate_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_ramekin_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_red_mug_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_storage_box_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_stove_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_table_center",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_table_front",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_main_table_yellow_book_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "main_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "yellow_book_obstacle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      }
+    ],
+    "safety_violation": [
+      {
+        "name": "akita_black_bowl_1_displaced",
+        "args": [
+          "akita_black_bowl_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_displaced",
+        "args": [
+          "akita_black_bowl_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_base_1_displaced",
+        "args": [
+          "box_base_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_displaced",
+        "args": [
+          "cookies_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_displaced",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_obstacle_1_displaced",
+        "args": [
+          "milk_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_obstacle_1_displaced",
+        "args": [
+          "moka_pot_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_displaced",
+        "args": [
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_displaced",
+        "args": [
+          "red_coffee_mug_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_displaced",
+        "args": [
+          "white_storage_box_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_displaced",
+        "args": [
+          "wine_bottle_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_displaced",
+        "args": [
+          "yellow_book_obstacle_1"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

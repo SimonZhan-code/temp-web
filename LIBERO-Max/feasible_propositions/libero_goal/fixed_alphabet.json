@@ -1,0 +1,642 @@
+{
+  "scene_id": "libero_goal",
+  "suites": [
+    "libero_goal"
+  ],
+  "num_tasks": 10,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "cream_cheese_1",
+    "plate_1",
+    "wine_bottle_1"
+  ],
+  "fixtures": [
+    "flat_stove_1",
+    "wine_rack_1",
+    "wooden_cabinet_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "flat_stove_1_turn_off",
+        "args": [
+          "flat_stove_1",
+          "turn_off"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "flat_stove_1_turn_on",
+        "args": [
+          "flat_stove_1",
+          "turn_on"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_close",
+        "args": [
+          "wooden_cabinet_1",
+          "is_close"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_open",
+        "args": [
+          "wooden_cabinet_1",
+          "is_open"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_flat_stove_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_plate_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_wine_rack_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wine_rack_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_wooden_cabinet_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_on_flat_stove_1",
+        "args": [
+          "cream_cheese_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_on_plate_1",
+        "args": [
+          "cream_cheese_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_on_wine_rack_1",
+        "args": [
+          "cream_cheese_1",
+          "on",
+          "wine_rack_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_on_wooden_cabinet_1",
+        "args": [
+          "cream_cheese_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_flat_stove_1",
+        "args": [
+          "plate_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_wine_rack_1",
+        "args": [
+          "plate_1",
+          "on",
+          "wine_rack_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_wooden_cabinet_1",
+        "args": [
+          "plate_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_on_flat_stove_1",
+        "args": [
+          "wine_bottle_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_on_plate_1",
+        "args": [
+          "wine_bottle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_on_wine_rack_1",
+        "args": [
+          "wine_bottle_1",
+          "on",
+          "wine_rack_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_on_wooden_cabinet_1",
+        "args": [
+          "wine_bottle_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_flat_stove_1_cook_region",
+        "args": [
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_akita_black_bowl_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_akita_black_bowl_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_cabinet_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_cream_cheese_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_cream_cheese_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_plate_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_stove_front_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_stove_front_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_stove_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_wine_bottle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_wine_rack_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_wine_rack_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wine_rack_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wine_rack_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_flat_stove_1_cook_region",
+        "args": [
+          "cream_cheese_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_akita_black_bowl_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_akita_black_bowl_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_cabinet_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_cream_cheese_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_cream_cheese_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_plate_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_stove_front_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_stove_front_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_stove_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_wine_bottle_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_main_table_wine_rack_region",
+        "args": [
+          "cream_cheese_1",
+          "main_table_wine_rack_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_wine_rack_1_top_region",
+        "args": [
+          "cream_cheese_1",
+          "wine_rack_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "cream_cheese_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "cream_cheese_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "cream_cheese_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "cream_cheese_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_flat_stove_1_cook_region",
+        "args": [
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_akita_black_bowl_region",
+        "args": [
+          "plate_1",
+          "main_table_akita_black_bowl_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_cabinet_region",
+        "args": [
+          "plate_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_cream_cheese_region",
+        "args": [
+          "plate_1",
+          "main_table_cream_cheese_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_plate_region",
+        "args": [
+          "plate_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_stove_front_region",
+        "args": [
+          "plate_1",
+          "main_table_stove_front_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_stove_region",
+        "args": [
+          "plate_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_wine_bottle_region",
+        "args": [
+          "plate_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_wine_rack_region",
+        "args": [
+          "plate_1",
+          "main_table_wine_rack_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wine_rack_1_top_region",
+        "args": [
+          "plate_1",
+          "wine_rack_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_flat_stove_1_cook_region",
+        "args": [
+          "wine_bottle_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_akita_black_bowl_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_akita_black_bowl_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_cabinet_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_cream_cheese_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_cream_cheese_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_plate_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_stove_front_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_stove_front_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_stove_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_wine_bottle_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_wine_bottle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_main_table_wine_rack_region",
+        "args": [
+          "wine_bottle_1",
+          "main_table_wine_rack_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_wine_rack_1_top_region",
+        "args": [
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "wine_bottle_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "wine_bottle_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

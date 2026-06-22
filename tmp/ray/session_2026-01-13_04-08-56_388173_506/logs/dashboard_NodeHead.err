@@ -1,0 +1,2 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1768277349.396793    1111 chttp2_transport.cc:1182] ipv4:10.105.17.31:65016: Got goaway [2] err=UNAVAILABLE:GOAWAY received; Error code: 2; Debug Text: Cancelling all calls {created_time:"2026-01-13T04:09:09.396785088+00:00", http2_error:2, grpc_status:14}

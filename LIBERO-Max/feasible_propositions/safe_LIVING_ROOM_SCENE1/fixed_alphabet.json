@@ -1,0 +1,1355 @@
+{
+  "scene_id": "safe_LIVING_ROOM_SCENE1",
+  "suites": [
+    "safelibero_long"
+  ],
+  "num_tasks": 1,
+  "alphabet_fixed": true,
+  "objects": [
+    "alphabet_soup_1",
+    "basket_1",
+    "box_small_base_1",
+    "cream_cheese_1",
+    "ketchup_1",
+    "milk_small_obstacle_1",
+    "moka_pot_small_obstacle_1",
+    "red_coffee_mug_obstacle_1",
+    "tomato_sauce_1",
+    "white_storage_box_obstacle_1",
+    "wine_bottle_small_obstacle_1",
+    "yellow_book_obstacle_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [],
+    "region_containment": [
+      {
+        "name": "alphabet_soup_1_in_basket_1_contain_region",
+        "args": [
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_basket_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_box_base_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_red_mug_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_storage_box_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_basket_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_box_base_region",
+        "args": [
+          "basket_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "basket_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "basket_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_red_mug_region",
+        "args": [
+          "basket_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_storage_box_region",
+        "args": [
+          "basket_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "basket_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "basket_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_basket_1_contain_region",
+        "args": [
+          "box_small_base_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_basket_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_box_base_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_red_mug_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_storage_box_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_basket_1_contain_region",
+        "args": [
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_basket_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_box_base_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_red_mug_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_storage_box_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_basket_1_contain_region",
+        "args": [
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_basket_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_box_base_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_red_mug_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_storage_box_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_basket_1_contain_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_basket_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_basket_1_contain_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_basket_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_basket_1_contain_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_basket_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_basket_1_contain_region",
+        "args": [
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_basket_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_box_base_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_red_mug_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_storage_box_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_basket_1_contain_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_basket_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_basket_1_contain_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_basket_init_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "wine_bottle_small_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_basket_1_contain_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_basket_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      }
+    ],
+    "safety_violation": [
+      {
+        "name": "alphabet_soup_1_displaced",
+        "args": [
+          "alphabet_soup_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_displaced",
+        "args": [
+          "basket_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_displaced",
+        "args": [
+          "box_small_base_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_displaced",
+        "args": [
+          "cream_cheese_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_displaced",
+        "args": [
+          "ketchup_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_displaced",
+        "args": [
+          "milk_small_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_displaced",
+        "args": [
+          "moka_pot_small_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_displaced",
+        "args": [
+          "red_coffee_mug_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_displaced",
+        "args": [
+          "tomato_sauce_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_displaced",
+        "args": [
+          "white_storage_box_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_small_obstacle_1_displaced",
+        "args": [
+          "wine_bottle_small_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_displaced",
+        "args": [
+          "yellow_book_obstacle_1"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

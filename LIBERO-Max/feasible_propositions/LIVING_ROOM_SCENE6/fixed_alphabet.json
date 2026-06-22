@@ -1,0 +1,243 @@
+{
+  "scene_id": "LIVING_ROOM_SCENE6",
+  "suites": [
+    "libero_10",
+    "libero_10_r",
+    "libero_90"
+  ],
+  "num_tasks": 8,
+  "alphabet_fixed": true,
+  "objects": [
+    "chocolate_pudding_1",
+    "plate_1",
+    "porcelain_mug_1",
+    "red_coffee_mug_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [
+      {
+        "name": "chocolate_pudding_1_on_plate_1",
+        "args": [
+          "chocolate_pudding_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_on_plate_1",
+        "args": [
+          "porcelain_mug_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_on_plate_1",
+        "args": [
+          "red_coffee_mug_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_plate_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_plate_left_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_plate_right_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_left_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_right_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_left_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_right_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_living_room_table_chocolate_pudding_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "living_room_table_chocolate_pudding_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_living_room_table_plate_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "living_room_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_living_room_table_plate_left_region",
+        "args": [
+          "red_coffee_mug_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_living_room_table_plate_right_region",
+        "args": [
+          "red_coffee_mug_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

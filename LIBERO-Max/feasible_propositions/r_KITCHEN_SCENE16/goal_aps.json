@@ -1,0 +1,47 @@
+{
+  "scene_id": "r_KITCHEN_SCENE16",
+  "num_tasks": 1,
+  "goal_alphabet": [
+    {
+      "name": "close_microwave_1",
+      "args": [
+        "close",
+        "microwave_1"
+      ]
+    },
+    {
+      "name": "in_white_yellow_mug_1_microwave_1_heating_region",
+      "args": [
+        "in",
+        "white_yellow_mug_1",
+        "microwave_1_heating_region"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE16_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "suite": "libero_10_r",
+      "language_instruction": "put the yellow and white mug in the microwave and close it",
+      "goals": [
+        {
+          "name": "in_white_yellow_mug_1_microwave_1_heating_region",
+          "args": [
+            "in",
+            "white_yellow_mug_1",
+            "microwave_1_heating_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "close_microwave_1",
+          "args": [
+            "close",
+            "microwave_1"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

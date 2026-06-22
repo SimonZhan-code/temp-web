@@ -1,0 +1,104 @@
+{
+  "scene_id": "STUDY_SCENE4",
+  "num_tasks": 4,
+  "goal_alphabet": [
+    {
+      "name": "in_black_book_1_wooden_two_layer_shelf_1_top_region",
+      "args": [
+        "in",
+        "black_book_1",
+        "wooden_two_layer_shelf_1_top_region"
+      ]
+    },
+    {
+      "name": "in_yellow_book_1_wooden_two_layer_shelf_1_bottom_region",
+      "args": [
+        "in",
+        "yellow_book_1",
+        "wooden_two_layer_shelf_1_bottom_region"
+      ]
+    },
+    {
+      "name": "in_yellow_book_1_wooden_two_layer_shelf_1_top_region",
+      "args": [
+        "in",
+        "yellow_book_1",
+        "wooden_two_layer_shelf_1_top_region"
+      ]
+    },
+    {
+      "name": "on_yellow_book_2_wooden_two_layer_shelf_1_top_side",
+      "args": [
+        "on",
+        "yellow_book_2",
+        "wooden_two_layer_shelf_1_top_side"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "STUDY_SCENE4_pick_up_the_book_in_the_middle_and_place_it_on_the_cabinet_shelf",
+      "suite": "libero_90",
+      "language_instruction": "pick up the book in the middle and place it on the cabinet shelf",
+      "goals": [
+        {
+          "name": "in_black_book_1_wooden_two_layer_shelf_1_top_region",
+          "args": [
+            "in",
+            "black_book_1",
+            "wooden_two_layer_shelf_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "STUDY_SCENE4_pick_up_the_book_on_the_left_and_place_it_on_top_of_the_shelf",
+      "suite": "libero_90",
+      "language_instruction": "pick up the book on the left and place it on top of the shelf",
+      "goals": [
+        {
+          "name": "on_yellow_book_2_wooden_two_layer_shelf_1_top_side",
+          "args": [
+            "on",
+            "yellow_book_2",
+            "wooden_two_layer_shelf_1_top_side"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "STUDY_SCENE4_pick_up_the_book_on_the_right_and_place_it_on_the_cabinet_shelf",
+      "suite": "libero_90",
+      "language_instruction": "pick up the book on the right and place it on the cabinet shelf",
+      "goals": [
+        {
+          "name": "in_yellow_book_1_wooden_two_layer_shelf_1_top_region",
+          "args": [
+            "in",
+            "yellow_book_1",
+            "wooden_two_layer_shelf_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "STUDY_SCENE4_pick_up_the_book_on_the_right_and_place_it_under_the_cabinet_shelf",
+      "suite": "libero_90",
+      "language_instruction": "pick up the book on the right and place it under the cabinet shelf",
+      "goals": [
+        {
+          "name": "in_yellow_book_1_wooden_two_layer_shelf_1_bottom_region",
+          "args": [
+            "in",
+            "yellow_book_1",
+            "wooden_two_layer_shelf_1_bottom_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

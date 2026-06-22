@@ -1,0 +1,174 @@
+{
+  "scene_id": "KITCHEN_SCENE2",
+  "num_tasks": 7,
+  "goal_alphabet": [
+    {
+      "name": "on_akita_black_bowl_1_akita_black_bowl_2",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "akita_black_bowl_2"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_1_plate_1",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_2_akita_black_bowl_3",
+      "args": [
+        "on",
+        "akita_black_bowl_2",
+        "akita_black_bowl_3"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_2_plate_1",
+      "args": [
+        "on",
+        "akita_black_bowl_2",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_2_wooden_cabinet_1_top_side",
+      "args": [
+        "on",
+        "akita_black_bowl_2",
+        "wooden_cabinet_1_top_side"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_3_plate_1",
+      "args": [
+        "on",
+        "akita_black_bowl_3",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "open_wooden_cabinet_1_top_region",
+      "args": [
+        "open",
+        "wooden_cabinet_1_top_region"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE2_open_the_top_drawer_of_the_cabinet",
+      "suite": "libero_90",
+      "language_instruction": "open the top drawer of the cabinet",
+      "goals": [
+        {
+          "name": "open_wooden_cabinet_1_top_region",
+          "args": [
+            "open",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate",
+      "suite": "libero_90",
+      "language_instruction": "put the black bowl at the back on the plate",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_3_plate_1",
+          "args": [
+            "on",
+            "akita_black_bowl_3",
+            "plate_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate",
+      "suite": "libero_90",
+      "language_instruction": "put the black bowl at the front on the plate",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_1_plate_1",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_the_plate",
+      "suite": "libero_90",
+      "language_instruction": "put the black bowl in the middle on the plate",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_2_plate_1",
+          "args": [
+            "on",
+            "akita_black_bowl_2",
+            "plate_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_top_of_the_cabinet",
+      "suite": "libero_90",
+      "language_instruction": "put the middle black bowl on top of the cabinet",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_2_wooden_cabinet_1_top_side",
+          "args": [
+            "on",
+            "akita_black_bowl_2",
+            "wooden_cabinet_1_top_side"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE2_stack_the_black_bowl_at_the_front_on_the_black_bowl_in_the_middle",
+      "suite": "libero_90",
+      "language_instruction": "stack the black bowl at the front on the black bowl in the middle",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_1_akita_black_bowl_2",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "akita_black_bowl_2"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE2_stack_the_middle_black_bowl_on_the_back_black_bowl",
+      "suite": "libero_90",
+      "language_instruction": "stack the black bowl in the middle on the black bowl at the front",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_2_akita_black_bowl_3",
+          "args": [
+            "on",
+            "akita_black_bowl_2",
+            "akita_black_bowl_3"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

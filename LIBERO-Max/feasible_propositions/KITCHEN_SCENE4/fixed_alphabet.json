@@ -1,0 +1,222 @@
+{
+  "scene_id": "KITCHEN_SCENE4",
+  "suites": [
+    "libero_10",
+    "libero_10_r",
+    "libero_90"
+  ],
+  "num_tasks": 9,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "wine_bottle_1"
+  ],
+  "fixtures": [
+    "white_cabinet_1",
+    "wine_rack_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "white_cabinet_1_is_close",
+        "args": [
+          "white_cabinet_1",
+          "is_close"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_cabinet_1_is_open",
+        "args": [
+          "white_cabinet_1",
+          "is_open"
+        ],
+        "init_value": true
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_white_cabinet_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "white_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_wine_rack_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wine_rack_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_on_white_cabinet_1",
+        "args": [
+          "wine_bottle_1",
+          "on",
+          "white_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_on_wine_rack_1",
+        "args": [
+          "wine_bottle_1",
+          "on",
+          "wine_rack_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_akita_black_bowl_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_akita_black_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_white_cabinet_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_white_cabinet_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_wine_bottle_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_wine_bottle_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_wine_rack_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_wine_rack_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_white_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_white_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "white_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_white_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "white_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_white_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_1",
+          "white_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wine_rack_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wine_rack_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_kitchen_table_akita_black_bowl_init_region",
+        "args": [
+          "wine_bottle_1",
+          "kitchen_table_akita_black_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_kitchen_table_white_cabinet_init_region",
+        "args": [
+          "wine_bottle_1",
+          "kitchen_table_white_cabinet_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_kitchen_table_wine_bottle_init_region",
+        "args": [
+          "wine_bottle_1",
+          "kitchen_table_wine_bottle_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_kitchen_table_wine_rack_init_region",
+        "args": [
+          "wine_bottle_1",
+          "kitchen_table_wine_rack_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_white_cabinet_1_bottom_region",
+        "args": [
+          "wine_bottle_1",
+          "white_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_white_cabinet_1_middle_region",
+        "args": [
+          "wine_bottle_1",
+          "white_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_white_cabinet_1_top_region",
+        "args": [
+          "wine_bottle_1",
+          "white_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_white_cabinet_1_top_side",
+        "args": [
+          "wine_bottle_1",
+          "white_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_1_in_wine_rack_1_top_region",
+        "args": [
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

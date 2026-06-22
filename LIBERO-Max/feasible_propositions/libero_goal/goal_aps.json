@@ -1,0 +1,244 @@
+{
+  "scene_id": "libero_goal",
+  "num_tasks": 10,
+  "goal_alphabet": [
+    {
+      "name": "in_akita_black_bowl_1_wooden_cabinet_1_top_region",
+      "args": [
+        "in",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_1_flat_stove_1_cook_region",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_1_plate_1",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_1_wooden_cabinet_1_top_side",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side"
+      ]
+    },
+    {
+      "name": "on_cream_cheese_1_akita_black_bowl_1",
+      "args": [
+        "on",
+        "cream_cheese_1",
+        "akita_black_bowl_1"
+      ]
+    },
+    {
+      "name": "on_plate_1_main_table_stove_front_region",
+      "args": [
+        "on",
+        "plate_1",
+        "main_table_stove_front_region"
+      ]
+    },
+    {
+      "name": "on_wine_bottle_1_wine_rack_1_top_region",
+      "args": [
+        "on",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ]
+    },
+    {
+      "name": "on_wine_bottle_1_wooden_cabinet_1_top_side",
+      "args": [
+        "on",
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side"
+      ]
+    },
+    {
+      "name": "open_wooden_cabinet_1_middle_region",
+      "args": [
+        "open",
+        "wooden_cabinet_1_middle_region"
+      ]
+    },
+    {
+      "name": "turnon_flat_stove_1",
+      "args": [
+        "turnon",
+        "flat_stove_1"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "open_the_middle_drawer_of_the_cabinet",
+      "suite": "libero_goal",
+      "language_instruction": "open the middle layer of the drawer",
+      "goals": [
+        {
+          "name": "open_wooden_cabinet_1_middle_region",
+          "args": [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "open_the_top_drawer_and_put_the_bowl_inside",
+      "suite": "libero_goal",
+      "language_instruction": "open the top layer of the drawer and put the bowl inside",
+      "goals": [
+        {
+          "name": "in_akita_black_bowl_1_wooden_cabinet_1_top_region",
+          "args": [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "push_the_plate_to_the_front_of_the_stove",
+      "suite": "libero_goal",
+      "language_instruction": "push the plate to the front of the stove",
+      "goals": [
+        {
+          "name": "on_plate_1_main_table_stove_front_region",
+          "args": [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "put_the_bowl_on_the_plate",
+      "suite": "libero_goal",
+      "language_instruction": "put the bowl on the plate",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_1_plate_1",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "put_the_bowl_on_the_stove",
+      "suite": "libero_goal",
+      "language_instruction": "put the bowl on the stove",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_1_flat_stove_1_cook_region",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "put_the_bowl_on_top_of_the_cabinet",
+      "suite": "libero_goal",
+      "language_instruction": "put the bowl on the top of the drawer",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_1_wooden_cabinet_1_top_side",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "put_the_cream_cheese_in_the_bowl",
+      "suite": "libero_goal",
+      "language_instruction": "put the cream cheese on the bowl",
+      "goals": [
+        {
+          "name": "on_cream_cheese_1_akita_black_bowl_1",
+          "args": [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "put_the_wine_bottle_on_the_rack",
+      "suite": "libero_goal",
+      "language_instruction": "put the wine bottle on the rack",
+      "goals": [
+        {
+          "name": "on_wine_bottle_1_wine_rack_1_top_region",
+          "args": [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "suite": "libero_goal",
+      "language_instruction": "put the wine bottle on the top of the drawer",
+      "goals": [
+        {
+          "name": "on_wine_bottle_1_wooden_cabinet_1_top_side",
+          "args": [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "turn_on_the_stove",
+      "suite": "libero_goal",
+      "language_instruction": "turn on the stove",
+      "goals": [
+        {
+          "name": "turnon_flat_stove_1",
+          "args": [
+            "turnon",
+            "flat_stove_1"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

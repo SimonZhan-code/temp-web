@@ -1,0 +1,1466 @@
+{
+  "scene_id": "safe_LIVING_ROOM_SCENE5",
+  "suites": [
+    "safelibero_long"
+  ],
+  "num_tasks": 1,
+  "alphabet_fixed": true,
+  "objects": [
+    "box_small_base_1",
+    "chocolate_pudding_1",
+    "milk_small_obstacle_1",
+    "moka_pot_small_obstacle_1",
+    "plate_1",
+    "plate_2",
+    "porcelain_mug_1",
+    "red_coffee_mug_obstacle_1",
+    "white_storage_box_obstacle_1",
+    "white_yellow_mug_1",
+    "wine_bottle_obstacle_1",
+    "yellow_book_obstacle_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [
+      {
+        "name": "box_small_base_1_on_plate_1",
+        "args": [
+          "box_small_base_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_on_plate_2",
+        "args": [
+          "box_small_base_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_on_plate_1",
+        "args": [
+          "chocolate_pudding_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_on_plate_2",
+        "args": [
+          "chocolate_pudding_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_on_plate_1",
+        "args": [
+          "milk_small_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_on_plate_2",
+        "args": [
+          "milk_small_obstacle_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_on_plate_1",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_on_plate_2",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_plate_2",
+        "args": [
+          "plate_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_on_plate_1",
+        "args": [
+          "plate_2",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_on_plate_1",
+        "args": [
+          "porcelain_mug_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_on_plate_2",
+        "args": [
+          "porcelain_mug_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_on_plate_1",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_on_plate_2",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_on_plate_1",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_on_plate_2",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_on_plate_1",
+        "args": [
+          "white_yellow_mug_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_on_plate_2",
+        "args": [
+          "white_yellow_mug_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_on_plate_1",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_on_plate_2",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_on_plate_1",
+        "args": [
+          "yellow_book_obstacle_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_on_plate_2",
+        "args": [
+          "yellow_book_obstacle_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "box_small_base_1_in_living_room_table_box_base_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_plate_left_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_plate_right_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_red_mug_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_storage_box_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "box_small_base_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "box_small_base_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_box_base_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_plate_left_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_plate_right_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_red_mug_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_storage_box_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "chocolate_pudding_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_plate_left_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_plate_right_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "milk_small_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_plate_left_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_plate_right_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "moka_pot_small_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_box_base_region",
+        "args": [
+          "plate_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "plate_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "plate_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_left_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_right_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_red_mug_region",
+        "args": [
+          "plate_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_storage_box_region",
+        "args": [
+          "plate_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "plate_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "plate_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_box_base_region",
+        "args": [
+          "plate_2",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_milk_carton_region",
+        "args": [
+          "plate_2",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_moka_pot_region",
+        "args": [
+          "plate_2",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_plate_left_region",
+        "args": [
+          "plate_2",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_plate_right_region",
+        "args": [
+          "plate_2",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "plate_2",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "plate_2",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_red_mug_region",
+        "args": [
+          "plate_2",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_storage_box_region",
+        "args": [
+          "plate_2",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "plate_2",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "plate_2",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_yellow_book_region",
+        "args": [
+          "plate_2",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_box_base_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_left_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_right_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_red_mug_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_storage_box_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_plate_left_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_plate_right_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "red_coffee_mug_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_plate_left_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_plate_right_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "white_storage_box_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_box_base_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_plate_left_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_plate_right_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_red_mug_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_storage_box_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_plate_left_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_plate_right_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "wine_bottle_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_box_base_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_box_base_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_milk_carton_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_milk_carton_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_moka_pot_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_moka_pot_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_plate_left_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_plate_right_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_red_coffee_mug_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_red_mug_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_red_mug_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_storage_box_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_storage_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_wine_bottle_obstacle_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_wine_bottle_obstacle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_in_living_room_table_yellow_book_region",
+        "args": [
+          "yellow_book_obstacle_1",
+          "living_room_table_yellow_book_region"
+        ],
+        "init_value": false
+      }
+    ],
+    "safety_violation": [
+      {
+        "name": "box_small_base_1_displaced",
+        "args": [
+          "box_small_base_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_displaced",
+        "args": [
+          "chocolate_pudding_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_small_obstacle_1_displaced",
+        "args": [
+          "milk_small_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "moka_pot_small_obstacle_1_displaced",
+        "args": [
+          "moka_pot_small_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_displaced",
+        "args": [
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_displaced",
+        "args": [
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_displaced",
+        "args": [
+          "porcelain_mug_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_obstacle_1_displaced",
+        "args": [
+          "red_coffee_mug_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_storage_box_obstacle_1_displaced",
+        "args": [
+          "white_storage_box_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_displaced",
+        "args": [
+          "white_yellow_mug_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wine_bottle_obstacle_1_displaced",
+        "args": [
+          "wine_bottle_obstacle_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_obstacle_1_displaced",
+        "args": [
+          "yellow_book_obstacle_1"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

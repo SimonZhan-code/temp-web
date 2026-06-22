@@ -1,0 +1,143 @@
+{
+  "scene_id": "KITCHEN_SCENE8",
+  "num_tasks": 4,
+  "goal_alphabet": [
+    {
+      "name": "on_moka_pot_1_flat_stove_1_cook_region",
+      "args": [
+        "on",
+        "moka_pot_1",
+        "flat_stove_1_cook_region"
+      ]
+    },
+    {
+      "name": "on_moka_pot_2_flat_stove_1_cook_region",
+      "args": [
+        "on",
+        "moka_pot_2",
+        "flat_stove_1_cook_region"
+      ]
+    },
+    {
+      "name": "turnoff_flat_stove_1",
+      "args": [
+        "turnoff",
+        "flat_stove_1"
+      ]
+    },
+    {
+      "name": "turnon_flat_stove_1",
+      "args": [
+        "turnon",
+        "flat_stove_1"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "suite": "libero_10",
+      "language_instruction": "put both moka pots on the stove",
+      "goals": [
+        {
+          "name": "on_moka_pot_1_flat_stove_1_cook_region",
+          "args": [
+            "on",
+            "moka_pot_1",
+            "flat_stove_1_cook_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "on_moka_pot_2_flat_stove_1_cook_region",
+          "args": [
+            "on",
+            "moka_pot_2",
+            "flat_stove_1_cook_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "turnon_flat_stove_1",
+          "args": [
+            "turnon",
+            "flat_stove_1"
+          ],
+          "init_value": true
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "suite": "libero_10_r",
+      "language_instruction": "put both moka pots on the stove",
+      "goals": [
+        {
+          "name": "on_moka_pot_1_flat_stove_1_cook_region",
+          "args": [
+            "on",
+            "moka_pot_1",
+            "flat_stove_1_cook_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "on_moka_pot_2_flat_stove_1_cook_region",
+          "args": [
+            "on",
+            "moka_pot_2",
+            "flat_stove_1_cook_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "turnon_flat_stove_1",
+          "args": [
+            "turnon",
+            "flat_stove_1"
+          ],
+          "init_value": true
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE8_put_the_right_moka_pot_on_the_stove",
+      "suite": "libero_90",
+      "language_instruction": "put the right moka pot on the stove",
+      "goals": [
+        {
+          "name": "on_moka_pot_1_flat_stove_1_cook_region",
+          "args": [
+            "on",
+            "moka_pot_1",
+            "flat_stove_1_cook_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "turnon_flat_stove_1",
+          "args": [
+            "turnon",
+            "flat_stove_1"
+          ],
+          "init_value": true
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE8_turn_off_the_stove",
+      "suite": "libero_90",
+      "language_instruction": "turn off the stove",
+      "goals": [
+        {
+          "name": "turnoff_flat_stove_1",
+          "args": [
+            "turnoff",
+            "flat_stove_1"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

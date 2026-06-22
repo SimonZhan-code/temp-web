@@ -1,0 +1,90 @@
+{
+  "scene_id": "r_KITCHEN_SCENE9",
+  "num_tasks": 2,
+  "goal_alphabet": [
+    {
+      "name": "in_alphabet_soup_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "alphabet_soup_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_butter_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "butter_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_cream_cheese_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "cream_cheese_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_tomato_sauce_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "tomato_sauce_1",
+        "basket_1_contain_region"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE9_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE9_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the cream cheese box and the butter in the basket",
+      "goals": [
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_butter_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

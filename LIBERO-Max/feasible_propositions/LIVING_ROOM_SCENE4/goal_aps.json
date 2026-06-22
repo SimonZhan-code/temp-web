@@ -1,0 +1,154 @@
+{
+  "scene_id": "LIVING_ROOM_SCENE4",
+  "num_tasks": 5,
+  "goal_alphabet": [
+    {
+      "name": "in_akita_black_bowl_1_wooden_tray_1_contain_region",
+      "args": [
+        "in",
+        "akita_black_bowl_1",
+        "wooden_tray_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_akita_black_bowl_2_wooden_tray_1_contain_region",
+      "args": [
+        "in",
+        "akita_black_bowl_2",
+        "wooden_tray_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_chocolate_pudding_1_wooden_tray_1_contain_region",
+      "args": [
+        "in",
+        "chocolate_pudding_1",
+        "wooden_tray_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_new_salad_dressing_1_wooden_tray_1_contain_region",
+      "args": [
+        "in",
+        "new_salad_dressing_1",
+        "wooden_tray_1_contain_region"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_1_akita_black_bowl_2",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "akita_black_bowl_2"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_2_akita_black_bowl_1",
+      "args": [
+        "on",
+        "akita_black_bowl_2",
+        "akita_black_bowl_1"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "LIVING_ROOM_SCENE4_pick_up_the_black_bowl_on_the_left_and_put_it_in_the_tray",
+      "suite": "libero_90",
+      "language_instruction": "pick up the black bowl on the left and put it in the tray",
+      "goals": [
+        {
+          "name": "in_akita_black_bowl_1_wooden_tray_1_contain_region",
+          "args": [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_tray_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "suite": "libero_90",
+      "language_instruction": "pick up the chocolate pudding and put it in the tray",
+      "goals": [
+        {
+          "name": "in_chocolate_pudding_1_wooden_tray_1_contain_region",
+          "args": [
+            "in",
+            "chocolate_pudding_1",
+            "wooden_tray_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE4_pick_up_the_salad_dressing_and_put_it_in_the_tray",
+      "suite": "libero_90",
+      "language_instruction": "pick up the salad dressing and put it in the tray",
+      "goals": [
+        {
+          "name": "in_new_salad_dressing_1_wooden_tray_1_contain_region",
+          "args": [
+            "in",
+            "new_salad_dressing_1",
+            "wooden_tray_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE4_stack_the_left_bowl_on_the_right_bowl_and_place_them_in_the_tray",
+      "suite": "libero_90",
+      "language_instruction": "stack the left bowl on the right bowl and place them in the tray",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_1_akita_black_bowl_2",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "akita_black_bowl_2"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_akita_black_bowl_2_wooden_tray_1_contain_region",
+          "args": [
+            "in",
+            "akita_black_bowl_2",
+            "wooden_tray_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE4_stack_the_right_bowl_on_the_left_bowl_and_place_them_in_the_tray",
+      "suite": "libero_90",
+      "language_instruction": "stack the right bowl on the left bowl and place them in the tray",
+      "goals": [
+        {
+          "name": "on_akita_black_bowl_2_akita_black_bowl_1",
+          "args": [
+            "on",
+            "akita_black_bowl_2",
+            "akita_black_bowl_1"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_akita_black_bowl_1_wooden_tray_1_contain_region",
+          "args": [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_tray_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

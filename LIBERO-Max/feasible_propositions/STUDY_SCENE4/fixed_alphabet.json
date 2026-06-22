@@ -1,0 +1,218 @@
+{
+  "scene_id": "STUDY_SCENE4",
+  "suites": [
+    "libero_90"
+  ],
+  "num_tasks": 4,
+  "alphabet_fixed": true,
+  "objects": [
+    "black_book_1",
+    "yellow_book_1",
+    "yellow_book_2"
+  ],
+  "fixtures": [
+    "wooden_two_layer_shelf_1"
+  ],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [
+      {
+        "name": "black_book_1_on_wooden_two_layer_shelf_1",
+        "args": [
+          "black_book_1",
+          "on",
+          "wooden_two_layer_shelf_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_on_wooden_two_layer_shelf_1",
+        "args": [
+          "yellow_book_1",
+          "on",
+          "wooden_two_layer_shelf_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_on_wooden_two_layer_shelf_1",
+        "args": [
+          "yellow_book_2",
+          "on",
+          "wooden_two_layer_shelf_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "black_book_1_in_study_table_black_book_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_study_table_wooden_two_layer_shelf_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_wooden_two_layer_shelf_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_study_table_yellow_book_left_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_yellow_book_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_study_table_yellow_book_right_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_yellow_book_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_wooden_two_layer_shelf_1_bottom_region",
+        "args": [
+          "black_book_1",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_wooden_two_layer_shelf_1_top_region",
+        "args": [
+          "black_book_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_wooden_two_layer_shelf_1_top_side",
+        "args": [
+          "black_book_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_study_table_black_book_init_region",
+        "args": [
+          "yellow_book_1",
+          "study_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_study_table_wooden_two_layer_shelf_init_region",
+        "args": [
+          "yellow_book_1",
+          "study_table_wooden_two_layer_shelf_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_study_table_yellow_book_left_init_region",
+        "args": [
+          "yellow_book_1",
+          "study_table_yellow_book_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_study_table_yellow_book_right_init_region",
+        "args": [
+          "yellow_book_1",
+          "study_table_yellow_book_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_wooden_two_layer_shelf_1_bottom_region",
+        "args": [
+          "yellow_book_1",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_wooden_two_layer_shelf_1_top_region",
+        "args": [
+          "yellow_book_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_1_in_wooden_two_layer_shelf_1_top_side",
+        "args": [
+          "yellow_book_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_study_table_black_book_init_region",
+        "args": [
+          "yellow_book_2",
+          "study_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_study_table_wooden_two_layer_shelf_init_region",
+        "args": [
+          "yellow_book_2",
+          "study_table_wooden_two_layer_shelf_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_study_table_yellow_book_left_init_region",
+        "args": [
+          "yellow_book_2",
+          "study_table_yellow_book_left_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_study_table_yellow_book_right_init_region",
+        "args": [
+          "yellow_book_2",
+          "study_table_yellow_book_right_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_wooden_two_layer_shelf_1_bottom_region",
+        "args": [
+          "yellow_book_2",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_wooden_two_layer_shelf_1_top_region",
+        "args": [
+          "yellow_book_2",
+          "wooden_two_layer_shelf_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "yellow_book_2_in_wooden_two_layer_shelf_1_top_side",
+        "args": [
+          "yellow_book_2",
+          "wooden_two_layer_shelf_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "scene_id": "KITCHEN_SCENE10",
+  "num_tasks": 6,
+  "goal_alphabet": [
+    {
+      "name": "close_wooden_cabinet_1_top_region",
+      "args": [
+        "close",
+        "wooden_cabinet_1_top_region"
+      ]
+    },
+    {
+      "name": "in_akita_black_bowl_1_wooden_cabinet_1_top_region",
+      "args": [
+        "in",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ]
+    },
+    {
+      "name": "in_butter_1_wooden_cabinet_1_top_region",
+      "args": [
+        "in",
+        "butter_1",
+        "wooden_cabinet_1_top_region"
+      ]
+    },
+    {
+      "name": "in_butter_2_wooden_cabinet_1_top_region",
+      "args": [
+        "in",
+        "butter_2",
+        "wooden_cabinet_1_top_region"
+      ]
+    },
+    {
+      "name": "in_chocolate_pudding_1_wooden_cabinet_1_top_region",
+      "args": [
+        "in",
+        "chocolate_pudding_1",
+        "wooden_cabinet_1_top_region"
+      ]
+    },
+    {
+      "name": "on_akita_black_bowl_1_wooden_cabinet_1_top_side",
+      "args": [
+        "on",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+      "suite": "libero_90",
+      "language_instruction": "close the top drawer of the cabinet",
+      "goals": [
+        {
+          "name": "close_wooden_cabinet_1_top_region",
+          "args": [
+            "close",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet_and_put_the_black_bowl_on_top_of_it",
+      "suite": "libero_90",
+      "language_instruction": "close the top drawer of the cabinet and put the black bowl on top of it",
+      "goals": [
+        {
+          "name": "close_wooden_cabinet_1_top_region",
+          "args": [
+            "close",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "on_akita_black_bowl_1_wooden_cabinet_1_top_side",
+          "args": [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE10_put_the_black_bowl_in_the_top_drawer_of_the_cabinet",
+      "suite": "libero_90",
+      "language_instruction": "put the black bowl in the top drawer of the cabinet",
+      "goals": [
+        {
+          "name": "in_akita_black_bowl_1_wooden_cabinet_1_top_region",
+          "args": [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE10_put_the_butter_at_the_back_in_the_top_drawer_of_the_cabinet_and_close_it",
+      "suite": "libero_90",
+      "language_instruction": "put the butter at the back in the top drawer of the cabinet and close it",
+      "goals": [
+        {
+          "name": "in_butter_2_wooden_cabinet_1_top_region",
+          "args": [
+            "in",
+            "butter_2",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "close_wooden_cabinet_1_top_region",
+          "args": [
+            "close",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE10_put_the_butter_at_the_front_in_the_top_drawer_of_the_cabinet_and_close_it",
+      "suite": "libero_90",
+      "language_instruction": "put the butter at the front in the top drawer of the cabinet and close it",
+      "goals": [
+        {
+          "name": "in_butter_1_wooden_cabinet_1_top_region",
+          "args": [
+            "in",
+            "butter_1",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "close_wooden_cabinet_1_top_region",
+          "args": [
+            "close",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE10_put_the_chocolate_pudding_in_the_top_drawer_of_the_cabinet_and_close_it",
+      "suite": "libero_90",
+      "language_instruction": "put the chocolate pudding in the top drawer of the cabinet and close it",
+      "goals": [
+        {
+          "name": "in_chocolate_pudding_1_wooden_cabinet_1_top_region",
+          "args": [
+            "in",
+            "chocolate_pudding_1",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "close_wooden_cabinet_1_top_region",
+          "args": [
+            "close",
+            "wooden_cabinet_1_top_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

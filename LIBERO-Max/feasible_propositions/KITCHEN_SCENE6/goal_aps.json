@@ -1,0 +1,151 @@
+{
+  "scene_id": "KITCHEN_SCENE6",
+  "num_tasks": 5,
+  "goal_alphabet": [
+    {
+      "name": "close_microwave_1",
+      "args": [
+        "close",
+        "microwave_1"
+      ]
+    },
+    {
+      "name": "in_white_yellow_mug_1_microwave_1_heating_region",
+      "args": [
+        "in",
+        "white_yellow_mug_1",
+        "microwave_1_heating_region"
+      ]
+    },
+    {
+      "name": "on_chocolate_pudding_1_kitchen_table_plate_right_region",
+      "args": [
+        "on",
+        "chocolate_pudding_1",
+        "kitchen_table_plate_right_region"
+      ]
+    },
+    {
+      "name": "on_porcelain_mug_1_plate_1",
+      "args": [
+        "on",
+        "porcelain_mug_1",
+        "plate_1"
+      ]
+    },
+    {
+      "name": "on_white_yellow_mug_1_kitchen_table_porcelain_mug_front_region",
+      "args": [
+        "on",
+        "white_yellow_mug_1",
+        "kitchen_table_porcelain_mug_front_region"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "suite": "libero_10",
+      "language_instruction": "put the yellow and white mug in the microwave and close it",
+      "goals": [
+        {
+          "name": "in_white_yellow_mug_1_microwave_1_heating_region",
+          "args": [
+            "in",
+            "white_yellow_mug_1",
+            "microwave_1_heating_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "close_microwave_1",
+          "args": [
+            "close",
+            "microwave_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "suite": "libero_10_r",
+      "language_instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "goals": [
+        {
+          "name": "on_porcelain_mug_1_plate_1",
+          "args": [
+            "on",
+            "porcelain_mug_1",
+            "plate_1"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "on_chocolate_pudding_1_kitchen_table_plate_right_region",
+          "args": [
+            "on",
+            "chocolate_pudding_1",
+            "kitchen_table_plate_right_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "suite": "libero_10_r",
+      "language_instruction": "put the yellow and white mug in the microwave and close it",
+      "goals": [
+        {
+          "name": "in_white_yellow_mug_1_microwave_1_heating_region",
+          "args": [
+            "in",
+            "white_yellow_mug_1",
+            "microwave_1_heating_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "close_microwave_1",
+          "args": [
+            "close",
+            "microwave_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE6_close_the_microwave",
+      "suite": "libero_90",
+      "language_instruction": "close the microwave",
+      "goals": [
+        {
+          "name": "close_microwave_1",
+          "args": [
+            "close",
+            "microwave_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_to_the_front_of_the_white_mug",
+      "suite": "libero_90",
+      "language_instruction": "put the yellow and white mug to the front of the white mug",
+      "goals": [
+        {
+          "name": "on_white_yellow_mug_1_kitchen_table_porcelain_mug_front_region",
+          "args": [
+            "on",
+            "white_yellow_mug_1",
+            "kitchen_table_porcelain_mug_front_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

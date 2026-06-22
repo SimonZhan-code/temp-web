@@ -1,0 +1,178 @@
+{
+  "scene_id": "KITCHEN_SCENE1",
+  "suites": [
+    "libero_90"
+  ],
+  "num_tasks": 5,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "plate_1"
+  ],
+  "fixtures": [
+    "wooden_cabinet_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "wooden_cabinet_1_is_close",
+        "args": [
+          "wooden_cabinet_1",
+          "is_close"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_open",
+        "args": [
+          "wooden_cabinet_1",
+          "is_open"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_plate_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_wooden_cabinet_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_wooden_cabinet_1",
+        "args": [
+          "plate_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_akita_black_bowl_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_akita_black_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_plate_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_kitchen_table_wooden_cabinet_init_region",
+        "args": [
+          "akita_black_bowl_1",
+          "kitchen_table_wooden_cabinet_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_kitchen_table_akita_black_bowl_init_region",
+        "args": [
+          "plate_1",
+          "kitchen_table_akita_black_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_kitchen_table_plate_init_region",
+        "args": [
+          "plate_1",
+          "kitchen_table_plate_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_kitchen_table_wooden_cabinet_init_region",
+        "args": [
+          "plate_1",
+          "kitchen_table_wooden_cabinet_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

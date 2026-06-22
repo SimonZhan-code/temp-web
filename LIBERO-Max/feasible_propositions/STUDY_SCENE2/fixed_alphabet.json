@@ -1,0 +1,152 @@
+{
+  "scene_id": "STUDY_SCENE2",
+  "suites": [
+    "libero_90"
+  ],
+  "num_tasks": 4,
+  "alphabet_fixed": true,
+  "objects": [
+    "black_book_1",
+    "red_coffee_mug_1"
+  ],
+  "fixtures": [
+    "desk_caddy_1"
+  ],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [
+      {
+        "name": "black_book_1_on_desk_caddy_1",
+        "args": [
+          "black_book_1",
+          "on",
+          "desk_caddy_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_on_desk_caddy_1",
+        "args": [
+          "red_coffee_mug_1",
+          "on",
+          "desk_caddy_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "black_book_1_in_desk_caddy_1_back_contain_region",
+        "args": [
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_desk_caddy_1_front_contain_region",
+        "args": [
+          "black_book_1",
+          "desk_caddy_1_front_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_desk_caddy_1_left_contain_region",
+        "args": [
+          "black_book_1",
+          "desk_caddy_1_left_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_desk_caddy_1_right_contain_region",
+        "args": [
+          "black_book_1",
+          "desk_caddy_1_right_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_study_table_black_book_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_study_table_desk_caddy_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_desk_caddy_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "black_book_1_in_study_table_red_coffee_mug_init_region",
+        "args": [
+          "black_book_1",
+          "study_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_desk_caddy_1_back_contain_region",
+        "args": [
+          "red_coffee_mug_1",
+          "desk_caddy_1_back_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_desk_caddy_1_front_contain_region",
+        "args": [
+          "red_coffee_mug_1",
+          "desk_caddy_1_front_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_desk_caddy_1_left_contain_region",
+        "args": [
+          "red_coffee_mug_1",
+          "desk_caddy_1_left_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_desk_caddy_1_right_contain_region",
+        "args": [
+          "red_coffee_mug_1",
+          "desk_caddy_1_right_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_study_table_black_book_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "study_table_black_book_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_study_table_desk_caddy_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "study_table_desk_caddy_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "red_coffee_mug_1_in_study_table_red_coffee_mug_init_region",
+        "args": [
+          "red_coffee_mug_1",
+          "study_table_red_coffee_mug_init_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,825 @@
+{
+  "scene_id": "libero_spatial",
+  "suites": [
+    "libero_spatial"
+  ],
+  "num_tasks": 10,
+  "alphabet_fixed": true,
+  "objects": [
+    "akita_black_bowl_1",
+    "akita_black_bowl_2",
+    "cookies_1",
+    "glazed_rim_porcelain_ramekin_1",
+    "plate_1"
+  ],
+  "fixtures": [
+    "flat_stove_1",
+    "wooden_cabinet_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "flat_stove_1_turn_off",
+        "args": [
+          "flat_stove_1",
+          "turn_off"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "flat_stove_1_turn_on",
+        "args": [
+          "flat_stove_1",
+          "turn_on"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_close",
+        "args": [
+          "wooden_cabinet_1",
+          "is_close"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "wooden_cabinet_1_is_open",
+        "args": [
+          "wooden_cabinet_1",
+          "is_open"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "akita_black_bowl_1_on_flat_stove_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_plate_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_on_wooden_cabinet_1",
+        "args": [
+          "akita_black_bowl_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_flat_stove_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_plate_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_on_wooden_cabinet_1",
+        "args": [
+          "akita_black_bowl_2",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_on_flat_stove_1",
+        "args": [
+          "cookies_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_on_plate_1",
+        "args": [
+          "cookies_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_on_wooden_cabinet_1",
+        "args": [
+          "cookies_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_on_flat_stove_1",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_on_plate_1",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_on_wooden_cabinet_1",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_flat_stove_1",
+        "args": [
+          "plate_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_wooden_cabinet_1",
+        "args": [
+          "plate_1",
+          "on",
+          "wooden_cabinet_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "akita_black_bowl_1_in_flat_stove_1_cook_region",
+        "args": [
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_box_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_cabinet_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_next_to_box_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_next_to_plate_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_plate_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_ramekin_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_stove_region",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_table_center",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_main_table_table_front",
+        "args": [
+          "akita_black_bowl_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_flat_stove_1_cook_region",
+        "args": [
+          "akita_black_bowl_2",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_box_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_cabinet_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_next_to_box_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_next_to_plate_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_next_to_ramekin_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_plate_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_ramekin_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_stove_region",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_table_center",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_main_table_table_front",
+        "args": [
+          "akita_black_bowl_2",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_top_region",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "akita_black_bowl_2_in_wooden_cabinet_1_top_side",
+        "args": [
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_flat_stove_1_cook_region",
+        "args": [
+          "cookies_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "cookies_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_box_region",
+        "args": [
+          "cookies_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_cabinet_region",
+        "args": [
+          "cookies_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_next_to_box_region",
+        "args": [
+          "cookies_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_next_to_plate_region",
+        "args": [
+          "cookies_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "cookies_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_plate_region",
+        "args": [
+          "cookies_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_ramekin_region",
+        "args": [
+          "cookies_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_stove_region",
+        "args": [
+          "cookies_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_table_center",
+        "args": [
+          "cookies_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_main_table_table_front",
+        "args": [
+          "cookies_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cookies_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "cookies_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_flat_stove_1_cook_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_box_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_cabinet_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_next_to_box_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_next_to_plate_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_plate_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_ramekin_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_stove_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_table_center",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_main_table_table_front",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "glazed_rim_porcelain_ramekin_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "glazed_rim_porcelain_ramekin_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_flat_stove_1_cook_region",
+        "args": [
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_between_plate_ramekin_region",
+        "args": [
+          "plate_1",
+          "main_table_between_plate_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_box_region",
+        "args": [
+          "plate_1",
+          "main_table_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_cabinet_region",
+        "args": [
+          "plate_1",
+          "main_table_cabinet_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_next_to_box_region",
+        "args": [
+          "plate_1",
+          "main_table_next_to_box_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_next_to_plate_region",
+        "args": [
+          "plate_1",
+          "main_table_next_to_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_next_to_ramekin_region",
+        "args": [
+          "plate_1",
+          "main_table_next_to_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_plate_region",
+        "args": [
+          "plate_1",
+          "main_table_plate_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_ramekin_region",
+        "args": [
+          "plate_1",
+          "main_table_ramekin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_stove_region",
+        "args": [
+          "plate_1",
+          "main_table_stove_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_table_center",
+        "args": [
+          "plate_1",
+          "main_table_table_center"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_main_table_table_front",
+        "args": [
+          "plate_1",
+          "main_table_table_front"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_bottom_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_middle_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_middle_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_region",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_wooden_cabinet_1_top_side",
+        "args": [
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

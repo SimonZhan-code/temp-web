@@ -1,0 +1,724 @@
+{
+  "scene_id": "libero_object",
+  "suites": [
+    "libero_object"
+  ],
+  "num_tasks": 10,
+  "alphabet_fixed": false,
+  "objects": [
+    "alphabet_soup_1",
+    "basket_1",
+    "bbq_sauce_1",
+    "butter_1",
+    "chocolate_pudding_1",
+    "cream_cheese_1",
+    "ketchup_1",
+    "milk_1",
+    "orange_juice_1",
+    "salad_dressing_1",
+    "tomato_sauce_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [],
+    "region_containment": [
+      {
+        "name": "alphabet_soup_1_in_basket_1_contain_region",
+        "args": [
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_bin_region",
+        "args": [
+          "alphabet_soup_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_other_object_region_0",
+        "args": [
+          "alphabet_soup_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_other_object_region_1",
+        "args": [
+          "alphabet_soup_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_other_object_region_2",
+        "args": [
+          "alphabet_soup_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_other_object_region_3",
+        "args": [
+          "alphabet_soup_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_other_object_region_4",
+        "args": [
+          "alphabet_soup_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_floor_target_object_region",
+        "args": [
+          "alphabet_soup_1",
+          "floor_target_object_region"
+        ],
+        "init_value": true
+      },
+      {
+        "name": "basket_1_in_floor_bin_region",
+        "args": [
+          "basket_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_floor_other_object_region_0",
+        "args": [
+          "basket_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_floor_other_object_region_1",
+        "args": [
+          "basket_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_floor_other_object_region_2",
+        "args": [
+          "basket_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_floor_other_object_region_3",
+        "args": [
+          "basket_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_floor_other_object_region_4",
+        "args": [
+          "basket_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_floor_target_object_region",
+        "args": [
+          "basket_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_basket_1_contain_region",
+        "args": [
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_bin_region",
+        "args": [
+          "bbq_sauce_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_other_object_region_0",
+        "args": [
+          "bbq_sauce_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_other_object_region_1",
+        "args": [
+          "bbq_sauce_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_other_object_region_2",
+        "args": [
+          "bbq_sauce_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_other_object_region_3",
+        "args": [
+          "bbq_sauce_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_other_object_region_4",
+        "args": [
+          "bbq_sauce_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "bbq_sauce_1_in_floor_target_object_region",
+        "args": [
+          "bbq_sauce_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_basket_1_contain_region",
+        "args": [
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_bin_region",
+        "args": [
+          "butter_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_other_object_region_0",
+        "args": [
+          "butter_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_other_object_region_1",
+        "args": [
+          "butter_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_other_object_region_2",
+        "args": [
+          "butter_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_other_object_region_3",
+        "args": [
+          "butter_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_other_object_region_4",
+        "args": [
+          "butter_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_floor_target_object_region",
+        "args": [
+          "butter_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_basket_1_contain_region",
+        "args": [
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_bin_region",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_other_object_region_0",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_other_object_region_1",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_other_object_region_2",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_other_object_region_3",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_other_object_region_4",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chocolate_pudding_1_in_floor_target_object_region",
+        "args": [
+          "chocolate_pudding_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_basket_1_contain_region",
+        "args": [
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_bin_region",
+        "args": [
+          "cream_cheese_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_other_object_region_0",
+        "args": [
+          "cream_cheese_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_other_object_region_1",
+        "args": [
+          "cream_cheese_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_other_object_region_2",
+        "args": [
+          "cream_cheese_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_other_object_region_3",
+        "args": [
+          "cream_cheese_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_other_object_region_4",
+        "args": [
+          "cream_cheese_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_floor_target_object_region",
+        "args": [
+          "cream_cheese_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_basket_1_contain_region",
+        "args": [
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_bin_region",
+        "args": [
+          "ketchup_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_other_object_region_0",
+        "args": [
+          "ketchup_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_other_object_region_1",
+        "args": [
+          "ketchup_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_other_object_region_2",
+        "args": [
+          "ketchup_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_other_object_region_3",
+        "args": [
+          "ketchup_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_other_object_region_4",
+        "args": [
+          "ketchup_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_floor_target_object_region",
+        "args": [
+          "ketchup_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_basket_1_contain_region",
+        "args": [
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_bin_region",
+        "args": [
+          "milk_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_other_object_region_0",
+        "args": [
+          "milk_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_other_object_region_1",
+        "args": [
+          "milk_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_other_object_region_2",
+        "args": [
+          "milk_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_other_object_region_3",
+        "args": [
+          "milk_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_other_object_region_4",
+        "args": [
+          "milk_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_floor_target_object_region",
+        "args": [
+          "milk_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_basket_1_contain_region",
+        "args": [
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_bin_region",
+        "args": [
+          "orange_juice_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_other_object_region_0",
+        "args": [
+          "orange_juice_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_other_object_region_1",
+        "args": [
+          "orange_juice_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_other_object_region_2",
+        "args": [
+          "orange_juice_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_other_object_region_3",
+        "args": [
+          "orange_juice_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_other_object_region_4",
+        "args": [
+          "orange_juice_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_floor_target_object_region",
+        "args": [
+          "orange_juice_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_basket_1_contain_region",
+        "args": [
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_bin_region",
+        "args": [
+          "salad_dressing_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_other_object_region_0",
+        "args": [
+          "salad_dressing_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_other_object_region_1",
+        "args": [
+          "salad_dressing_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_other_object_region_2",
+        "args": [
+          "salad_dressing_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_other_object_region_3",
+        "args": [
+          "salad_dressing_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_other_object_region_4",
+        "args": [
+          "salad_dressing_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "salad_dressing_1_in_floor_target_object_region",
+        "args": [
+          "salad_dressing_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_basket_1_contain_region",
+        "args": [
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_bin_region",
+        "args": [
+          "tomato_sauce_1",
+          "floor_bin_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_other_object_region_0",
+        "args": [
+          "tomato_sauce_1",
+          "floor_other_object_region_0"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_other_object_region_1",
+        "args": [
+          "tomato_sauce_1",
+          "floor_other_object_region_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_other_object_region_2",
+        "args": [
+          "tomato_sauce_1",
+          "floor_other_object_region_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_other_object_region_3",
+        "args": [
+          "tomato_sauce_1",
+          "floor_other_object_region_3"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_other_object_region_4",
+        "args": [
+          "tomato_sauce_1",
+          "floor_other_object_region_4"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_floor_target_object_region",
+        "args": [
+          "tomato_sauce_1",
+          "floor_target_object_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

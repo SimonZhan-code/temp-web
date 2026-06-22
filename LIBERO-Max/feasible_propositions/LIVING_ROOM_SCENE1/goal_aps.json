@@ -1,0 +1,212 @@
+{
+  "scene_id": "LIVING_ROOM_SCENE1",
+  "num_tasks": 8,
+  "goal_alphabet": [
+    {
+      "name": "in_alphabet_soup_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "alphabet_soup_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_cream_cheese_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "cream_cheese_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_ketchup_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "ketchup_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "in_tomato_sauce_1_basket_1_contain_region",
+      "args": [
+        "in",
+        "tomato_sauce_1",
+        "basket_1_contain_region"
+      ]
+    },
+    {
+      "name": "incontact_cream_cheese_1_ketchup_1",
+      "args": [
+        "incontact",
+        "cream_cheese_1",
+        "ketchup_1"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "suite": "libero_10",
+      "language_instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_put_both_the_ketchup_and_the_cream_cheese_box_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the ketchup and the cream cheese box in the basket",
+      "goals": [
+        {
+          "name": "in_ketchup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "incontact_cream_cheese_1_ketchup_1",
+          "args": [
+            "incontact",
+            "cream_cheese_1",
+            "ketchup_1"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_put_both_the_tomato_sauce_and_the_cream_cheese_box_in_the_basket",
+      "suite": "libero_10_r",
+      "language_instruction": "put both the tomato sauce and the cream cheese box in the basket",
+      "goals": [
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        },
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_pick_up_the_alphabet_soup_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the alphabet soup and put it in the basket",
+      "goals": [
+        {
+          "name": "in_alphabet_soup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_pick_up_the_cream_cheese_box_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the cream cheese box and put it in the basket",
+      "goals": [
+        {
+          "name": "in_cream_cheese_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_pick_up_the_ketchup_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the ketchup and put it in the basket",
+      "goals": [
+        {
+          "name": "in_ketchup_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    },
+    {
+      "task": "LIVING_ROOM_SCENE1_pick_up_the_tomato_sauce_and_put_it_in_the_basket",
+      "suite": "libero_90",
+      "language_instruction": "pick up the tomato sauce and put it in the basket",
+      "goals": [
+        {
+          "name": "in_tomato_sauce_1_basket_1_contain_region",
+          "args": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "init_value": false
+        }
+      ]
+    }
+  ]
+}

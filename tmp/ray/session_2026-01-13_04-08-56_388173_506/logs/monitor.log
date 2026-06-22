@@ -1,0 +1,63 @@
+2026-01-13 04:08:56,941	INFO monitor.py:726 -- Starting monitor using ray installation: /opt/venv/openvla/lib/python3.11/site-packages/ray/__init__.py
+2026-01-13 04:08:56,941	INFO monitor.py:727 -- Ray version: 2.47.1
+2026-01-13 04:08:56,941	INFO monitor.py:728 -- Ray commit: 61d3f2f1aa33563faa398105f4abda88cb39440b
+2026-01-13 04:08:56,941	INFO monitor.py:729 -- Monitor started with command: ['/opt/venv/openvla/lib/python3.11/site-packages/ray/autoscaler/_private/monitor.py', '--logs-dir=/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs', '--logging-rotate-bytes=536870912', '--logging-rotate-backup-count=5', '--gcs-address=10.105.17.31:65016', '--stdout-filepath=/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs/monitor.out', '--stderr-filepath=/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs/monitor.err', '--monitor-ip=10.105.17.31']
+2026-01-13 04:08:56,947	INFO monitor.py:161 -- session_name: session_2026-01-13_04-08-56_388173_506
+2026-01-13 04:08:56,947	INFO monitor.py:193 -- Starting autoscaler metrics server on port 44217
+2026-01-13 04:08:56,947	INFO monitor.py:218 -- Monitor: Started
+2026-01-13 04:08:56,951	INFO autoscaler.py:280 -- disable_node_updaters:False
+2026-01-13 04:08:56,951	INFO autoscaler.py:289 -- disable_launch_config_check:True
+2026-01-13 04:08:56,951	INFO autoscaler.py:301 -- foreground_node_launch:False
+2026-01-13 04:08:56,951	INFO autoscaler.py:311 -- worker_liveness_check:True
+2026-01-13 04:08:56,951	INFO autoscaler.py:361 -- StandardAutoscaler: {'cluster_name': 'default', 'max_workers': 0, 'upscaling_speed': 1.0, 'docker': {}, 'idle_timeout_minutes': 0, 'provider': {'type': 'readonly', 'use_node_id_as_ip': True, 'disable_launch_config_check': True}, 'auth': {}, 'available_node_types': {'ray.head.default': {'resources': {}, 'node_config': {}, 'max_workers': 0}}, 'head_node_type': 'ray.head.default', 'file_mounts': {}, 'cluster_synced_files': [], 'file_mounts_sync_continuously': False, 'rsync_exclude': [], 'rsync_filter': [], 'initialization_commands': [], 'setup_commands': [], 'head_setup_commands': [], 'worker_setup_commands': [], 'head_start_ray_commands': [], 'worker_start_ray_commands': []}
+2026-01-13 04:08:56,953	INFO monitor.py:404 -- Autoscaler has not yet received load metrics. Waiting.
+2026-01-13 04:09:01,954	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-01-13 04:09:01,955	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-01-13 04:09:01.954969 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/32.0 CPU
+ 0.0/1.0 GPU
+ 0B/42.22GiB memory
+ 0B/18.10GiB object_store_memory
+
+Total Constraints:
+ (no request_resources() constraints)
+Total Demands:
+ (no resource demands)
+2026-01-13 04:09:01,955	INFO autoscaler.py:463 -- The autoscaler took 0.001 seconds to complete the update iteration.
+2026-01-13 04:09:06,957	INFO autoscaler.py:147 -- The autoscaler took 0.0 seconds to fetch the list of non-terminated nodes.
+2026-01-13 04:09:06,957	INFO autoscaler.py:408 -- 
+======== Autoscaler status: 2026-01-13 04:09:06.957387 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Total Usage:
+ 0.0/32.0 CPU
+ 0.0/1.0 GPU
+ 0B/42.22GiB memory
+ 0B/18.10GiB object_store_memory
+
+Total Constraints:
+ (no request_resources() constraints)
+Total Demands:
+ (no resource demands)
+2026-01-13 04:09:06,957	INFO autoscaler.py:463 -- The autoscaler took 0.001 seconds to complete the update iteration.

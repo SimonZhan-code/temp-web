@@ -1,0 +1,213 @@
+{
+  "scene_id": "KITCHEN_SCENE9",
+  "suites": [
+    "libero_90"
+  ],
+  "num_tasks": 6,
+  "alphabet_fixed": true,
+  "objects": [
+    "chefmate_8_frypan_1",
+    "white_bowl_1"
+  ],
+  "fixtures": [
+    "flat_stove_1",
+    "wooden_two_layer_shelf_1"
+  ],
+  "alphabet": {
+    "unary_state": [
+      {
+        "name": "flat_stove_1_turn_off",
+        "args": [
+          "flat_stove_1",
+          "turn_off"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "flat_stove_1_turn_on",
+        "args": [
+          "flat_stove_1",
+          "turn_on"
+        ],
+        "init_value": false
+      }
+    ],
+    "binary_relation": [
+      {
+        "name": "chefmate_8_frypan_1_on_flat_stove_1",
+        "args": [
+          "chefmate_8_frypan_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_on_wooden_two_layer_shelf_1",
+        "args": [
+          "chefmate_8_frypan_1",
+          "on",
+          "wooden_two_layer_shelf_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_on_chefmate_8_frypan_1",
+        "args": [
+          "white_bowl_1",
+          "on",
+          "chefmate_8_frypan_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_on_flat_stove_1",
+        "args": [
+          "white_bowl_1",
+          "on",
+          "flat_stove_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_on_wooden_two_layer_shelf_1",
+        "args": [
+          "white_bowl_1",
+          "on",
+          "wooden_two_layer_shelf_1"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "chefmate_8_frypan_1_in_flat_stove_1_cook_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_kitchen_table_flat_stove_init_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "kitchen_table_flat_stove_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_kitchen_table_frypan_init_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "kitchen_table_frypan_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_kitchen_table_white_bowl_init_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "kitchen_table_white_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_kitchen_table_wooden_two_layer_shelf_init_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "kitchen_table_wooden_two_layer_shelf_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_wooden_two_layer_shelf_1_bottom_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_wooden_two_layer_shelf_1_top_region",
+        "args": [
+          "chefmate_8_frypan_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "chefmate_8_frypan_1_in_wooden_two_layer_shelf_1_top_side",
+        "args": [
+          "chefmate_8_frypan_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_flat_stove_1_cook_region",
+        "args": [
+          "white_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_flat_stove_init_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_flat_stove_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_frypan_init_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_frypan_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_white_bowl_init_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_white_bowl_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_kitchen_table_wooden_two_layer_shelf_init_region",
+        "args": [
+          "white_bowl_1",
+          "kitchen_table_wooden_two_layer_shelf_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_wooden_two_layer_shelf_1_bottom_region",
+        "args": [
+          "white_bowl_1",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_wooden_two_layer_shelf_1_top_region",
+        "args": [
+          "white_bowl_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_bowl_1_in_wooden_two_layer_shelf_1_top_side",
+        "args": [
+          "white_bowl_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

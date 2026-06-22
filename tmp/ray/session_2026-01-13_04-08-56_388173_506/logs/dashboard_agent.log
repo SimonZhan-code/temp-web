@@ -1,0 +1,32 @@
+2026-01-13 04:08:59,342	INFO agent.py:127 -- Dashboard agent grpc address: 0.0.0.0:53350
+2026-01-13 04:08:59,342	INFO utils.py:303 -- Get all modules by type: DashboardAgentModule
+2026-01-13 04:08:59,600	INFO utils.py:336 -- Available modules: [<class 'ray.dashboard.modules.event.event_agent.EventAgent'>, <class 'ray.dashboard.modules.job.job_agent.JobAgent'>, <class 'ray.dashboard.modules.log.log_agent.LogAgent'>, <class 'ray.dashboard.modules.log.log_agent.LogAgentV1Grpc'>, <class 'ray.dashboard.modules.reporter.healthz_agent.HealthzAgent'>, <class 'ray.dashboard.modules.reporter.reporter_agent.ReporterAgent'>]
+2026-01-13 04:08:59,600	INFO agent.py:143 -- Loading DashboardAgentModule: <class 'ray.dashboard.modules.event.event_agent.EventAgent'>
+2026-01-13 04:08:59,600	INFO event_agent.py:48 -- Event agent cache buffer size: 10240
+2026-01-13 04:08:59,600	INFO agent.py:143 -- Loading DashboardAgentModule: <class 'ray.dashboard.modules.job.job_agent.JobAgent'>
+2026-01-13 04:08:59,600	INFO agent.py:143 -- Loading DashboardAgentModule: <class 'ray.dashboard.modules.log.log_agent.LogAgent'>
+2026-01-13 04:08:59,600	INFO agent.py:143 -- Loading DashboardAgentModule: <class 'ray.dashboard.modules.log.log_agent.LogAgentV1Grpc'>
+2026-01-13 04:08:59,600	INFO agent.py:143 -- Loading DashboardAgentModule: <class 'ray.dashboard.modules.reporter.healthz_agent.HealthzAgent'>
+2026-01-13 04:08:59,600	INFO agent.py:143 -- Loading DashboardAgentModule: <class 'ray.dashboard.modules.reporter.reporter_agent.ReporterAgent'>
+2026-01-13 04:08:59,682	WARNING gpu_profile_manager.py:82 -- [GpuProfilingManager] `dynolog` is not installed, GPU profiling will not be available.
+2026-01-13 04:08:59,682	WARNING gpu_profile_manager.py:125 -- [GpuProfilingManager] GPU profiling is disabled, skipping daemon setup.
+2026-01-13 04:08:59,683	INFO agent.py:148 -- Loaded 6 modules.
+2026-01-13 04:08:59,683	INFO http_server_agent.py:70 -- Dashboard agent http address: 0.0.0.0:52365
+2026-01-13 04:08:59,683	INFO http_server_agent.py:77 -- <ResourceRoute [POST] <PlainResource  /api/job_agent/jobs/> -> <function JobAgent.submit_job at 0x76fabc3484a0>
+2026-01-13 04:08:59,683	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <PlainResource  /api/job_agent/jobs/> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,683	INFO http_server_agent.py:77 -- <ResourceRoute [POST] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}/stop> -> <function JobAgent.stop_job at 0x76fabc348720>
+2026-01-13 04:08:59,683	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}/stop> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [DELETE] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}> -> <function JobAgent.delete_job at 0x76fabc3489a0>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [GET] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}/logs> -> <function JobAgent.get_job_logs at 0x76fabc348b80>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}/logs> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [GET] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}/logs/tail> -> <function JobAgent.tail_job_logs at 0x76fabc348d60>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <DynamicResource  /api/job_agent/jobs/{job_or_submission_id}/logs/tail> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [GET] <PlainResource  /api/local_raylet_healthz> -> <function HealthzAgent.health_check at 0x76fabc392de0>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <PlainResource  /api/local_raylet_healthz> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [GET] <StaticResource  /logs -> PosixPath('/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs')> -> <bound method StaticResource._handle of <StaticResource  /logs -> PosixPath('/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs')>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:77 -- <ResourceRoute [OPTIONS] <StaticResource  /logs -> PosixPath('/workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs')> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x76fa9c720e50>>
+2026-01-13 04:08:59,684	INFO http_server_agent.py:78 -- Registered 14 routes.
+2026-01-13 04:08:59,684	INFO process_watcher.py:45 -- raylet pid is 1323
+2026-01-13 04:08:59,684	INFO process_watcher.py:65 -- check_parent_via_pipe
+2026-01-13 04:08:59,685	INFO event_utils.py:130 -- Monitor events logs modified after 1768275539.4152055 on /workspace/tmp/ray/session_2026-01-13_04-08-56_388173_506/logs/events, the source types are all.

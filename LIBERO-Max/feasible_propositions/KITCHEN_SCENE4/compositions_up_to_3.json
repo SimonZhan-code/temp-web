@@ -1,0 +1,4444 @@
+{
+  "scene_id": "KITCHEN_SCENE4",
+  "generated_by": "enumerate",
+  "format": "ordered_subgoal_list",
+  "format_note": "each composition's `subgoals` is an ORDERED AP list; achieve subgoals left-to-right. Not an LTL formula (no LDBA/Rabinizer needed for training).",
+  "max_depth": 3,
+  "require_cook_gate": false,
+  "allow_inverse": false,
+  "scene_model": {
+    "movable_objects": [
+      "akita_black_bowl_1",
+      "wine_bottle_1"
+    ],
+    "drawers": {
+      "white_cabinet_1_bottom_region": {
+        "controller": "white_cabinet_1",
+        "init_open": true
+      },
+      "white_cabinet_1_top_region": {
+        "controller": "white_cabinet_1",
+        "init_open": false
+      }
+    },
+    "appliances": {},
+    "placements": {
+      "akita_black_bowl_1": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "wine_bottle_1": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ]
+    },
+    "anchor_goal_sets": [
+      [
+        "close_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      [
+        "close_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      [
+        "close_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      [
+        "close_white_cabinet_1_bottom_region"
+      ],
+      [
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      [
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ]
+    ]
+  },
+  "num_compositions": 132,
+  "num_held_out": 123,
+  "num_by_depth": {
+    "1": 6,
+    "2": 28,
+    "3": 98
+  },
+  "compositions": [
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 1,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 1,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 1,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "wine_bottle_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 1,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 1,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "wine_bottle_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 1,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "wine_bottle_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "wine_bottle_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1"
+      ],
+      "num_objects": 1,
+      "matches_anchor": true,
+      "is_held_out": false
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 2,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "open_white_cabinet_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "close_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side",
+        "on_wine_bottle_1_wine_rack_1_top_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "close_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "close",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "close_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_akita_black_bowl_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "in_wine_bottle_1_white_cabinet_1_bottom_region"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "white_cabinet_1_bottom_region",
+          "achieved_ap": "in_wine_bottle_1_white_cabinet_1_bottom_region"
+        }
+      ],
+      "objects_touched": [
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 2,
+      "matches_anchor": false,
+      "is_held_out": true
+    },
+    {
+      "subgoals": [
+        "open_white_cabinet_1_top_region",
+        "on_wine_bottle_1_wine_rack_1_top_region",
+        "on_akita_black_bowl_1_white_cabinet_1_top_side"
+      ],
+      "depth": 3,
+      "primitives": [
+        {
+          "kind": "open",
+          "obj": "white_cabinet_1",
+          "target": "white_cabinet_1_top_region",
+          "achieved_ap": "open_white_cabinet_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "wine_bottle_1",
+          "target": "wine_rack_1_top_region",
+          "achieved_ap": "on_wine_bottle_1_wine_rack_1_top_region"
+        },
+        {
+          "kind": "move",
+          "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_side",
+          "achieved_ap": "on_akita_black_bowl_1_white_cabinet_1_top_side"
+        }
+      ],
+      "objects_touched": [
+        "akita_black_bowl_1",
+        "white_cabinet_1",
+        "wine_bottle_1"
+      ],
+      "num_objects": 3,
+      "matches_anchor": false,
+      "is_held_out": true
+    }
+  ]
+}

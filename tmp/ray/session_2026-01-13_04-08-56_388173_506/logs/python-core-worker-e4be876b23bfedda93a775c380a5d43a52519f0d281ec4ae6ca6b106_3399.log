@@ -1,0 +1,150 @@
+[2026-01-13 04:09:01,258 I 3399 3399] core_worker_process.cc:192: Constructing CoreWorkerProcess. pid: 3399
+[2026-01-13 04:09:01,258 I 3399 3399] io_service_pool.cc:36: IOServicePool is running with 1 io_service.
+[2026-01-13 04:09:01,260 I 3399 3399] grpc_server.cc:141: worker server started, listening on port 45831.
+[2026-01-13 04:09:01,260 I 3399 3399] core_worker.cc:542: Initializing worker at address: 10.105.17.31:45831 worker_id=e4be876b23bfedda93a775c380a5d43a52519f0d281ec4ae6ca6b106 node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:09:01,261 I 3399 3399] task_event_buffer.cc:287: Reporting task events to GCS every 1000ms.
+[2026-01-13 04:09:01,261 I 3399 3399] core_worker.cc:967: Adjusted worker niceness to 15
+[2026-01-13 04:09:01,261 I 3399 3399] event.cc:500: Ray Event initialized for CORE_WORKER
+[2026-01-13 04:09:01,261 I 3399 3622] core_worker.cc:902: Event stats:
+
+
+Global stats: 15 total (9 active)
+Queueing time: mean = 4.679 us, max = 50.741 us, min = 5.028 us, total = 70.185 us
+Execution time:  mean = 38.677 us, total = 580.156 us
+Event stats:
+	PeriodicalRunner.RunFnPeriodically - 7 total (5 active, 1 running), Execution time: mean = 2.415 us, total = 16.906 us, Queueing time: mean = 8.434 us, max = 50.741 us, min = 8.297 us, total = 59.038 us
+	ray::rpc::WorkerInfoGcsService.grpc_client.AddWorkerInfo.OnReplyReceived - 1 total (0 active), Execution time: mean = 15.915 us, total = 15.915 us, Queueing time: mean = 5.028 us, max = 5.028 us, min = 5.028 us, total = 5.028 us
+	ray::rpc::WorkerInfoGcsService.grpc_client.AddWorkerInfo - 1 total (0 active), Execution time: mean = 286.911 us, total = 286.911 us, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+	ray::rpc::InternalPubSubGcsService.grpc_client.GcsSubscriberCommandBatch - 1 total (0 active), Execution time: mean = 190.621 us, total = 190.621 us, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+	ray::rpc::InternalPubSubGcsService.grpc_client.GcsSubscriberCommandBatch.OnReplyReceived - 1 total (0 active), Execution time: mean = 69.803 us, total = 69.803 us, Queueing time: mean = 6.119 us, max = 6.119 us, min = 6.119 us, total = 6.119 us
+	ray::rpc::NodeInfoGcsService.grpc_client.GetAllNodeInfo - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+	ray::rpc::InternalPubSubGcsService.grpc_client.GcsSubscriberPoll - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+	Publisher.CheckDeadSubscribers - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+	CoreWorker.ExitIfParentRayletDies - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+
+-----------------
+Task execution event stats:
+
+Global stats: 0 total (0 active)
+Queueing time: mean = -nan s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+Execution time:  mean = -nan s, total = 0.000 s
+Event stats:
+
+-----------------
+Task Event stats:
+
+IO Service Stats:
+
+Global stats: 4 total (1 active)
+Queueing time: mean = 2.115 us, max = 4.484 us, min = 3.975 us, total = 8.459 us
+Execution time:  mean = 79.051 us, total = 316.203 us
+Event stats:
+	ray::rpc::TaskInfoGcsService.grpc_client.AddTaskEventData.OnReplyReceived - 1 total (0 active), Execution time: mean = 8.770 us, total = 8.770 us, Queueing time: mean = 4.484 us, max = 4.484 us, min = 4.484 us, total = 4.484 us
+	PeriodicalRunner.RunFnPeriodically - 1 total (0 active), Execution time: mean = 90.156 us, total = 90.156 us, Queueing time: mean = 3.975 us, max = 3.975 us, min = 3.975 us, total = 3.975 us
+	CoreWorker.deadline_timer.flush_task_events - 1 total (1 active), Execution time: mean = 0.000 s, total = 0.000 s, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+	ray::rpc::TaskInfoGcsService.grpc_client.AddTaskEventData - 1 total (0 active), Execution time: mean = 217.277 us, total = 217.277 us, Queueing time: mean = 0.000 s, max = -0.000 s, min = 9223372036.855 s, total = 0.000 s
+Other Stats:
+	grpc_in_progress:0
+	current number of task status events in buffer: 0
+	current number of profile events in buffer: 0
+	current number of dropped task attempts tracked: 0
+	total task events sent: 0 MiB
+	total number of task attempts sent: 0
+	total number of task attempts dropped reported: 0
+	total number of sent failure: 0
+	num status task events dropped: 0
+	num profile task events dropped: 0
+
+
+[2026-01-13 04:09:01,261 I 3399 3399] event.cc:500: Ray Event initialized for EXPORT_TASK
+[2026-01-13 04:09:01,261 I 3399 3399] event.cc:331: Set ray event level to warning
+[2026-01-13 04:09:01,261 I 3399 3622] accessor.cc:768: Received notification for node, IsAlive = 1 node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:09:01,261 I 3399 3622] core_worker.cc:5107: Number of alive nodes:1
+[2026-01-13 04:09:01,262 I 3399 3399] actor_task_submitter.cc:73: Set actor max pending calls to -1 actor_id=fc266d0e2f76da99bc13377a01000000
+[2026-01-13 04:09:01,262 I 3399 3399] core_worker.cc:3370: Creating actor actor_id=fc266d0e2f76da99bc13377a01000000
+[2026-01-13 04:09:07,635 I 3399 3919] actor_task_submitter.cc:73: Set actor max pending calls to 0 actor_id=3050862d1129f1777b44752001000000
+[2026-01-13 04:09:07,636 I 3399 3622] actor_manager.cc:218: received notification on actor, state: ALIVE, ip address: 10.105.17.31, port: 43967, num_restarts: 0, death context type=CONTEXT_NOT_SET actor_id=3050862d1129f1777b44752001000000 worker_id=56d932d3d47f3714df1dea7b0de86e9f0cbf1cbd8194002ad8c7124a node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:09:07,639 I 3399 3919] actor_task_submitter.cc:73: Set actor max pending calls to 0 actor_id=fc266d0e2f76da99bc13377a01000000
+[2026-01-13 04:09:07,640 I 3399 3919] actor_task_submitter.cc:73: Set actor max pending calls to 0 actor_id=763f7e79f2550089717602c801000000
+[2026-01-13 04:09:07,641 I 3399 3622] actor_manager.cc:218: received notification on actor, state: ALIVE, ip address: 10.105.17.31, port: 35059, num_restarts: 0, death context type=CONTEXT_NOT_SET actor_id=763f7e79f2550089717602c801000000 worker_id=6e8b26cd91a3f3219fa63468f06ddb38bfcef5f00deb9df89468ee2c node_id=a1a81868503cfc2236cd7020faf94b967e790b1bbc73bd55427c7348
+[2026-01-13 04:09:07,642 I 3399 3919] actor_task_submitter.cc:73: Set actor max pending calls to 0 actor_id=05268a6b4b6f00c2f2a67db701000000
+[2026-01-13 04:09:07,644 I 3399 3919] actor_task_submitter.cc:73: Set actor max pending calls to 0 actor_id=a07efcebda3b79ebee44a77d01000000
+[2026-01-13 04:09:07,660 I 3399 3399] core_worker.cc:1163: Exit signal received, this process will exit after all outstanding tasks have finished, exit_type=USER_ERROR, detail=Worker exits because there was an exception in the initialization method (e.g., __init__). Fix the exceptions from the initialization to resolve the issue. Exception raised from an actor init method. Traceback: The actor died because of an error raised in its creation task, [36mray::RolloutGroup:0:MultiStepRolloutWorker.__init__()[39m (pid=3399, ip=10.105.17.31, actor_id=fc266d0e2f76da99bc13377a01000000, repr=<rlinf.workers.rollout.hf.huggingface_worker.MultiStepRolloutWorker object at 0x79c194172c90>)
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+           ^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/scheduler/worker/worker.py", line 71, in sync_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/workers/rollout/hf/huggingface_worker.py", line 41, in __init__
+    self.device = torch.cuda.current_device()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 971, in current_device
+    _lazy_init()
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW
+[2026-01-13 04:09:07,660 W 3399 3399] task_receiver.cc:166: Actor creation task finished with errors, task_id: fffffffffffffffffc266d0e2f76da99bc13377a01000000, actor_id: fc266d0e2f76da99bc13377a01000000, status: CreationTaskError: Exception raised from an actor init method. Traceback: The actor died because of an error raised in its creation task, [36mray::RolloutGroup:0:MultiStepRolloutWorker.__init__()[39m (pid=3399, ip=10.105.17.31, actor_id=fc266d0e2f76da99bc13377a01000000, repr=<rlinf.workers.rollout.hf.huggingface_worker.MultiStepRolloutWorker object at 0x79c194172c90>)
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+           ^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/scheduler/worker/worker.py", line 71, in sync_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/workers/rollout/hf/huggingface_worker.py", line 41, in __init__
+    self.device = torch.cuda.current_device()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 971, in current_device
+    _lazy_init()
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW
+[2026-01-13 04:09:07,660 I 3399 3399] core_worker.cc:1206: Wait for currently executing tasks in the underlying thread pools to finish.
+[2026-01-13 04:09:07,660 I 3399 3399] core_worker.cc:1240: Not draining reference counter since this is an actor worker.
+[2026-01-13 04:09:07,662 I 3399 3399] core_worker.cc:1134: Try killing all child processes of this worker as it exits. Child process pids: 3730
+[2026-01-13 04:09:07,662 I 3399 3399] core_worker.cc:1143: Kill result for child pid 3730: Success, bool 0
+[2026-01-13 04:09:07,662 I 3399 3399] core_worker.cc:1088: Sending disconnect message to the local raylet.
+[2026-01-13 04:09:07,662 I 3399 3399] raylet_client.cc:73: RayletClient::Disconnect, exit_type=USER_ERROR, exit_detail=Worker exits because there was an exception in the initialization method (e.g., __init__). Fix the exceptions from the initialization to resolve the issue. Exception raised from an actor init method. Traceback: The actor died because of an error raised in its creation task, [36mray::RolloutGroup:0:MultiStepRolloutWorker.__init__()[39m (pid=3399, ip=10.105.17.31, actor_id=fc266d0e2f76da99bc13377a01000000, repr=<rlinf.workers.rollout.hf.huggingface_worker.MultiStepRolloutWorker object at 0x79c194172c90>)
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/.python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+           ^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/scheduler/worker/worker.py", line 71, in sync_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rlinf/workers/rollout/hf/huggingface_worker.py", line 41, in __init__
+    self.device = torch.cuda.current_device()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 971, in current_device
+    _lazy_init()
+  File "/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW, has creation_task_exception_pb_bytes=1
+[2026-01-13 04:09:07,662 I 3399 3399] core_worker.cc:1094: Disconnected from the local raylet.
+[2026-01-13 04:09:07,662 I 3399 3399] core_worker.cc:1006: Shutting down.
+[2026-01-13 04:09:07,663 I 3399 3399] task_event_buffer.cc:298: Shutting down TaskEventBuffer.
+[2026-01-13 04:09:07,663 I 3399 3642] task_event_buffer.cc:266: Task event buffer io service stopped.
+[2026-01-13 04:09:07,663 I 3399 3399] core_worker.cc:1028: Waiting for joining a core worker io thread. If it hangs here, there might be deadlock or a high load in the core worker io service.
+[2026-01-13 04:09:07,663 I 3399 3622] core_worker.cc:1280: Core worker main io service stopped.
+[2026-01-13 04:09:07,664 I 3399 3399] core_worker.cc:1040: Disconnecting a GCS client.
+[2026-01-13 04:09:07,664 I 3399 3399] core_worker.cc:1047: Core worker ready to be deallocated.
+[2026-01-13 04:09:07,664 I 3399 3399] core_worker_process.cc:336: Task execution loop terminated. Removing the global worker.
+[2026-01-13 04:09:07,664 I 3399 3399] core_worker.cc:997: Core worker is destructed
+[2026-01-13 04:09:07,664 I 3399 3399] task_event_buffer.cc:298: Shutting down TaskEventBuffer.
+[2026-01-13 04:09:07,664 I 3399 3399] core_worker_process.cc:237: Destructing CoreWorkerProcessImpl. pid: 3399
+[2026-01-13 04:09:07,664 I 3399 3399] io_service_pool.cc:48: IOServicePool is stopped.
+[2026-01-13 04:09:07,763 I 3399 3399] stats.h:120: Stats module has shutdown.

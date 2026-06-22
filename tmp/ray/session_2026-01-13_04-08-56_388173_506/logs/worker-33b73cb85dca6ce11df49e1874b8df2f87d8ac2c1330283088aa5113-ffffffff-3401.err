@@ -1,0 +1,6 @@
+:job_id:01000000
+:actor_name:EnvWorker
+[INFO 04:09:04 FlexiblePlacementStrategy] 
+[INFO 04:09:04 FlexiblePlacementStrategy] Using flexible placement with hardware ranks: [[0]].
+/opt/venv/openvla/lib/python3.11/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0

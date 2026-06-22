@@ -1,0 +1,295 @@
+{
+  "scene_id": "r_LIVING_ROOM_SCENE15",
+  "suites": [
+    "libero_10_r"
+  ],
+  "num_tasks": 1,
+  "alphabet_fixed": true,
+  "objects": [
+    "alphabet_soup_1",
+    "plate_1",
+    "plate_2",
+    "porcelain_mug_1",
+    "white_yellow_mug_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [
+      {
+        "name": "alphabet_soup_1_on_plate_1",
+        "args": [
+          "alphabet_soup_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_on_plate_2",
+        "args": [
+          "alphabet_soup_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_on_plate_2",
+        "args": [
+          "plate_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_on_plate_1",
+        "args": [
+          "plate_2",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_on_plate_1",
+        "args": [
+          "porcelain_mug_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_on_plate_2",
+        "args": [
+          "porcelain_mug_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_on_plate_1",
+        "args": [
+          "white_yellow_mug_1",
+          "on",
+          "plate_1"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_on_plate_2",
+        "args": [
+          "white_yellow_mug_1",
+          "on",
+          "plate_2"
+        ],
+        "init_value": false
+      }
+    ],
+    "region_containment": [
+      {
+        "name": "alphabet_soup_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_plate_left_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_plate_right_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_left_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_plate_right_region",
+        "args": [
+          "plate_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "plate_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "plate_2",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_plate_left_region",
+        "args": [
+          "plate_2",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_plate_right_region",
+        "args": [
+          "plate_2",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "plate_2",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "plate_2_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "plate_2",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_left_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_plate_right_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "porcelain_mug_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "porcelain_mug_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_plate_left_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_plate_left_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_plate_right_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_plate_right_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_porcelain_mug_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_porcelain_mug_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "white_yellow_mug_1_in_living_room_table_white_yellow_mug_init_region",
+        "args": [
+          "white_yellow_mug_1",
+          "living_room_table_white_yellow_mug_init_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}

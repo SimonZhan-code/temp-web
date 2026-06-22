@@ -1,0 +1,595 @@
+{
+  "scene_id": "LIVING_ROOM_SCENE2",
+  "suites": [
+    "libero_10",
+    "libero_10_r",
+    "libero_90"
+  ],
+  "num_tasks": 16,
+  "alphabet_fixed": true,
+  "objects": [
+    "alphabet_soup_1",
+    "basket_1",
+    "butter_1",
+    "cream_cheese_1",
+    "ketchup_1",
+    "milk_1",
+    "orange_juice_1",
+    "tomato_sauce_1"
+  ],
+  "fixtures": [],
+  "alphabet": {
+    "unary_state": [],
+    "binary_relation": [],
+    "region_containment": [
+      {
+        "name": "alphabet_soup_1_in_basket_1_contain_region",
+        "args": [
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_basket_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_butter_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_milk_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "alphabet_soup_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "alphabet_soup_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_basket_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_butter_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_milk_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "basket_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "basket_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_basket_1_contain_region",
+        "args": [
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_basket_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_butter_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_milk_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "butter_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "butter_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_basket_1_contain_region",
+        "args": [
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_basket_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_butter_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_milk_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "cream_cheese_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "cream_cheese_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_basket_1_contain_region",
+        "args": [
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_basket_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_butter_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_milk_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "ketchup_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "ketchup_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_basket_1_contain_region",
+        "args": [
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_basket_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_butter_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_milk_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "milk_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "milk_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_basket_1_contain_region",
+        "args": [
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_basket_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_butter_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_milk_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "orange_juice_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "orange_juice_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_basket_1_contain_region",
+        "args": [
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_alphabet_soup_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_basket_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_basket_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_butter_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_butter_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_cream_cheese_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_ketchup_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_milk_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_milk_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_orange_juice_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        "init_value": false
+      },
+      {
+        "name": "tomato_sauce_1_in_living_room_table_tomato_sauce_init_region",
+        "args": [
+          "tomato_sauce_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        "init_value": false
+      }
+    ]
+  }
+}
