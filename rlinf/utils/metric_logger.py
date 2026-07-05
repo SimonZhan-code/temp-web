@@ -113,6 +113,34 @@ class MetricLogger:
         else:
             raise ValueError(f"Unsupported log table for {self.logger_backends}")
 
+    def log_video(self, video_paths, step, name="eval/video", fps=30):
+        """Upload rendered simulation rollout mp4(s) to the run's media tab.
+
+        ``video_paths`` is a single path or a list of paths to existing .mp4 files
+        (written by the env workers' ``flush_video``). Only wandb / swanlab support
+        media panels; tensorboard is skipped (it needs raw frame tensors, not files).
+        Never raises — video logging must not break training.
+        """
+        if isinstance(video_paths, (str, os.PathLike)):
+            video_paths = [video_paths]
+        paths = [str(p) for p in video_paths if p and os.path.exists(str(p))]
+        if not paths:
+            return
+        if "wandb" in self.logger:
+            wandb = self.logger["wandb"]
+            try:
+                media = [wandb.Video(p, fps=fps, format="mp4") for p in paths]
+                wandb.log({name: media if len(media) > 1 else media[0]}, step=step)
+            except Exception as e:  # noqa: BLE001
+                print(f"[metric_logger] wandb video upload skipped: {e}")
+        if "swanlab" in self.logger:
+            swanlab = self.logger["swanlab"]
+            try:
+                media = [swanlab.Video(p, fps=fps) for p in paths]
+                swanlab.log({name: media}, step=step)
+            except Exception as e:  # noqa: BLE001
+                print(f"[metric_logger] swanlab video upload skipped: {e}")
+
     def __del__(self):
         self.finish()
 

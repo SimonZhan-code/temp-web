@@ -83,6 +83,42 @@ class EmbodiedRunner:
 
         self.metric_logger = MetricLogger(cfg)
 
+        # eval rollout videos already uploaded to the run's media tab (avoid re-uploading
+        # the same mp4 on later evals). Cap how many we push per eval to keep it light.
+        self._logged_video_paths = set()
+        self._max_eval_videos_per_step = int(
+            cfg.runner.logger.get("max_eval_videos", 4)
+        )
+
+    def _log_eval_videos(self, step):
+        """Upload any NEW eval rollout mp4(s) written this eval to wandb/swanlab.
+
+        Env workers save tiled rollout videos to ``env.eval.video_cfg.video_base_dir``
+        via ``flush_video`` (called inside ``evaluate`` before it returns), so by the
+        time we get here the files are on disk. Assumes the runner shares a filesystem
+        with the env workers (true for single-node runs). Never raises.
+        """
+        try:
+            vc = self.cfg.env.eval.get("video_cfg", None)
+            if vc is None or not vc.get("save_video", False):
+                return
+            base = vc.get("video_base_dir", None)
+            if not base or not os.path.isdir(base):
+                return
+            import glob
+
+            mp4s = glob.glob(os.path.join(base, "**", "*.mp4"), recursive=True)
+            new = [p for p in mp4s if p not in self._logged_video_paths]
+            if not new:
+                return
+            new.sort(key=lambda p: os.path.getmtime(p))
+            self._logged_video_paths.update(new)  # mark all seen, upload only the newest
+            to_log = new[-self._max_eval_videos_per_step :]
+            fps = vc.get("fps", 30)
+            self.metric_logger.log_video(to_log, step=step, name="eval/video", fps=fps)
+        except Exception as e:  # noqa: BLE001
+            print(f"[embodied_runner] eval video logging skipped: {e}")
+
     def init_workers(self):
         # create worker in order to decrease the maximum memory usage
         self.actor.init_worker().wait()
@@ -145,6 +181,7 @@ class EmbodiedRunner:
             eval0 = self.evaluate()
             eval0 = {f"eval/{k}": v for k, v in eval0.items()}
             self.metric_logger.log(data=eval0, step=0)
+            self._log_eval_videos(step=0)
         for _step in range(start_step, self.max_steps):
             # set global step
             self.actor.set_global_step(self.global_step)
@@ -196,6 +233,7 @@ class EmbodiedRunner:
                         eval_metrics = self.evaluate()
                         eval_metrics = {f"eval/{k}": v for k, v in eval_metrics.items()}
                         self.metric_logger.log(data=eval_metrics, step=_step)
+                        self._log_eval_videos(step=_step)
 
                 if save_model:
                     self._save_checkpoint()
