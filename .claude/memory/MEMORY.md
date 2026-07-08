@@ -1,0 +1,3 @@
+- [Local run environment](local-run-environment.md) — venv/checkpoint/EGL fix + the ptrace_scope=0 blocker for collocated single-GPU runs on the 4090
+- [V-MPO composition verification](vmpo-composition-verification.md) — what's verified (sampling, subgoal switch, 10-epoch+wandb), the best-of-N config bug fixed, and the open LDBA multi-step subgoal-switch issue
+- [V-MPO zero-reward + NL A/B](vmpo-zero-reward-nl-ab.md) — all composition runs get zero reward (AP-prompt OOD diagnosis); the fast NL-vs-AP configs to test it, wandb project = neuralsym-vla, eval-video logging, temp-web collaborator repo

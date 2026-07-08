@@ -1,0 +1,4 @@
+# Machine-local Claude Code state — do not commit.
+settings.local.json
+scheduled_tasks.lock
+*.lock
