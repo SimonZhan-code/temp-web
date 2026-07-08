@@ -109,6 +109,44 @@ def render_subgoal_ap(ap_name, primitive=None, fmt="predicate"):
     return str(ap_name)
 
 
+def _humanize(token):
+    """``white_cabinet_1_bottom_region`` -> ``white cabinet bottom region``.
+
+    Drops numeric instance ids (``_1``) wherever they appear and turns underscores
+    into spaces, so region/object tokens read as natural language for the NL VLA.
+    """
+    if token is None:
+        return ""
+    parts = [p for p in str(token).split("_") if not p.isdigit()]
+    return " ".join(parts)
+
+
+def render_subgoal_nl(ap_name, primitive=None):
+    """Render one subgoal as a NATURAL-LANGUAGE instruction (in-distribution for the
+    NL-pretrained SFT checkpoint), e.g.
+    ``put the akita black bowl in the white cabinet bottom region``,
+    ``open the white cabinet top region``.
+
+    This is the counterpart to :func:`render_subgoal_ap` for ``prompt_style="nl"``.
+    Falls back to a de-underscored AP name if no primitive is available.
+    """
+    if primitive is None:
+        return str(ap_name).replace("_", " ")
+    kind = primitive.get("kind")
+    obj = _humanize(primitive.get("obj"))
+    target = _humanize(primitive.get("target"))
+    if kind == "move":
+        rel = "in" if str(ap_name).startswith("in_") else "on"
+        return f"put the {obj} {rel} the {target}"
+    if kind in ("open", "close"):
+        return f"{kind} the {target}"
+    if kind == "turn_on":
+        return f"turn on the {obj}"
+    if kind == "turn_off":
+        return f"turn off the {obj}"
+    return str(ap_name).replace("_", " ")
+
+
 def render_proposition_ap(name, fmt="predicate"):
     """Render a generator-style proposition NAME (from an LDBA trace) as AP-format.
 
@@ -244,7 +282,13 @@ class LiberoCompositionEnv(LiberoEnv):
         self._task_subgoal_cache = {}  # task_id -> (subgoals, primitives)
         self._allgoals_bddl_path = None  # built lazily inside get_env_fn_params
         self._comp_rng = np.random.default_rng(cfg.seed + seed_offset + 8191)
-        # prompt: AP-format current subgoal only (no NL, no overall-task LTL).
+        # prompt style:
+        #   "ap" (default) -> "<preamble> <current AP>" (atomic-proposition format);
+        #   "nl"           -> a natural-language instruction for the current subgoal
+        #                     (in-distribution for the NL-pretrained SFT checkpoint).
+        # The ordered-subgoal tracker/switching is identical either way — only the
+        # rendered text the VLA sees changes.
+        self._prompt_style = str(comp.get("prompt_style", "ap"))
         self._prompt_preamble = str(
             comp.get("prompt_preamble", DEFAULT_PROMPT_PREAMBLE)
         )
@@ -293,14 +337,20 @@ class LiberoCompositionEnv(LiberoEnv):
         self._subgoals[env_id] = list(subgoals)
         self._primitives[env_id] = list(primitives)
         self._ptr[env_id] = 0
-        self._subgoal_aps[env_id] = [
-            render_subgoal_ap(
-                ap,
-                primitives[i] if i < len(primitives) else None,
-                fmt=self._ap_format,
-            )
-            for i, ap in enumerate(subgoals)
-        ]
+        if self._prompt_style == "nl":
+            self._subgoal_aps[env_id] = [
+                render_subgoal_nl(ap, primitives[i] if i < len(primitives) else None)
+                for i, ap in enumerate(subgoals)
+            ]
+        else:
+            self._subgoal_aps[env_id] = [
+                render_subgoal_ap(
+                    ap,
+                    primitives[i] if i < len(primitives) else None,
+                    fmt=self._ap_format,
+                )
+                for i, ap in enumerate(subgoals)
+            ]
 
     def _sample_composition_for(self, env_idx):
         for env_id in env_idx:
@@ -322,13 +372,21 @@ class LiberoCompositionEnv(LiberoEnv):
         return rendered[p]
 
     def _current_prompt_texts(self):
-        """Per-env prompt: ``<preamble> <current AP>`` — AP only, no NL/LTL."""
+        """Per-env prompt for the current subgoal.
+
+        ``prompt_style="ap"``  -> ``"<preamble> <current AP>"``.
+        ``prompt_style="nl"``  -> the natural-language instruction itself (no preamble),
+        so the string is in-distribution for the NL-pretrained checkpoint.
+        """
+        nl = self._prompt_style == "nl"
         texts = []
         for env_id in range(self.num_envs):
             ap = self._current_subgoal_ap(env_id)
             if not ap:
                 # no composition yet (should not happen post-reset); fall back safe
-                texts.append(self._prompt_preamble)
+                texts.append("" if nl else self._prompt_preamble)
+            elif nl or ap == _DONE_TOKEN:
+                texts.append(ap)
             else:
                 texts.append(f"{self._prompt_preamble} {ap}")
         return texts

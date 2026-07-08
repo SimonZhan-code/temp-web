@@ -25,6 +25,7 @@ from rlinf.envs.libero.libero_composition_env import (
     advance_ordered_subgoals,
     parse_goal_subgoals,
     render_subgoal_ap,
+    render_subgoal_nl,
 )
 
 
@@ -65,6 +66,44 @@ def test_render_no_natural_language():
     prim = {"kind": "move", "obj": "bowl_1", "target": "cabinet_1_top_side"}
     out = render_subgoal_ap("on_bowl_1_cabinet_1_top_side", prim).lower()
     assert "put" not in out and " the " not in out
+
+
+# --------------------------------------------------------------------------- #
+# NL-format prompt rendering (prompt_style="nl") — in-distribution for the SFT VLA
+# --------------------------------------------------------------------------- #
+def test_render_nl_move_in():
+    prim = {"kind": "move", "obj": "akita_black_bowl_1", "target": "white_cabinet_1_bottom_region"}
+    assert (
+        render_subgoal_nl("in_akita_black_bowl_1_white_cabinet_1_bottom_region", prim)
+        == "put the akita black bowl in the white cabinet bottom region"
+    )
+
+
+def test_render_nl_move_on():
+    prim = {"kind": "move", "obj": "akita_black_bowl_1", "target": "white_cabinet_1_top_side"}
+    assert (
+        render_subgoal_nl("on_akita_black_bowl_1_white_cabinet_1_top_side", prim)
+        == "put the akita black bowl on the white cabinet top side"
+    )
+
+
+def test_render_nl_open_close():
+    assert (
+        render_subgoal_nl("open_white_cabinet_1_top_region", {"kind": "open", "target": "white_cabinet_1_top_region"})
+        == "open the white cabinet top region"
+    )
+    assert (
+        render_subgoal_nl("close_white_cabinet_1_bottom_region", {"kind": "close", "target": "white_cabinet_1_bottom_region"})
+        == "close the white cabinet bottom region"
+    )
+
+
+def test_render_nl_is_natural_language():
+    # NL rendering must NOT contain predicate() syntax, underscores, or instance ids.
+    prim = {"kind": "move", "obj": "akita_black_bowl_1", "target": "white_cabinet_1_bottom_region"}
+    out = render_subgoal_nl("in_akita_black_bowl_1_white_cabinet_1_bottom_region", prim)
+    assert "(" not in out and "_" not in out and " 1 " not in out
+    assert out.startswith("put the ")
 
 
 # --------------------------------------------------------------------------- #

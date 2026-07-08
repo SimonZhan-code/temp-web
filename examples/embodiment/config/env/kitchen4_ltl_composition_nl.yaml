@@ -1,0 +1,44 @@
+# Train env: fixed KITCHEN_SCENE4 scene, per-episode random ORDERED composition, but
+# prompted in NATURAL LANGUAGE (prompt_style=nl) instead of atomic-proposition format.
+# Everything else is identical to kitchen4_ltl_composition.yaml (same all-goals BDDL,
+# same ordered-subgoal tracker, same reach-only reward). This is the in-distribution
+# prompt A/B: the SFT checkpoint was pretrained on NL instructions, so NL should let the
+# policy actually achieve the first subgoal (AP-format was OOD -> zero reward).
+env_type: libero_ltl_composition
+task_suite_name: libero_90      # KITCHEN_SCENE4 lives here (6 tasks, 50 trials each)
+
+total_num_envs: null
+
+auto_reset: True
+ignore_terminations: False
+max_steps_per_rollout_epoch: 200   # divisible by num_action_chunks (=10)
+max_episode_steps: 200
+use_fixed_reset_state_ids: False   # random scene task/trial each episode (init variety)
+use_ordered_reset_state_ids: False
+
+use_rel_reward: True
+reward_coef: 5.0
+
+# Lock physics to one scene; vary only the sampled composition + init state.
+composition:
+  scene_id: KITCHEN_SCENE4
+  max_depth: 3        # use compositions_up_to_3.json (132 ordered compositions)
+  min_depth: 1
+  pool: all           # sample uniformly from all feasible compositions
+  prompt_style: nl    # natural-language current-subgoal instruction (vs "ap")
+
+# RLinf LiberoEnv specific settings
+reset_gripper_open: True
+is_eval: False
+
+seed: 0
+group_size: 1
+
+video_cfg:
+  save_video: True
+  info_on_video: True
+  video_base_dir: ${runner.logger.log_path}/video/train
+
+init_params:
+  camera_heights: 256
+  camera_widths: 256
