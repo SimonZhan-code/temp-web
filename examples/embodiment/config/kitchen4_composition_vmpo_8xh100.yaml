@@ -61,7 +61,7 @@ runner:
     experiment_name: "kitchen4_composition_vmpo_8xh100"
     logger_backends: ["tensorboard", "wandb"]   # set WANDB_API_KEY (or `wandb login`)
 
-  max_epochs: 1000
+  max_epochs: 500
   max_steps: -1
 
   only_eval: False
@@ -141,6 +141,8 @@ env:
     max_episode_steps: 500       # full LIBERO horizon (KITCHEN multi-subgoal tasks)
     max_steps_per_rollout_epoch: 500   # must be divisible by num_action_chunks (=10)
     reward_coef: ${algorithm.reward_coef}
+    composition:
+      max_depth: 1               # CURRICULUM: single-subgoal compositions only (achievable)
   eval:
     total_num_envs: 50           # the KITCHEN_SCENE4 compositional task x 50 init states
     auto_reset: True

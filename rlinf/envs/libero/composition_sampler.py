@@ -93,9 +93,19 @@ class CompositionSampler:
         self._scene_dir = base / scene_id
         comp_path = self._scene_dir / f"compositions_up_to_{max_depth}.json"
         if not comp_path.exists():
-            raise FileNotFoundError(
-                f"No composition file for scene {scene_id} at {comp_path}"
+            # No exact file for this depth (e.g. depth-1 curriculum with only
+            # compositions_up_to_3.json shipped): fall back to the largest available
+            # compositions_up_to_N.json and filter down to <=max_depth below.
+            candidates = sorted(
+                self._scene_dir.glob("compositions_up_to_*.json"),
+                key=lambda p: int(p.stem.rsplit("_", 1)[-1]),
             )
+            if not candidates:
+                raise FileNotFoundError(
+                    f"No composition file for scene {scene_id} at {comp_path} "
+                    f"(and no compositions_up_to_*.json in {self._scene_dir})"
+                )
+            comp_path = candidates[-1]
         data = json.loads(comp_path.read_text())
         fmt = data.get("format")
         if fmt != "ordered_subgoal_list":
@@ -107,6 +117,8 @@ class CompositionSampler:
         comps: List[Composition] = []
         for c in data["compositions"]:
             if c["depth"] < min_depth:
+                continue
+            if c["depth"] > max_depth:  # upper bound (enables a depth curriculum)
                 continue
             if pool == "anchor" and not c.get("matches_anchor", False):
                 continue

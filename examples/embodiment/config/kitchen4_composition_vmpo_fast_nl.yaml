@@ -8,9 +8,9 @@
 #   natural-language instruction (env.*.composition.prompt_style=nl). Watch env/success_once:
 #   if it lifts off zero, NL is the fix; if it stays zero, the bug is in the env/label
 #   wiring rather than the prompt.
-# What was shrunk vs kitchen4_composition_vmpo_8xh100.yaml (all for speed, not final quality):
-#   rollout_epoch 8->1, total_num_envs 256->64, horizon 500->200, update_epoch 4->2,
-#   global_batch 2048->512, max_epochs 1000->30, val_check 50->10, best_of_n 8->1.
+# Sizing vs kitchen4_composition_vmpo_8xh100.yaml: rollout_epoch 8->1, update_epoch 4->2,
+#   best_of_n 8->1 (cheap loop). CURRICULUM: composition.max_depth=1 (single-subgoal only,
+#   achievable), total_num_envs 256, max_epochs 500, val_check 10.
 #
 # LAUNCH (8x H100 SXM, single node):
 #   sudo sysctl -w kernel.yama.ptrace_scope=0            # collocated CUDA-IPC weight sync
@@ -47,7 +47,7 @@ runner:
     logger_backends: ["tensorboard", "wandb"]
     max_eval_videos: 4           # eval rollout mp4s uploaded to wandb per eval
 
-  max_epochs: 30                 # tuning: short run, iterate fast
+  max_epochs: 500                # depth-1 curriculum: long enough to develop a learning curve
   max_steps: -1
 
   only_eval: False
@@ -120,10 +120,12 @@ env:
   enable_offload: False
 
   train:
-    total_num_envs: 64           # tuning: 8 envs / GPU (was 256)
-    max_episode_steps: 500       # tuning: shorter horizon (was 500)
+    total_num_envs: 256          # 32 envs / GPU across 8 cards (denser success sampling)
+    max_episode_steps: 500
     max_steps_per_rollout_epoch: 500   # divisible by num_action_chunks (=10)
     reward_coef: ${algorithm.reward_coef}
+    composition:
+      max_depth: 1               # CURRICULUM: single-subgoal compositions only (achievable)
   eval:
     total_num_envs: 16           # tuning: small eval (was 48)
     auto_reset: True

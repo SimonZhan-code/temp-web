@@ -6,7 +6,8 @@
 # sizing, but the current subgoal is rendered in atomic-proposition format (the setup
 # that gave zero reward in the full 8xh100 run). Run this alongside the _nl config on the
 # same fast loop and compare env/success_once to confirm whether the prompt is the cause.
-# Shrunk vs kitchen4_composition_vmpo_8xh100.yaml exactly as the _nl config.
+# Sizing/curriculum exactly as the _nl config: rollout_epoch 1, update_epoch 2, best_of_n 1,
+# composition.max_depth=1 (single-subgoal), total_num_envs 256, max_epochs 500.
 #
 # LAUNCH (8x H100 SXM, single node):
 #   sudo sysctl -w kernel.yama.ptrace_scope=0
@@ -43,7 +44,7 @@ runner:
     logger_backends: ["tensorboard", "wandb"]
     max_eval_videos: 4
 
-  max_epochs: 30
+  max_epochs: 500                # depth-1 curriculum: long enough to develop a learning curve
   max_steps: -1
 
   only_eval: False
@@ -116,10 +117,12 @@ env:
   enable_offload: False
 
   train:
-    total_num_envs: 64
+    total_num_envs: 256          # 32 envs / GPU across 8 cards (denser success sampling)
     max_episode_steps: 500
     max_steps_per_rollout_epoch: 500
     reward_coef: ${algorithm.reward_coef}
+    composition:
+      max_depth: 1               # CURRICULUM: single-subgoal compositions only (achievable)
   eval:
     total_num_envs: 16
     auto_reset: True

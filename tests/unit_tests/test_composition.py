@@ -218,3 +218,18 @@ def test_sampler_covers_pool():
     rng = np.random.default_rng(0)
     seen = {tuple(s.sample(rng).subgoals) for _ in range(3000)}
     assert len(seen) == len(s)
+
+
+def test_sampler_depth1_curriculum():
+    # max_depth=1 must yield ONLY single-subgoal compositions, even though the shipped
+    # file is compositions_up_to_3.json (file fallback + per-composition upper filter).
+    try:
+        from rlinf.envs.libero.composition_sampler import CompositionSampler
+
+        s = CompositionSampler("KITCHEN_SCENE4", max_depth=1, pool="all")
+    except Exception as e:  # noqa: BLE001
+        pytest.skip(f"KITCHEN_SCENE4 composition data unavailable: {e}")
+    assert len(s) > 0
+    assert all(c.depth == 1 for c in s.compositions)
+    rng = np.random.default_rng(0)
+    assert all(len(s.sample(rng).subgoals) == 1 for _ in range(200))
