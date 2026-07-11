@@ -183,6 +183,8 @@ actor:
     add_cost_head: False         # reach-only V-MPO (cost port wired but inert)
     openpi:
       value_after_vlm: False     # value depends on the sampled action -> best-of-N can discriminate
+      detach_critic_input: True  # CRITICAL: critic grad must NOT flow into the shared action-expert
+                                 # trunk or it corrupts the frozen SFT policy (critic-only V-MPO).
       best_of_n: 8               # eval-time best-of-N (best_of_n MUST be under openpi)
       best_of_n_eta: 1.0         # η* init; synced from the actor's V-MPO temperature dual
       best_of_n_lambda: 0.0      # BoN score = V_{r̃}/η*

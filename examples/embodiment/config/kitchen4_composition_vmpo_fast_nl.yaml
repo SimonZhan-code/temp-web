@@ -165,8 +165,11 @@ actor:
     add_value_head: True
     add_cost_head: False
     openpi:
-      value_after_vlm: False
-      best_of_n: 1               # tuning: disable eval-time best-of-N (was 8)
+      value_after_vlm: False     # value depends on the sampled action -> best-of-N can discriminate
+      detach_critic_input: True  # CRITICAL: critic grad must NOT flow into the shared action-expert
+                                 # trunk (value_after_vlm=False reads suffix_out) or it corrupts the
+                                 # frozen SFT policy. Option A: critic-only V-MPO + eval-time best-of-N.
+      best_of_n: 8               # eval-time value-guided selection (the policy-improvement mechanism)
       best_of_n_eta: 1.0
       best_of_n_lambda: 0.0
 
