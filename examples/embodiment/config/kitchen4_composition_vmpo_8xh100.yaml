@@ -28,7 +28,8 @@
 # =============================================================================
 defaults:
   - env/kitchen4_ltl_composition@env.train
-  - env/kitchen4_eval_ldba_samescene@env.eval
+  - env/kitchen4_compositional_eval@env.eval   # real-task subgoal compositions (task_goals),
+                                                # no runtime LTL->LDBA construction
   - model/pi0_5@actor.model
   - training_backend/fsdp@actor.fsdp_config
   - override hydra/job_logging: stdout
