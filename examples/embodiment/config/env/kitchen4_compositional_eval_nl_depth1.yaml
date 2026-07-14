@@ -1,0 +1,41 @@
+# DEPTH-1 eval env (NATURAL LANGUAGE): REAL single-goal KITCHEN_SCENE4 tasks (matched to
+# depth-1 training), prompted as a natural-language instruction (composition.mode=task_goals,
+# prompt_style=nl). Each episode loads a real task's BDDL; its single :goal predicate is
+# tracked and surfaced. Success == achieving that one goal. Replaces the 2-goal eval so eval
+# difficulty matches depth-1 training and best-of-N's effect is measurable.
+env_type: libero_ltl_composition
+task_suite_name: libero_90
+
+total_num_envs: null
+
+auto_reset: True
+ignore_terminations: True
+max_steps_per_rollout_epoch: 250
+max_episode_steps: 250
+use_fixed_reset_state_ids: True
+use_ordered_reset_state_ids: True
+
+use_rel_reward: True
+reward_coef: 5.0
+
+composition:
+  mode: task_goals       # use each real task's own ordered goal predicates as subgoals
+  scene_id: KITCHEN_SCENE4
+  min_goals: 1           # keep single-subgoal tasks ...
+  max_goals: 1           # ... and ONLY single-subgoal (depth-1 matched, 5 real tasks)
+  prompt_style: nl       # match NL training prompt distribution
+
+reset_gripper_open: True
+is_eval: True
+
+seed: 0
+group_size: 1
+
+video_cfg:
+  save_video: True
+  info_on_video: True
+  video_base_dir: ${runner.logger.log_path}/video/eval
+
+init_params:
+  camera_heights: 256
+  camera_widths: 256

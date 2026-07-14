@@ -1164,6 +1164,12 @@ class EmbodiedFSDPActor(FSDPModelManager, Worker):
             loss_mask=flat_loss_mask,
         )
 
+        # Optional value-target (return) normalization: standardize the critic target per
+        # batch to stabilize a noisy value head. Monotonic affine transform, so best-of-N
+        # argmax ranking is preserved. Advantages are normalized separately below.
+        if self.cfg.algorithm.get("normalize_returns", False):
+            returns = safe_normalize(returns, loss_mask=flat_loss_mask)
+
         # Per-subgoal advantage normalization for the V-MPO temperature top-half filter:
         # group advantages by sub-trajectory (the segment between two subgoal boundaries,
         # derived from segment_dones) so subgoals with different value scales each

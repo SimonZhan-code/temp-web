@@ -160,15 +160,22 @@ class LiberoEnv(gym.Env):
 
         Backward compatible: with no ``cfg.composition`` block, all reset states
         are allowed. Otherwise filter tasks by ``scene_id`` (task-name prefix),
-        an explicit ``task_names`` allowlist, and/or ``min_goals`` (number of
-        ``:goal`` predicates, e.g. ``2`` to keep only compositional tasks).
+        an explicit ``task_names`` allowlist, and/or ``min_goals`` / ``max_goals``
+        (number of ``:goal`` predicates — e.g. ``min_goals: 2`` keeps only compositional
+        tasks; ``max_goals: 1`` keeps only single-subgoal tasks for a depth-1 eval).
         """
         all_ids = np.arange(self.total_num_group_envs)
         comp = self.cfg.get("composition", None)
         scene_id = comp.get("scene_id", None) if comp is not None else None
         task_names = comp.get("task_names", None) if comp is not None else None
         min_goals = comp.get("min_goals", None) if comp is not None else None
-        if scene_id is None and task_names is None and min_goals is None:
+        max_goals = comp.get("max_goals", None) if comp is not None else None
+        if (
+            scene_id is None
+            and task_names is None
+            and min_goals is None
+            and max_goals is None
+        ):
             self.allowed_reset_state_ids = all_ids
             self.allowed_task_ids = list(range(self.task_suite.get_num_tasks()))
             return
@@ -181,15 +188,19 @@ class LiberoEnv(gym.Env):
                 continue
             if task_names is not None and name not in task_names:
                 continue
-            if min_goals is not None:
+            if min_goals is not None or max_goals is not None:
                 bddl = self.task_suite.get_task_bddl_file_path(task_id)
-                if self._count_goal_predicates(bddl) < int(min_goals):
+                n_goals = self._count_goal_predicates(bddl)
+                if min_goals is not None and n_goals < int(min_goals):
+                    continue
+                if max_goals is not None and n_goals > int(max_goals):
                     continue
             allowed_task_ids.append(task_id)
         if not allowed_task_ids:
             raise ValueError(
                 "cfg.composition matched no tasks "
-                f"(scene_id={scene_id}, task_names={task_names}, min_goals={min_goals})."
+                f"(scene_id={scene_id}, task_names={task_names}, "
+                f"min_goals={min_goals}, max_goals={max_goals})."
             )
         ranges = []
         for task_id in allowed_task_ids:

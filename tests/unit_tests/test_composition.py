@@ -220,6 +220,26 @@ def test_sampler_covers_pool():
     assert len(seen) == len(s)
 
 
+def test_count_goal_predicates_for_max_goals_filter(tmp_path):
+    # The depth-1 eval's max_goals filter keys off LiberoEnv._count_goal_predicates:
+    # single-goal tasks -> 1, compositional (And ...) tasks -> N.
+    from rlinf.envs.libero.libero_env import LiberoEnv
+
+    single = tmp_path / "one.bddl"
+    single.write_text("(:goal\n    (Open white_cabinet_1_top_region)\n  )\n")
+    assert LiberoEnv._count_goal_predicates(str(single)) == 1
+
+    two = tmp_path / "two.bddl"
+    two.write_text(
+        "(:goal\n    (And (Close white_cabinet_1_bottom_region) "
+        "(Open white_cabinet_1_top_region))\n  )\n"
+    )
+    assert LiberoEnv._count_goal_predicates(str(two)) == 2
+    # max_goals=1 keeps the single, drops the two-goal:
+    assert LiberoEnv._count_goal_predicates(str(single)) <= 1
+    assert LiberoEnv._count_goal_predicates(str(two)) > 1
+
+
 def test_sampler_depth1_curriculum():
     # max_depth=1 must yield ONLY single-subgoal compositions, even though the shipped
     # file is compositions_up_to_3.json (file fallback + per-composition upper filter).
