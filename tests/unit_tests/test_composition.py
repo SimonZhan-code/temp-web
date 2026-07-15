@@ -220,6 +220,34 @@ def test_sampler_covers_pool():
     assert len(seen) == len(s)
 
 
+def test_validate_identity_is_per_env():
+    # Regression: task_goals eval runs different real tasks per env, so each env's
+    # ltl_label only has its own task's goal keys. Validation must be PER-ENV, not
+    # every-env's-subgoals vs one env's label (which crashed the depth-1 eval).
+    import types
+    from rlinf.envs.libero.libero_composition_env import LiberoCompositionEnv
+
+    def stub():
+        return types.SimpleNamespace(
+            _identity_checked=False, scene_id="KITCHEN_SCENE4", _mode="task_goals",
+            _subgoals=[["on_bowl_top"], ["in_wine_bottom"]], task_ids=[25, 26],
+        )
+
+    # Each env's subgoal is in its OWN label -> passes (this used to falsely fail).
+    s = stub()
+    LiberoCompositionEnv._validate_identity_once(
+        s, [{"on_bowl_top": False}, {"in_wine_bottom": False}]
+    )
+    assert s._identity_checked is True
+
+    # env1's subgoal genuinely absent from env1's label -> must raise.
+    s = stub()
+    with pytest.raises(RuntimeError):
+        LiberoCompositionEnv._validate_identity_once(
+            s, [{"on_bowl_top": False}, {"on_bowl_top": False}]
+        )
+
+
 def test_count_goal_predicates_for_max_goals_filter(tmp_path):
     # The depth-1 eval's max_goals filter keys off LiberoEnv._count_goal_predicates:
     # single-goal tasks -> 1, compositional (And ...) tasks -> N.

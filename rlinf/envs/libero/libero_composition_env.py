@@ -392,23 +392,32 @@ class LiberoCompositionEnv(LiberoEnv):
         return texts
 
     def _validate_identity_once(self, ltl_labels):
-        """Assert every active subgoal AP is an emitted ltl_label key (both modes)."""
+        """Assert each env's active subgoal APs are keys in THAT env's ltl_label.
+
+        Per-env (not cross-env): in ``task_goals`` mode different envs run different
+        real tasks with different BDDLs, so each env's ltl_label only contains its own
+        task's goal predicates. Validating every env's subgoals against a single env's
+        label would wrongly fail whenever the eval spans >1 task (e.g. depth-1 eval).
+        """
         if self._identity_checked or not ltl_labels:
             return
-        label = next((x for x in ltl_labels if isinstance(x, dict)), None)
-        if label is None:
-            return
-        needed = set()
-        for sg in self._subgoals:
-            if sg:
-                needed.update(sg)
-        missing = sorted(k for k in needed if k not in label)
-        if missing:
-            raise RuntimeError(
-                f"Scene {self.scene_id} ({self._mode} mode): subgoal APs {missing} "
-                f"are not emitted in ltl_label. Present keys: {sorted(label)[:40]}"
-            )
-        self._identity_checked = True
+        any_checked = False
+        for env_id, subgoals in enumerate(self._subgoals):
+            if not subgoals or env_id >= len(ltl_labels):
+                continue
+            label = ltl_labels[env_id]
+            if not isinstance(label, dict):
+                continue
+            missing = sorted(k for k in subgoals if k not in label)
+            if missing:
+                raise RuntimeError(
+                    f"Scene {self.scene_id} ({self._mode} mode): subgoal APs {missing} "
+                    f"are not in env {env_id}'s ltl_label "
+                    f"(task {self.task_ids[env_id]}). Present keys: {sorted(label)[:40]}"
+                )
+            any_checked = True
+        if any_checked:
+            self._identity_checked = True
 
     def _tracker_rewards(self, ltl_labels):
         """Advance each env's pointer; return (reach_rewards, safety_margins).
