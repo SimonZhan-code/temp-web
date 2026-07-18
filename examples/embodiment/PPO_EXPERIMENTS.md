@@ -18,14 +18,29 @@ Same composition env, same depth-1 KITCHEN_SCENE4 tasks, same NL/AP prompts. Onl
 All V-MPO logic (temperature dual, λ, segmented GAE) is config-gated → absent in the PPO configs ⇒ no-op.
 V-MPO configs/code are untouched.
 
-## PPO configs
+## Pipeline validated ✅ (toy smoke, 2× H100)
 
-| config | prompt | freeze scope | FSDP | fits |
-|---|---|---|---|---|
-| `kitchen4_composition_ppo_nl_frozen`   | NL | VLM frozen (expert+value) | no_shard | validate first; V-MPO-fast envelope |
-| `kitchen4_composition_ppo_ap_frozen`   | AP | VLM frozen (expert+value) | no_shard | " |
-| `kitchen4_composition_ppo_nl_unfrozen` | NL | **full unfreeze** (VLM+expert+value) | full_shard + cpu_offload | 8×H100, memory-heavy |
-| `kitchen4_composition_ppo_ap_unfrozen` | AP | **full unfreeze** | full_shard + cpu_offload | 8×H100, memory-heavy |
+The end-to-end PPO loop was validated on a 2× H100 (NVLink) node with `kitchen4_composition_ppo_nl_toy`
+(2 envs, 50-step episodes, 3 epochs, frozen VLM), disaggregated placement (actor GPU0, rollout GPU1).
+Run: `northwestern-ideas2/neuralsym-vla/runs/gniofiwu`. It confirmed:
+- **rollout → NCCL weight sync → GAE → actor_critic loss → optimizer step → eval** all run
+  (`time/time/sync_weights≈1.0s` — disaggregated NCCL over NVLink, **no ptrace / CUDA-IPC needed**);
+- PPO trains **policy + critic** (real `approx_kl`, `clip_fraction`, `policy_loss`, `grad_norm` 58–119 —
+  vs V-MPO's collapsed ~1e-3);
+- the depth-1 `on_` single-goal eval task runs cleanly (per-env identity fix confirmed in production).
+
+(success=0 in a 3-step toy is expected — mechanical smoke only, not a learning test.)
+
+## Runs to train (all four)
+
+Queue below. Start with the frozen NL variant (cheapest), then AP, then the unfrozen variants.
+
+| # | config | prompt | freeze scope | FSDP | hardware | status |
+|---|---|---|---|---|---|---|
+| 1 | `kitchen4_composition_ppo_nl_frozen`   | NL | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | ready |
+| 2 | `kitchen4_composition_ppo_ap_frozen`   | AP | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | ready |
+| 3 | `kitchen4_composition_ppo_nl_unfrozen` | NL | **full unfreeze** (VLM+expert+value) | full_shard + cpu_offload | 8×H100 | ready (memory-heavy) |
+| 4 | `kitchen4_composition_ppo_ap_unfrozen` | AP | **full unfreeze** | full_shard + cpu_offload | 8×H100 | ready (memory-heavy) |
 
 Shared: `adv_type: gae`, `loss_type: actor_critic`, bare PPO (`kl_beta: 0`, `entropy_bonus: 0`),
 `value_after_vlm: True` (state value), `add_value_head: True`, **no best-of-N**, `gae_lambda: 0.95`,
@@ -38,16 +53,28 @@ Frozen vs unfrozen differ only in: `train_expert_only` (True/False), `sharding_s
 ## Launch
 
 ```bash
-sudo sysctl -w kernel.yama.ptrace_scope=0
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+export WANDB_API_KEY=...   # for wandb logging
+# Set the SFT checkpoint path in the config (rollout/actor model_path) or via hydra override.
 
-# start with the frozen NL variant (cheapest, validate the pipeline learns):
+# --- 8x H100 (collocated, max throughput) — needs ptrace_scope=0 (root, once): ---
+sudo sysctl -w kernel.yama.ptrace_scope=0
+bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen   # then _ap_frozen, _nl_unfrozen, _ap_unfrozen
+
+# --- 2-GPU node (disaggregated, actor GPU0 / rollout GPU1) — NCCL, NO ptrace (works in vast): ---
+# run_embodiment.sh only forwards the config name, so set the placement IN the config:
+#   cluster:
+#     component_placement:
+#       actor: 0      # GPU 0
+#       rollout: 1    # GPU 1  (NCCL weight sync, no ptrace/IPC)
+#       env: 0
+# (this is exactly what kitchen4_composition_ppo_nl_toy already uses). On NVLink omit NCCL_P2P_DISABLE.
 bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen
-# then AP, then the unfrozen variants on 8xH100:
-bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_unfrozen
 ```
-Set `rollout.model.model_path` / `actor.model.model_path` to the SFT checkpoint (or pass as hydra overrides).
+`kitchen4_composition_ppo_nl_toy` is the minimal 2-GPU disaggregated smoke (validated above). The four
+training configs use collocated placement by default; edit their `cluster.component_placement` to the
+disaggregated block above to run them on a 2-GPU node.
 
 ## What to watch
 
