@@ -20,7 +20,7 @@
 # =============================================================================
 defaults:
   - env/kitchen4_ltl_composition@env.train
-  - env/kitchen4_compositional_eval_depth1@env.eval
+  - env/kitchen4_compositional_eval_d12@env.eval
   - model/pi0_5@actor.model
   - training_backend/fsdp@actor.fsdp_config
   - override hydra/job_logging: stdout
@@ -117,9 +117,9 @@ env:
   eval:
     total_num_envs: 16
     auto_reset: True
-    ignore_terminations: True
-    max_episode_steps: 250
-    max_steps_per_rollout_epoch: 250
+    ignore_terminations: False   # terminate on success -> eval/episode_len = time-to-success
+    max_episode_steps: 400       # blended depth-2 tasks need a longer horizon
+    max_steps_per_rollout_epoch: 400
     group_size: 1
     use_fixed_reset_state_ids: True
     is_eval: True
@@ -168,6 +168,7 @@ actor:
 
   fsdp_config:
     strategy: "fsdp"
+    use_orig_params: True           # required for trainable VLM (avoids FSDP view/in-place autograd error)
     sharding_strategy: "no_shard"   # unfrozen 3B + optimizer fits on one 80GB H100 (data-parallel).
                                     # full_shard + cpu_offload corrupts the openpi VLM param materialization.
     gradient_checkpointing: False   # openpi does NOT support gradient checkpointing

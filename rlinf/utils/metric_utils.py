@@ -35,8 +35,11 @@ def compute_evaluate_metrics(eval_metrics_list):
         ]
 
     for key in all_eval_metrics:
+        # nanmean so per-depth eval metrics (success_once_d1/_d2, ...), which NaN-mask
+        # envs of other depths, average only over the relevant episodes. Existing metrics
+        # have no NaNs, so this is identical to mean for them.
         all_eval_metrics[key] = (
-            torch.concat(all_eval_metrics[key]).float().mean().numpy()
+            torch.concat(all_eval_metrics[key]).float().nanmean().numpy()
         )
 
     return all_eval_metrics

@@ -1,0 +1,41 @@
+# BLENDED DEPTH-1/2 eval env: REAL single-goal KITCHEN_SCENE4 tasks (matched to depth-1 training),
+# prompted in atomic-proposition format (composition.mode=task_goals). Each episode loads a
+# real task's own BDDL; its single :goal predicate is tracked and surfaced in the prompt.
+# Success == achieving that one goal. This replaces the 2-goal eval so eval difficulty
+# matches depth-1 training and best-of-N's effect is measurable.
+env_type: libero_ltl_composition
+task_suite_name: libero_90
+
+total_num_envs: null
+
+auto_reset: True
+ignore_terminations: False
+max_steps_per_rollout_epoch: 400
+max_episode_steps: 400
+use_fixed_reset_state_ids: True
+use_ordered_reset_state_ids: True
+
+use_rel_reward: True
+reward_coef: 5.0
+
+composition:
+  mode: task_goals       # use each real task's own ordered goal predicates as subgoals
+  scene_id: KITCHEN_SCENE4
+  min_goals: 1           # blend depth-1 (5 tasks) ...
+  max_goals: 2           # ... and depth-2 (3 tasks) real KITCHEN_SCENE4 tasks
+  # prompt_preamble / prompt_ap_format default to the training values (kept identical).
+
+reset_gripper_open: True
+is_eval: True
+
+seed: 0
+group_size: 1
+
+video_cfg:
+  save_video: True
+  info_on_video: True
+  video_base_dir: ${runner.logger.log_path}/video/eval
+
+init_params:
+  camera_heights: 256
+  camera_widths: 256

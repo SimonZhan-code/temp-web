@@ -501,6 +501,24 @@ class LiberoCompositionEnv(LiberoEnv):
             infos["episode"]["success_at_end"] = to_tensor(terminations)
             terminations[:] = False
 
+        # Per-depth eval breakdown: split success/length metrics by composition depth
+        # (number of subgoals) so eval logs success_once_d1/_d2 etc. Other-depth envs are
+        # NaN-masked; compute_evaluate_metrics uses nanmean, so they're ignored. _subgoals
+        # still reflects the just-recorded episode (auto-reset happens below).
+        if self.cfg.get("is_eval", False):
+            depths = np.array(
+                [len(sg) if sg else 0 for sg in self._subgoals], dtype=np.int64
+            )
+            ep = infos["episode"]
+            for base in ("success_once", "success_at_end", "episode_len"):
+                if base not in ep:
+                    continue
+                base_v = to_tensor(ep[base]).float()
+                for d in (1, 2):
+                    masked = base_v.clone()
+                    masked[torch.from_numpy(depths != d)] = float("nan")
+                    ep[f"{base}_d{d}"] = masked
+
         dones = terminations | truncations
         _auto_reset = auto_reset and self.auto_reset
         if dones.any() and _auto_reset:
