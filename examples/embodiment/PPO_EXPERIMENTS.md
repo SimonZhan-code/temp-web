@@ -31,24 +31,35 @@ Run: `northwestern-ideas2/neuralsym-vla/runs/gniofiwu`. It confirmed:
 
 (success=0 in a 3-step toy is expected — mechanical smoke only, not a learning test.)
 
+## RESULT ✅ — PPO learns (frozen), decomposition is valid
+
+The frozen PPO runs (`l0ck8r6n` AP, `y4r3mfyc` NL) confirm the hypothesis: with only the action expert
+trained, both **train and eval success rise** — NL `env/success_once` 0.21→0.34, `eval/success_once`
+0.12→**0.44 peak**; AP 0.05→0.30, eval →**0.375 peak**; critic `explained_variance` up to 0.97. So V-MPO's
+frozen-everything + best-of-N was the bottleneck, not the subgoal decomposition. Full unfreeze is validated
+to *train* (see fixes below) — its learning payoff is the open experiment.
+
 ## Runs to train (all four)
 
 Queue below. Start with the frozen NL variant (cheapest), then AP, then the unfrozen variants.
 
 | # | config | prompt | freeze scope | FSDP | hardware | status |
 |---|---|---|---|---|---|---|
-| 1 | `kitchen4_composition_ppo_nl_frozen`   | NL | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | ready |
-| 2 | `kitchen4_composition_ppo_ap_frozen`   | AP | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | ready |
-| 3 | `kitchen4_composition_ppo_nl_unfrozen` | NL | **full unfreeze** (VLM+expert+value) | full_shard + cpu_offload | 8×H100 | ready (memory-heavy) |
-| 4 | `kitchen4_composition_ppo_ap_unfrozen` | AP | **full unfreeze** | full_shard + cpu_offload | 8×H100 | ready (memory-heavy) |
+| 1 | `kitchen4_composition_ppo_nl_frozen`   | NL | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | **learning ✅** |
+| 2 | `kitchen4_composition_ppo_ap_frozen`   | AP | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | **learning ✅** |
+| 3 | `kitchen4_composition_ppo_nl_unfrozen` | NL | **full unfreeze** (VLM+expert+value) | no_shard + use_orig_params | 8×H100 (or 2-GPU disagg) | trains ✅ (learning tbd) |
+| 4 | `kitchen4_composition_ppo_ap_unfrozen` | AP | **full unfreeze** | no_shard + use_orig_params | 8×H100 (or 2-GPU disagg) | trains ✅ (learning tbd) |
 
 Shared: `adv_type: gae`, `loss_type: actor_critic`, bare PPO (`kl_beta: 0`, `entropy_bonus: 0`),
 `value_after_vlm: True` (state value), `add_value_head: True`, **no best-of-N**, `gae_lambda: 0.95`,
-`gamma: 0.99`, depth-1 train + depth-1 real-task eval. `gradient_checkpointing: False` everywhere (openpi
-does not support it).
+`gamma: 0.99`, depth-1 train + **blended depth-1/2 real-task eval** (`eval/*_d1`, `*_d2` per-depth metrics,
+`ignore_terminations: False` so `eval/episode_len` = time-to-success). `gradient_checkpointing: False`
+everywhere (openpi does not support it).
 
-Frozen vs unfrozen differ only in: `train_expert_only` (True/False), `sharding_strategy`
-(no_shard / full_shard + cpu_offload), `actor.enable_offload`, and batch/env sizing (256/64 vs 128/16).
+Frozen vs unfrozen differ in: `train_expert_only` (True/False); **unfrozen adds `use_orig_params: True`**
+(required for a trainable VLM — avoids the FSDP FlatParameter view/in-place autograd error); and batch sizing
+(frozen `micro 128` / `global 1024`, unfrozen `micro 16` to fit the trainable 3B). Both use `no_shard`
+(`full_shard + cpu_offload` breaks the openpi VLM forward — do not use).
 
 ## Launch
 
@@ -78,16 +89,19 @@ disaggregated block above to run them on a 2-GPU node.
 
 ## What to watch
 
-- **`env/success_once` (train)**: under PPO this should **rise** above the frozen-SFT baseline (V-MPO held a
-  flat ~17% NL / ~6% AP). A rising curve = the goal-conditioned formulation is learnable → decomposition valid.
-- **`eval/success_once`**: on the depth-1 real single-goal tasks (matched difficulty). Should follow train.
+- **`env/success_once` (train)** should **rise** above the frozen-SFT baseline (confirmed for frozen).
+- **`eval/success_once` + per-depth `eval/success_once_d1` / `eval/success_once_d2`**: blended depth-1/2 real
+  tasks. d1 should track train; d2 is the harder generalization signal (see coverage caveat below).
+- **`eval/episode_len` (+ `_d1`/`_d2`)**: now falls as the policy solves tasks faster (`ignore_terminations: False`).
 - **`train/critic/explained_variance`**: PPO critic should be positive/stable (contrast V-MPO's noisy ≈0).
 - **Unfrozen only**: watch for drift/collapse (bare PPO, no KL anchor). If it collapses, revisit adding a
   KL-to-SFT anchor (`kl_beta > 0`) + small `entropy_bonus`.
 
 ## Notes
 
-- The frozen variant still trains the **action expert** (the part that outputs actions) by PPO — the real
-  contrast vs V-MPO's frozen-everything + BoN — just with the VLM backbone frozen. The unfrozen variant adds
-  the VLM.
-- Depth-1 only (matched to the V-MPO experiments); deeper curriculum is a later step.
+- The frozen variant trains the **action expert** by PPO (VLM frozen) — the real contrast vs V-MPO's
+  frozen-everything + BoN. The unfrozen variant adds the VLM (`no_shard` + `use_orig_params: True`).
+- **Depth-2/3 eval coverage caveat**: `libero_90` KITCHEN_SCENE4 has only **1 real depth-2 task** (close+open)
+  and **no depth-3** tasks. So `eval/*_d2` is a single, sparsely-sampled task; depth-3 would need `libero_10`
+  tasks (cross-suite) or synthetic sample-mode compositions.
+- Depth-1 training (matched to the V-MPO experiments); deeper curriculum is a later step.
