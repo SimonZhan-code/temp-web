@@ -1,8 +1,8 @@
 # =============================================================================
 # PPO (policy + critic) on KITCHEN_SCENE4 depth-1 subgoal compositions, AP prompt.
 # FULL UNFREEZE variant (train_expert_only=False): trains VLM + action expert + value
-# head by policy gradient. Memory-heavy (openpi has no grad-ckpt) -> full_shard + cpu_offload,
-# small batch. 8x H100, single node.
+# head by policy gradient. Memory-heavy (openpi has no grad-ckpt); no_shard fits the 3B model +
+# optimizer on one 80GB H100 (~55GB). full_shard+cpu_offload breaks the openpi VLM forward. 8x H100.
 # =============================================================================
 # Purpose: isolate whether the subgoal-decomposition / goal-conditioned formulation is
 #   learnable when the POLICY is actually trained (PPO), vs V-MPO Option A (frozen policy
@@ -145,7 +145,7 @@ actor:
   micro_batch_size: 16
   global_batch_size: 128         # global % (micro_batch_size * actor_world_size) == 0
   seed: 42
-  enable_offload: True         # cpu_offload requires actor offload too
+  enable_offload: False
 
   model:
     model_path: "/path/to/model/Pi05-LIBERO-SFT"   # <-- set me
@@ -168,8 +168,8 @@ actor:
 
   fsdp_config:
     strategy: "fsdp"
-    sharding_strategy: "full_shard" # unfreeze: shard params/grads/optim across GPUs
-    cpu_offload: True
+    sharding_strategy: "no_shard"   # unfrozen 3B + optimizer fits on one 80GB H100 (data-parallel).
+                                    # full_shard + cpu_offload corrupts the openpi VLM param materialization.
     gradient_checkpointing: False   # openpi does NOT support gradient checkpointing
     mixed_precision:
       param_dtype: ${actor.model.precision}
