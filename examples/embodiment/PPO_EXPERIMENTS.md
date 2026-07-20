@@ -64,10 +64,20 @@ Frozen vs unfrozen differ in: `train_expert_only` (True/False); **unfrozen adds 
 ## Launch
 
 ```bash
+# 0) get the fixes + activate the openpi venv (run_embodiment.sh uses `python` from PATH):
+git pull
+source .venv/bin/activate            # or wherever the openpi venv lives
+
+# 1) set the SFT checkpoint path IN the config (run_embodiment.sh forwards ONLY the config name,
+#    so a hydra override on the command line will NOT apply). Edit both model_path lines:
+#      rollout.model.model_path  and  actor.model.model_path
+#    e.g.:  sed -i "s#/path/to/model/Pi05-LIBERO-SFT#$CKPT#g" \
+#             examples/embodiment/config/kitchen4_composition_ppo_nl_frozen.yaml
+
+# 2) env for headless MuJoCo render + logging:
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
-export WANDB_API_KEY=...   # for wandb logging
-# Set the SFT checkpoint path in the config (rollout/actor model_path) or via hydra override.
+export WANDB_API_KEY=...
 
 # --- 8x H100 (collocated, max throughput) — needs ptrace_scope=0 (root, once): ---
 sudo sysctl -w kernel.yama.ptrace_scope=0
