@@ -64,6 +64,25 @@ Frozen vs unfrozen differ in: `train_expert_only` (True/False); **unfrozen adds 
 (frozen `micro 128` / `global 1024`, unfrozen `micro 16` to fit the trainable 3B). Both use `no_shard`
 (`full_shard + cpu_offload` breaks the openpi VLM forward — do not use).
 
+## Reach-avoid experiment (frozen VLM, avoid penalty on)
+
+Same frozen recipe + `composition.avoid_beta` set **in the top-level config** (the shared env configs stay
+at `0.0` = baseline; eval envs are always penalty-free). One un-commanded goal-AP toggle (e.g. the memorized
+drawer-close no subgoal asked for) subtracts β from the reach reward; undoing an achieved subgoal counts too.
+
+| # | config | prompt | avoid_beta | launch |
+|---|---|---|---|---|
+| 5 | `kitchen4_composition_ppo_nl_frozen_b05`  | NL | **0.5**  | `bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen_b05` |
+| 6 | `kitchen4_composition_ppo_nl_frozen_b025` | NL | **0.25** | `... kitchen4_composition_ppo_nl_frozen_b025` |
+| 7 | `kitchen4_composition_ppo_ap_frozen_b05`  | AP | **0.5**  | `... kitchen4_composition_ppo_ap_frozen_b05` |
+| 8 | `kitchen4_composition_ppo_ap_frozen_b025` | AP | **0.25** | `... kitchen4_composition_ppo_ap_frozen_b025` |
+
+Same launch steps as below (model_path sed applies to these files too). What to compare vs the β=0
+baselines (#1/#2): **`env/avoid_violations` should fall** (the penalty working) while **`env/success_once` /
+`eval/success_once` should NOT collapse** — if success craters at β=0.5, the penalty is too harsh relative
+to the +1 subgoal reward (violating trajectories are currently also the succeeding ones); fall back to 0.25
+(or 0.1). `rollout/reach_rewards` can go **negative** early — expected under the penalty, not a bug.
+
 ## Launch
 
 ```bash
@@ -75,7 +94,7 @@ source .venv/bin/activate            # or wherever the openpi venv lives
 #    so a hydra override on the command line will NOT apply). Edit both model_path lines:
 #      rollout.model.model_path  and  actor.model.model_path
 #    e.g.:  sed -i "s#/path/to/model/Pi05-LIBERO-SFT#$CKPT#g" \
-#             examples/embodiment/config/kitchen4_composition_ppo_nl_frozen.yaml
+#             examples/embodiment/config/kitchen4_composition_ppo_*_frozen*.yaml
 
 # 2) env for headless MuJoCo render + logging:
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
