@@ -97,6 +97,9 @@ source .venv/bin/activate            # or wherever the openpi venv lives
 #             examples/embodiment/config/kitchen4_composition_ppo_*_frozen*.yaml
 
 # 2) env for headless MuJoCo render + logging:
+ulimit -n 65535   # REQUIRED at >=64 envs: each MuJoCo env opens many asset files; the default
+                  # soft limit (1024) crashes env creation with "MjModel.from_xml_string:
+                  # Caught an unknown exception!"
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
 export WANDB_API_KEY=...
