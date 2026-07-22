@@ -79,8 +79,11 @@ drawer-close no subgoal asked for) subtracts β from the reach reward; undoing a
 | 9 | `kitchen4_composition_ppo_ap_frozen_b025` | AP | **0.25** | `... kitchen4_composition_ppo_ap_frozen_b025` |
 | 10 | `kitchen4_composition_ppo_ap_frozen_b05` | AP | **0.5**  | `... kitchen4_composition_ppo_ap_frozen_b05` |
 
-The `_b0` configs are reward-identical to the plain `_frozen` configs (#1/#2) — they exist so the
-{b0, b025, b05} sweep runs under parallel wandb experiment names for clean comparison.
+The `_b0` configs are reward-identical to the plain `_frozen` configs (#1/#2) but use **250-step
+train rollouts/episodes** (vs 500): depth-1 episodes finish well under 250 steps, so the shorter
+window doubles update frequency per wall-clock. They anchor the {b0, b025, b05} sweep under parallel
+wandb experiment names. (If comparing β variants head-to-head, note #6/#7/#9/#10 still use 500-step
+rollouts — match them to 250 first if you want the sweep fully controlled.)
 
 Same launch steps as below (model_path sed applies to these files too). What to compare vs the β=0
 baselines (#1/#2): **`env/avoid_violations` should fall** (the penalty working) while **`env/success_once` /

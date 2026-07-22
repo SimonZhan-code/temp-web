@@ -110,8 +110,8 @@ env:
 
   train:
     total_num_envs: 256          # 32 envs / GPU across 8 cards
-    max_episode_steps: 500
-    max_steps_per_rollout_epoch: 500   # divisible by num_action_chunks (=10)
+    max_episode_steps: 250
+    max_steps_per_rollout_epoch: 250   # 25 chunks/epoch; depth-1 episodes finish well under 250 steps
     reward_coef: ${algorithm.reward_coef}
     composition:
       max_depth: 1               # depth-1 (matched to the V-MPO experiments)
