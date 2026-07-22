@@ -483,6 +483,12 @@ class LiberoEnv(gym.Env):
         chunk_size = chunk_actions.shape[1]
 
         chunk_rewards = []
+        # Per-sim-step LTL reward channels (emitted in obs by the LTL/composition envs).
+        # Collected here because the final obs only carries the LAST sim step's values
+        # (mid-chunk subgoal events would be lost) and auto-reset replaces the obs
+        # entirely (the key would be dropped). Exposed via infos as [B, chunk] tensors.
+        chunk_reach_rewards = []
+        chunk_cost_rewards = []
 
         raw_chunk_terminations = []
         raw_chunk_truncations = []
@@ -493,6 +499,10 @@ class LiberoEnv(gym.Env):
             )
 
             chunk_rewards.append(step_reward)
+            if "ltl_reach_rewards" in extracted_obs:
+                chunk_reach_rewards.append(extracted_obs["ltl_reach_rewards"])
+            if "ltl_cost_rewards" in extracted_obs:
+                chunk_cost_rewards.append(extracted_obs["ltl_cost_rewards"])
             raw_chunk_terminations.append(terminations)
             raw_chunk_truncations.append(truncations)
 
@@ -522,6 +532,17 @@ class LiberoEnv(gym.Env):
         else:
             chunk_terminations = raw_chunk_terminations.clone()
             chunk_truncations = raw_chunk_truncations.clone()
+
+        # Set AFTER _handle_auto_reset (which rebuilds infos from reset): the collected
+        # per-step reach/cost channels must survive episode boundaries within the chunk.
+        if len(chunk_reach_rewards) == chunk_size:
+            infos["chunk_reach_rewards"] = torch.stack(
+                chunk_reach_rewards, dim=1
+            )  # [num_envs, chunk_size]
+        if len(chunk_cost_rewards) == chunk_size:
+            infos["chunk_cost_rewards"] = torch.stack(
+                chunk_cost_rewards, dim=1
+            )  # [num_envs, chunk_size]
         return (
             extracted_obs,
             chunk_rewards,

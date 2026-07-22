@@ -22,8 +22,12 @@ the subgoal -> label map is the identity and a simple progress pointer reproduce
 exact reward contract the V-MPO actor consumes (``obs["ltl_reach_rewards"]`` /
 ``obs["ltl_cost_rewards"]``).
 
-Reward is reach-only for now; ``ltl_cost_rewards`` is a constant "safe" signal
-(``-1.0``) that keeps the safety/Lagrangian port open but inert (see plan).
+Reward is reach + optional avoid: +1 per subgoal achieved, minus
+``composition.avoid_beta`` per un-commanded goal-AP toggle (``avoid_beta: 0.0``
+default = reach-only, bit-exact legacy behavior). With ``avoid_beta > 0`` the
+``ltl_cost_rewards`` channel also flags violation steps as hazards (+1.0); otherwise
+it stays the constant "safe" signal (``-1.0``). Do not combine ``avoid_beta`` with a
+V-MPO ``safety_lambda`` (the penalty would be double-counted).
 
 Evaluation does NOT use this env — it runs the stock ``LiberoLTLEnv`` on real,
 LTL-labeled compositional LIBERO tasks.
@@ -77,6 +81,40 @@ def advance_ordered_subgoals(subgoals, ptr, label):
     while p < k and bool(label.get(subgoals[p], False)):
         p += 1
     return p, float(p - old), p >= k
+
+
+def count_avoid_violations(prev_label, label, monitored_aps, exempt_aps):
+    """Count un-commanded toggles of monitored (goal-alphabet) APs this step.
+
+    A violation is a monitored AP whose truth value flipped between the previous and
+    the current step, EXCEPT the subgoal APs achieved this step (``exempt_aps`` — that
+    flip IS the commanded event). Undoing an already-achieved subgoal (e.g. re-closing
+    a drawer the composition asked to open) is NOT exempt and counts — that is exactly
+    the memorized-trajectory tail we want penalized. APs missing from either label are
+    skipped (robust to per-task label alphabets in ``task_goals`` mode).
+
+    Pure function (no env/MuJoCo) so it is unit-testable.
+
+    Args:
+        prev_label: AP name -> bool dict from the previous sim step (None right after
+            reset -> no violations, by design).
+        label: AP name -> bool dict for the current step.
+        monitored_aps: iterable of AP names to watch (the goal alphabet).
+        exempt_aps: iterable of subgoal APs achieved this step (pointer advance).
+
+    Returns:
+        int: number of violating AP toggles this step.
+    """
+    if not isinstance(prev_label, dict) or not isinstance(label, dict):
+        return 0
+    exempt = set(exempt_aps or ())
+    n = 0
+    for ap in monitored_aps or ():
+        if ap in exempt or ap not in prev_label or ap not in label:
+            continue
+        if bool(prev_label[ap]) != bool(label[ap]):
+            n += 1
+    return n
 
 
 # Default prompt preamble: tells the VLA, from the start, that the goal is delivered
@@ -293,12 +331,21 @@ class LiberoCompositionEnv(LiberoEnv):
             comp.get("prompt_preamble", DEFAULT_PROMPT_PREAMBLE)
         )
         self._ap_format = str(comp.get("prompt_ap_format", "predicate"))
+        # Avoid penalty: reach -= avoid_beta * (# un-commanded goal-AP toggles).
+        # 0.0 (default) = reach-only reward, bit-exact legacy behavior. Violations are
+        # still COUNTED (env/avoid_violations metric) so the rate is visible either way.
+        self._avoid_beta = float(comp.get("avoid_beta", 0.0))
         # per-env tracker state
         self._subgoals = [None] * num_envs
         self._primitives = [None] * num_envs
         self._ptr = np.zeros(num_envs, dtype=np.int32)
         self._subgoal_aps = [None] * num_envs  # rendered AP string per subgoal
         self._identity_checked = False
+        # avoid-penalty state: previous step's ltl_label per env (None right after
+        # reset -> first step records only) and per-episode violation accumulator.
+        self._prev_labels = [None] * num_envs
+        self._episode_violations = np.zeros(num_envs, dtype=np.float32)
+        self._monitored_ap_names = None  # goal-alphabet names, resolved lazily
 
         super().__init__(cfg, num_envs, seed_offset, total_num_processes, worker_info)
 
@@ -360,6 +407,27 @@ class LiberoCompositionEnv(LiberoEnv):
             else:  # task_goals: use the real task's own ordered goal predicates
                 subgoals, prims = self._task_subgoals(int(self.task_ids[env_id]))
                 self._set_subgoals_for_env(env_id, subgoals, prims)
+            # fresh episode: no previous label (first step records only, no penalty)
+            self._prev_labels[env_id] = None
+            self._episode_violations[env_id] = 0.0
+
+    def _monitored_aps(self, env_id):
+        """Goal-alphabet AP *names* watched for un-commanded toggles.
+
+        ``sample`` mode: the sampler's full goal alphabet (the all-goals BDDL
+        guarantees every one of them is emitted in ``ltl_label``); entries are
+        ``{"name": ..., "args": ...}`` dicts -> normalized to names once.
+        ``task_goals`` mode: the env's own ordered subgoals (its per-task label only
+        contains that task's goal predicates — undo-detection still works).
+        """
+        if self._sampler is not None:
+            if self._monitored_ap_names is None:
+                self._monitored_ap_names = tuple(
+                    ap["name"] if isinstance(ap, dict) else str(ap)
+                    for ap in self._sampler.goal_alphabet
+                )
+            return self._monitored_ap_names
+        return self._subgoals[env_id] or ()
 
     def _current_subgoal_ap(self, env_id):
         """The current (unachieved) subgoal AP string, or the done token."""
@@ -422,8 +490,11 @@ class LiberoCompositionEnv(LiberoEnv):
     def _tracker_rewards(self, ltl_labels):
         """Advance each env's pointer; return (reach_rewards, safety_margins).
 
-        Reward = +1 per subgoal achieved this step (event reward); episode return equals
-        the number of subgoals completed (max == len(subgoals)).
+        Reach = +1 per subgoal achieved this step (event reward) minus
+        ``avoid_beta`` x (# un-commanded goal-AP toggles this step). With the default
+        ``avoid_beta == 0`` the reward is reach-only (legacy behavior) but violations
+        are still counted for the ``env/avoid_violations`` metric. When
+        ``avoid_beta > 0``, violation steps also flip the cost channel to hazard (+1).
         """
         reach = np.zeros(self.num_envs, dtype=np.float32)
         safety = np.full(self.num_envs, _SAFE_MARGIN, dtype=np.float32)
@@ -438,10 +509,23 @@ class LiberoCompositionEnv(LiberoEnv):
                 if (ltl_labels is not None and env_id < len(ltl_labels))
                 else None
             )
-            new_ptr, reach_r, acc = advance_ordered_subgoals(
-                subgoals, int(self._ptr[env_id]), label
-            )
+            old_ptr = int(self._ptr[env_id])
+            new_ptr, reach_r, acc = advance_ordered_subgoals(subgoals, old_ptr, label)
             self._ptr[env_id] = new_ptr
+            # avoid penalty: toggles of goal-alphabet APs other than the subgoal(s)
+            # just achieved (undoing an already-achieved subgoal counts).
+            violations = count_avoid_violations(
+                self._prev_labels[env_id],
+                label,
+                self._monitored_aps(env_id),
+                subgoals[old_ptr:new_ptr],
+            )
+            self._episode_violations[env_id] += violations
+            if self._avoid_beta > 0.0 and violations:
+                reach_r -= self._avoid_beta * violations
+                safety[env_id] = 1.0  # hazard step for the (optional) cost channel
+            if isinstance(label, dict):
+                self._prev_labels[env_id] = label
             reach[env_id] = reach_r
             accepted[env_id] = acc
         self._last_accepted = accepted
@@ -497,6 +581,10 @@ class LiberoCompositionEnv(LiberoEnv):
             self.add_new_frames(raw_obs, plot_infos)
 
         infos = self._record_metrics(step_reward, terminations, infos)
+        # cumulative un-commanded goal-AP toggles this episode -> env/avoid_violations
+        infos["episode"]["avoid_violations"] = to_tensor(
+            self._episode_violations.copy()
+        ).float()
         if self.ignore_terminations:
             infos["episode"]["success_at_end"] = to_tensor(terminations)
             terminations[:] = False

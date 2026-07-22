@@ -36,8 +36,11 @@ Run: `northwestern-ideas2/neuralsym-vla/runs/gniofiwu`. It confirmed:
 The frozen PPO runs (`l0ck8r6n` AP, `y4r3mfyc` NL) confirm the hypothesis: with only the action expert
 trained, both **train and eval success rise** — NL `env/success_once` 0.21→0.34, `eval/success_once`
 0.12→**0.44 peak**; AP 0.05→0.30, eval →**0.375 peak**; critic `explained_variance` up to 0.97. So V-MPO's
-frozen-everything + best-of-N was the bottleneck, not the subgoal decomposition. Full unfreeze is validated
-to *train* (see fixes below) — its learning payoff is the open experiment.
+frozen-everything + best-of-N was the bottleneck, not the subgoal decomposition.
+
+**Current focus: FROZEN configs only.** The unfrozen (full-unfreeze) variant runs mechanically but does
+not train properly in practice — it is parked. Use `kitchen4_composition_ppo_{nl,ap}_frozen` for all
+experiments (including the reach-avoid / depth≥2 work).
 
 ## Runs to train (all four)
 
@@ -47,8 +50,8 @@ Queue below. Start with the frozen NL variant (cheapest), then AP, then the unfr
 |---|---|---|---|---|---|---|
 | 1 | `kitchen4_composition_ppo_nl_frozen`   | NL | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | **learning ✅** |
 | 2 | `kitchen4_composition_ppo_ap_frozen`   | AP | VLM frozen (expert+value) | no_shard | 8×H100 (or 2-GPU disagg) | **learning ✅** |
-| 3 | `kitchen4_composition_ppo_nl_unfrozen` | NL | **full unfreeze** (VLM+expert+value) | no_shard + use_orig_params | 8×H100 (or 2-GPU disagg) | trains ✅ (learning tbd) |
-| 4 | `kitchen4_composition_ppo_ap_unfrozen` | AP | **full unfreeze** | no_shard + use_orig_params | 8×H100 (or 2-GPU disagg) | trains ✅ (learning tbd) |
+| 3 | `kitchen4_composition_ppo_nl_unfrozen` | NL | **full unfreeze** (VLM+expert+value) | no_shard + use_orig_params | 8×H100 (or 2-GPU disagg) | **parked — not training properly, do not use** |
+| 4 | `kitchen4_composition_ppo_ap_unfrozen` | AP | **full unfreeze** | no_shard + use_orig_params | 8×H100 (or 2-GPU disagg) | **parked — not training properly, do not use** |
 
 Shared: `adv_type: gae`, `loss_type: actor_critic`, bare PPO (`kl_beta: 0`, `entropy_bonus: 0`),
 `value_after_vlm: True` (state value), `add_value_head: True`, **no best-of-N**, `gae_lambda: 0.95`,
@@ -81,7 +84,7 @@ export WANDB_API_KEY=...
 
 # --- 8x H100 (collocated, max throughput) — needs ptrace_scope=0 (root, once): ---
 sudo sysctl -w kernel.yama.ptrace_scope=0
-bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen   # then _ap_frozen, _nl_unfrozen, _ap_unfrozen
+bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen   # then _ap_frozen (unfrozen variants are parked)
 
 # --- 2-GPU node (disaggregated, actor GPU0 / rollout GPU1) — NCCL, NO ptrace (works in vast): ---
 # run_embodiment.sh only forwards the config name, so set the placement IN the config:
@@ -109,6 +112,18 @@ disaggregated block above to run them on a 2-GPU node.
 
 ## Notes
 
+- **Reach channel is now LIVE (reach-avoid update).** Previously the per-subgoal
+  `ltl_reach_rewards` were silently stripped at the env→rollout obs whitelist and PPO trained on the
+  accept-only task reward via the `.get("reach_rewards", rewards)` fallback. At **depth-1** the two are
+  semantically identical (+1 at the same sim step when the single subgoal == acceptance), so the frozen-run
+  results above remain a valid baseline. At **depth≥2**, intermediate subgoal +1s now actually reach GAE —
+  required for the composition curriculum. Reach/cost flow as first-class per-sim-step `[B, chunk]`
+  channels through `chunk_step → EnvOutput → rollout`, so mid-chunk events and auto-reset chunks are
+  captured. Watch `rollout/reach_rewards` (live training signal) alongside `rollout/rewards` (task reward).
+- **Avoid penalty (optional)**: `composition.avoid_beta` in the train env configs (default `0.0` = old
+  behavior). With `avoid_beta > 0`, each un-commanded goal-AP toggle (e.g. the memorized drawer-close no
+  subgoal asked for) subtracts `avoid_beta` from the reach reward. `env/avoid_violations` (per-episode
+  violation count) is logged regardless, so run with `0.0` first to see the baseline violation rate.
 - The frozen variant trains the **action expert** by PPO (VLM frozen) — the real contrast vs V-MPO's
   frozen-everything + BoN. The unfrozen variant adds the VLM (`no_shard` + `use_orig_params: True`).
 - **Depth-2/3 eval coverage caveat**: `libero_90` KITCHEN_SCENE4 has only **1 real depth-2 task** (close+open)

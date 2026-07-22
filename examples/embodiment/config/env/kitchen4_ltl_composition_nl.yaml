@@ -26,6 +26,11 @@ composition:
   min_depth: 1
   pool: all           # sample uniformly from all feasible compositions
   prompt_style: nl    # natural-language current-subgoal instruction (vs "ap")
+  # Avoid penalty (reach-avoid shaping): reach reward -= avoid_beta per un-commanded
+  # goal-AP toggle (e.g. closing a drawer no subgoal asked to close). 0.0 = reach-only
+  # (legacy). Violations are always counted -> env/avoid_violations metric. Do NOT
+  # combine avoid_beta > 0 with a V-MPO safety_lambda (double-counted penalty).
+  avoid_beta: 0.0
 
 # RLinf LiberoEnv specific settings
 reset_gripper_open: True

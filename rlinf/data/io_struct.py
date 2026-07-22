@@ -1059,6 +1059,12 @@ class EnvOutput:
     truncations: Optional[torch.Tensor] = None  # [B]
     rewards: Optional[torch.Tensor] = None  # [B]
 
+    # Per-sim-step LTL reward channels, [B, chunk]. First-class fields (NOT obs keys)
+    # because prepare_observations whitelists obs and would strip them; collected across
+    # the whole chunk in chunk_step so mid-chunk subgoal events are preserved.
+    reach_rewards: Optional[torch.Tensor] = None  # [B, chunk]
+    cost_rewards: Optional[torch.Tensor] = None  # [B, chunk]
+
     intervene_actions: Optional[torch.Tensor] = None  # [B]
     intervene_flags: Optional[torch.Tensor] = None  # [B]
     atomic_props: Optional[dict[str, Any]] = None
@@ -1083,6 +1089,16 @@ class EnvOutput:
         )
         self.rewards = (
             self.rewards.cpu().contiguous() if self.rewards is not None else None
+        )
+        self.reach_rewards = (
+            self.reach_rewards.cpu().contiguous()
+            if self.reach_rewards is not None
+            else None
+        )
+        self.cost_rewards = (
+            self.cost_rewards.cpu().contiguous()
+            if self.cost_rewards is not None
+            else None
         )
         self.intervene_actions = (
             self.intervene_actions.cpu().contiguous()
@@ -1127,6 +1143,8 @@ class EnvOutput:
         env_output_dict["terminations"] = self.terminations
         env_output_dict["truncations"] = self.truncations
         env_output_dict["rewards"] = self.rewards
+        env_output_dict["reach_rewards"] = self.reach_rewards
+        env_output_dict["cost_rewards"] = self.cost_rewards
         env_output_dict["intervene_actions"] = self.intervene_actions
         env_output_dict["intervene_flags"] = self.intervene_flags
         env_output_dict["atomic_props"] = self.atomic_props

@@ -253,10 +253,13 @@ class MultiStepRolloutWorker(Worker):
                         env_output, extracted_obs
                     )
                     actions, result = self.predict(extracted_obs)
-                    reach_rewards = env_output["obs"].get("ltl_reach_rewards")
-                    cost_rewards = env_output["obs"].get("ltl_cost_rewards")
-                    # V-MPO subgoal segmentation signal (provided by LIBERO-Max env;
-                    # None for envs that don't emit it → segmentation disabled).
+                    # Per-sim-step LTL channels: first-class EnvOutput fields [B, chunk]
+                    # collected across the whole chunk (obs-based reads were dead — the
+                    # obs whitelist stripped the keys and only the last sim step survived).
+                    reach_rewards = env_output.get("reach_rewards")
+                    cost_rewards = env_output.get("cost_rewards")
+                    # V-MPO subgoal segmentation signal (still obs-based; the envs in use
+                    # do not emit it → segmentation disabled. Revisit with V-MPO work.)
                     subgoal_advanced = env_output["obs"].get("ltl_subgoal_advanced")
                     chunk_step_result = ChunkStepResult(
                         prev_logprobs=result["prev_logprobs"],
@@ -299,10 +302,10 @@ class MultiStepRolloutWorker(Worker):
                     env_output["terminations"]
                 )
                 self.buffer_list[stage_id].rewards.append(rewards)
-                reach_rewards = env_output["obs"].get("ltl_reach_rewards")
+                reach_rewards = env_output.get("reach_rewards")
                 if reach_rewards is not None:
                     self.buffer_list[stage_id].reach_rewards.append(reach_rewards)
-                cost_rewards = env_output["obs"].get("ltl_cost_rewards")
+                cost_rewards = env_output.get("cost_rewards")
                 if cost_rewards is not None:
                     self.buffer_list[stage_id].cost_rewards.append(cost_rewards)
                 subgoal_advanced = env_output["obs"].get("ltl_subgoal_advanced")

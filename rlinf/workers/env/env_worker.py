@@ -221,6 +221,10 @@ class EnvWorker(Worker):
             if "final_observation" in infos
             else None,
             rewards=chunk_rewards,
+            # per-sim-step LTL channels collected by chunk_step ([B, chunk]); None for
+            # envs that don't emit them -> actor falls back to the task reward
+            reach_rewards=infos.get("chunk_reach_rewards"),
+            cost_rewards=infos.get("chunk_cost_rewards"),
             dones=chunk_dones,
             terminations=chunk_terminations,
             truncations=chunk_truncations,

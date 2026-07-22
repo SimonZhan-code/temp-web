@@ -58,6 +58,14 @@ def compute_rollout_metrics(data_buffer: dict) -> dict:
         }
         rollout_metrics.update(rewards_metrics)
 
+    if "reach_rewards" in data_buffer:
+        # Per-sim-step LTL reach channel (subgoal events - avoid penalty). Logged
+        # separately from the task reward so the live training signal is visible.
+        reach_rewards = data_buffer["reach_rewards"].float()
+        mean_reach = torch.mean(reach_rewards).to(torch.cuda.current_device())
+        torch.distributed.all_reduce(mean_reach, op=torch.distributed.ReduceOp.AVG)
+        rollout_metrics["reach_rewards"] = mean_reach.item()
+
     if "advantages" in data_buffer:
         advantages = data_buffer["advantages"]
         mean_adv = torch.mean(advantages).to(torch.cuda.current_device())

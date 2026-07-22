@@ -281,3 +281,208 @@ def test_sampler_depth1_curriculum():
     assert all(c.depth == 1 for c in s.compositions)
     rng = np.random.default_rng(0)
     assert all(len(s.sample(rng).subgoals) == 1 for _ in range(200))
+
+
+# --------------------------------------------------------------------------- #
+# Avoid-violation counting (reach-avoid shaping)
+# --------------------------------------------------------------------------- #
+def test_avoid_no_prev_label_no_violation():
+    from rlinf.envs.libero.libero_composition_env import count_avoid_violations
+
+    # right after reset there is no previous label -> never a violation
+    assert count_avoid_violations(None, {"open_top": True}, ["open_top"], []) == 0
+    assert count_avoid_violations({"open_top": True}, None, ["open_top"], []) == 0
+
+
+def test_avoid_detects_uncommanded_toggle():
+    from rlinf.envs.libero.libero_composition_env import count_avoid_violations
+
+    # the memorized-tail case: drawer closes while no subgoal asked for it
+    prev = {"close_bottom": False, "in_bowl_bottom": True}
+    curr = {"close_bottom": True, "in_bowl_bottom": True}
+    aps = ["close_bottom", "in_bowl_bottom"]
+    assert count_avoid_violations(prev, curr, aps, exempt_aps=[]) == 1
+
+
+def test_avoid_exempts_achieved_subgoal():
+    from rlinf.envs.libero.libero_composition_env import count_avoid_violations
+
+    # the commanded subgoal flipping True is the reward event, not a violation
+    prev = {"in_bowl_bottom": False, "close_bottom": False}
+    curr = {"in_bowl_bottom": True, "close_bottom": False}
+    aps = ["in_bowl_bottom", "close_bottom"]
+    assert (
+        count_avoid_violations(prev, curr, aps, exempt_aps=["in_bowl_bottom"]) == 0
+    )
+
+
+def test_avoid_undoing_achieved_subgoal_counts():
+    from rlinf.envs.libero.libero_composition_env import count_avoid_violations
+
+    # undoing a PREVIOUSLY achieved subgoal (re-closing what we opened) is a violation:
+    # it is not in this step's exempt set (only subgoals achieved THIS step are).
+    prev = {"open_top": True}
+    curr = {"open_top": False}
+    assert count_avoid_violations(prev, curr, ["open_top"], exempt_aps=[]) == 1
+
+
+def test_avoid_skips_aps_missing_from_either_label():
+    from rlinf.envs.libero.libero_composition_env import count_avoid_violations
+
+    # task_goals mode: per-task labels only contain that task's goal predicates
+    prev = {"open_top": True}
+    curr = {"open_top": True, "close_bottom": True}
+    assert (
+        count_avoid_violations(prev, curr, ["open_top", "close_bottom"], []) == 0
+    )
+
+
+def test_avoid_counts_multiple_toggles():
+    from rlinf.envs.libero.libero_composition_env import count_avoid_violations
+
+    prev = {"a": False, "b": True, "c": False}
+    curr = {"a": True, "b": False, "c": False}
+    assert count_avoid_violations(prev, curr, ["a", "b", "c"], []) == 2
+
+
+# --------------------------------------------------------------------------- #
+# chunk_step reach/cost channel collection (first-class reward channels)
+# --------------------------------------------------------------------------- #
+class _ChunkStubEnv:
+    """Scripted env exercising the REAL LiberoEnv.chunk_step / _handle_auto_reset.
+
+    Mimics LiberoCompositionEnv.step()'s contract: emits obs["ltl_reach_rewards"]
+    per sim step; reset obs LACKS the ltl keys (like the real composition reset).
+    """
+
+    def __init__(self, complete_at_step, done_on_complete, num_envs=2):
+        from rlinf.envs.libero.libero_env import LiberoEnv
+
+        self._chunk_step = LiberoEnv.chunk_step
+        self._auto_reset_impl = LiberoEnv._handle_auto_reset
+        self.num_envs = num_envs
+        self.auto_reset = True
+        self.ignore_terminations = False
+        self.use_fixed_reset_state_ids = False
+        self.reset_state_ids = np.zeros(num_envs, dtype=int)
+
+        class _Cfg(dict):
+            __getattr__ = dict.get
+
+        self.cfg = _Cfg(is_eval=False)
+        self.t = 0
+        self.complete_at_step = complete_at_step
+        self.done_on_complete = done_on_complete
+
+    def chunk_step(self, chunk_actions):
+        return self._chunk_step(self, chunk_actions)
+
+    def _handle_auto_reset(self, dones, obs, infos):
+        return self._auto_reset_impl(self, dones, obs, infos)
+
+    def update_reset_state_ids(self):
+        pass
+
+    def reset(self, env_idx=None, reset_state_ids=None):
+        # like LiberoCompositionEnv.reset(): NO ltl_* keys in the reset obs
+        return {"task_descriptions": ["sg"] * self.num_envs}, {}
+
+    def step(self, actions=None, auto_reset=True):
+        import torch
+
+        self.t += 1
+        reach = np.zeros(self.num_envs, dtype=np.float32)
+        term = np.zeros(self.num_envs, dtype=bool)
+        if self.t == self.complete_at_step:
+            reach[0] = 1.0  # env0 achieves its subgoal at this sim step
+            if self.done_on_complete:
+                term[0] = True
+        obs = {
+            "task_descriptions": ["sg"] * self.num_envs,
+            "ltl_reach_rewards": torch.from_numpy(reach),
+            "ltl_cost_rewards": torch.full((self.num_envs,), -1.0),
+        }
+        return (
+            obs,
+            torch.from_numpy(term.astype(np.float32)),
+            torch.from_numpy(term),
+            torch.zeros(self.num_envs, dtype=torch.bool),
+            {},
+        )
+
+
+def test_chunk_step_collects_midchunk_reach():
+    import torch
+
+    # a subgoal completed at sim step 3 of 10 must land in the [B, chunk] channel
+    env = _ChunkStubEnv(complete_at_step=3, done_on_complete=False)
+    _, _, _, _, infos = env.chunk_step(torch.zeros(2, 10, 7))
+    reach = infos["chunk_reach_rewards"]
+    assert reach.shape == (2, 10)
+    assert reach[0].tolist() == [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+    assert reach[1].sum().item() == 0
+    assert infos["chunk_cost_rewards"].shape == (2, 10)
+
+
+def test_chunk_reach_survives_auto_reset():
+    import torch
+
+    # depth-1: completion terminates -> auto-reset replaces obs/infos mid-pipeline;
+    # the collected channel must still carry the +1 (the old obs-piggyback lost it)
+    env = _ChunkStubEnv(complete_at_step=3, done_on_complete=True)
+    obs, _, _, _, infos = env.chunk_step(torch.zeros(2, 10, 7))
+    assert "ltl_reach_rewards" not in obs  # reset obs (key gone) - the old dead path
+    reach = infos["chunk_reach_rewards"]  # the new first-class channel survives
+    assert reach.shape == (2, 10)
+    assert reach[0, 2].item() == 1.0
+    assert reach.sum().item() == 1.0
+
+
+def test_envoutput_to_dict_carries_reach_channels():
+    import torch
+
+    try:
+        from rlinf.data.io_struct import EnvOutput
+    except ModuleNotFoundError as e:  # io_struct pulls in ray via the scheduler
+        pytest.skip(f"io_struct deps unavailable in this env: {e}")
+
+    out = EnvOutput(
+        obs={"task_descriptions": ["sg"]},
+        rewards=torch.zeros(2, 10),
+        reach_rewards=torch.ones(2, 10),
+        cost_rewards=torch.full((2, 10), -1.0),
+    )
+    d = out.to_dict()
+    assert d["reach_rewards"].shape == (2, 10)
+    assert d["cost_rewards"].shape == (2, 10)
+    # envs that don't emit the channels -> None (actor falls back to task reward)
+    d2 = EnvOutput(obs={"task_descriptions": ["sg"]}).to_dict()
+    assert d2["reach_rewards"] is None and d2["cost_rewards"] is None
+
+
+def test_preprocess_accepts_3d_reach_rewards():
+    import torch
+
+    from rlinf.algorithms.utils import preprocess_embodied_advantages_inputs
+
+    # reach stacked as [n_chunk, B, chunk] (same 3-D shape as task rewards) must pass
+    # the chunk_level preprocess; the per-chunk sum must preserve mid-chunk events.
+    n_chunk, bsz, chunk = 4, 2, 10
+    reach = torch.zeros(n_chunk, bsz, chunk)
+    reach[1, 0, 2] = 1.0  # mid-chunk subgoal event
+    out = preprocess_embodied_advantages_inputs(
+        rewards=reach,
+        dones=torch.zeros(n_chunk + 1, bsz, chunk),
+        values=torch.zeros(n_chunk + 1, bsz, 1),
+        loss_mask=None,
+        loss_mask_sum=None,
+        reward_type="chunk_level",
+        adv_type="gae",
+        task_type="embodied",
+        gamma=0.99,
+        gae_lambda=0.95,
+    )
+    flat = out["rewards"]  # [n_steps, bsz] with chunk_size collapsed to 1
+    assert flat.shape == (n_chunk, bsz)
+    assert flat[1, 0].item() == 1.0  # the mid-chunk +1 survives the chunk sum
+    assert flat.sum().item() == 1.0
