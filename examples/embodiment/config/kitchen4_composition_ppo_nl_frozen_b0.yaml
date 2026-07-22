@@ -116,6 +116,7 @@ env:
     composition:
       max_depth: 1               # depth-1 (matched to the V-MPO experiments)
       avoid_beta: 0.0          # AVOID OFF: explicit sweep baseline (reach-only reward)
+      steps_per_subgoal: 250   # episode cap = 250 x depth (== 250 at depth-1; scales with curriculum)
   eval:
     total_num_envs: 16
     auto_reset: True

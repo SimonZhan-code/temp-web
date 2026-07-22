@@ -33,6 +33,8 @@ Evaluation does NOT use this env — it runs the stock ``LiberoLTLEnv`` on real,
 LTL-labeled compositional LIBERO tasks.
 """
 
+import re
+
 import numpy as np
 import torch
 
@@ -117,6 +119,143 @@ def count_avoid_violations(prev_label, label, monitored_aps, exempt_aps):
     return n
 
 
+def derive_precondition_model(ap_names):
+    """Gate (drawer) model inferred from goal-AP names.
+
+    Regions appearing in ``open_<R>``/``close_<R>`` APs are articulated gates.
+    Preconditions: placing INTO a gated region requires it open; ``close_<R>``
+    requires it open; ``open_<R>`` requires it closed. Surface placements
+    (``on_*``) and ungated regions have no preconditions. Mirrors the inference
+    LIBERO-Max's composition generator uses (transitions.py::_region_open_init).
+    """
+    open_ap, close_ap = {}, {}
+    for ap in ap_names or ():
+        ap = str(ap)
+        if ap.startswith("open_"):
+            open_ap[ap[len("open_"):]] = ap
+        elif ap.startswith("close_"):
+            close_ap[ap[len("close_"):]] = ap
+    return {
+        "gated": set(open_ap) | set(close_ap),
+        "open_ap": open_ap,
+        "close_ap": close_ap,
+    }
+
+
+def region_open_in_label(region, label, model):
+    """Is gated ``region`` open per ``label``? (open_R true => open; close_R true =>
+    closed; close_R false => open; unknown => assume open, i.e. ungated)."""
+    if not isinstance(label, dict):
+        return True
+    oap = model["open_ap"].get(region)
+    if oap is not None and oap in label:
+        return bool(label[oap])
+    cap = model["close_ap"].get(region)
+    if cap is not None and cap in label:
+        return not bool(label[cap])
+    return True
+
+
+def _placement_gate(ap, model):
+    """The gated region ``ap`` places into, or None (open_/close_ APs excluded)."""
+    ap = str(ap)
+    if ap.startswith(("open_", "close_")):
+        return None
+    for region in model["gated"]:
+        if ap.endswith("_" + region):
+            return region
+    return None
+
+
+def check_chain_feasible(subgoals, init_label, model):
+    """Verify an ordered subgoal chain against the ACTUAL initial label.
+
+    Abstract simulation over gate bits: start from the label's drawer states, then
+    per subgoal in order check its precondition and apply its effect (open/close
+    toggle the bit; placements need their gate open). Also flags DEGENERATE chains
+    (a subgoal already true when its turn comes — instant unearned reward).
+
+    In the audited KITCHEN_SCENE4 setup this never fails (all inits: bottom open,
+    top closed; the generator pre-filters orderings) — the guard exists so new
+    scenes / randomized inits cannot silently create hidden-composite prompts.
+
+    Returns:
+        (ok, reason)
+    """
+    if not subgoals:
+        return True, "empty"
+    if isinstance(init_label, dict) and bool(init_label.get(subgoals[0], False)):
+        return False, f"degenerate: first subgoal '{subgoals[0]}' already true at init"
+    state = {r: region_open_in_label(r, init_label, model) for r in model["gated"]}
+    for ap in subgoals:
+        ap = str(ap)
+        if ap.startswith("open_"):
+            region = ap[len("open_"):]
+            if state.get(region, False):
+                return False, f"degenerate: '{ap}' but region already open"
+            state[region] = True
+        elif ap.startswith("close_"):
+            region = ap[len("close_"):]
+            if not state.get(region, True):
+                return False, f"degenerate: '{ap}' but region already closed"
+            state[region] = False
+        else:
+            gate = _placement_gate(ap, model)
+            if gate is not None and not state.get(gate, True):
+                return False, f"hidden composite: '{ap}' requires '{gate}' open"
+    return True, "ok"
+
+
+def expand_chain_with_preconditions(subgoals, primitives, init_label, model):
+    """Make an infeasible chain explicit by INSERTING precondition subgoals.
+
+    Walks the chain like :func:`check_chain_feasible`; when a placement's gate is
+    closed at its turn, inserts the alphabet's ``open_<R>`` subgoal before it (the
+    hidden composite becomes an explicit ordered composite the prompt sequence and
+    reward tracker handle natively). Returns ``(subgoals, primitives, n_inserted)``
+    or None when expansion cannot fix the chain: degenerate chains (a subgoal
+    already true at its turn) and gates whose open-AP is not in the alphabet
+    (e.g. KITCHEN_SCENE4's bottom drawer has only ``close_``) -> caller falls back
+    to resampling. Pure function (no env) so it is unit-testable.
+    """
+    if not subgoals:
+        return None
+    if isinstance(init_label, dict) and bool(init_label.get(subgoals[0], False)):
+        return None  # degenerate first subgoal: nothing to insert
+    state = {r: region_open_in_label(r, init_label, model) for r in model["gated"]}
+    prims = list(primitives) if primitives else [None] * len(subgoals)
+    out_sg, out_pr, inserted = [], [], 0
+    for ap, prim in zip(subgoals, prims):
+        ap = str(ap)
+        if ap.startswith("open_"):
+            region = ap[len("open_"):]
+            if state.get(region, False):
+                return None  # degenerate mid-chain
+            state[region] = True
+        elif ap.startswith("close_"):
+            region = ap[len("close_"):]
+            if not state.get(region, True):
+                return None
+            state[region] = False
+        else:
+            gate = _placement_gate(ap, model)
+            if gate is not None and not state.get(gate, True):
+                open_ap = model["open_ap"].get(gate)
+                if open_ap is None:
+                    return None  # precondition not expressible in the alphabet
+                out_sg.append(open_ap)
+                out_pr.append(
+                    {"kind": "open", "obj": gate, "target": gate, "achieved_ap": open_ap}
+                )
+                state[gate] = True
+                inserted += 1
+        out_sg.append(ap)
+        out_pr.append(prim)
+    if inserted == 0:
+        return None  # chain was not fixable by insertion (shouldn't happen)
+    return out_sg, out_pr, inserted
+
+
 # Default prompt preamble: tells the VLA, from the start, that the goal is delivered
 # as a single atomic-proposition subgoal (no natural language, no overall-task LTL).
 DEFAULT_PROMPT_PREAMBLE = "Atomic-proposition subgoal to achieve:"
@@ -183,6 +322,61 @@ def render_subgoal_nl(ap_name, primitive=None):
     if kind == "turn_off":
         return f"turn off the {obj}"
     return str(ap_name).replace("_", " ")
+
+
+_LANGUAGE_RE = re.compile(r"\(:language\s+([^)]*)\)")
+
+
+def parse_task_language(bddl_path):
+    """Extract the ``(:language ...)`` instruction text from a BDDL file ('' if absent).
+
+    This is the exact phrasing the SFT checkpoint was trained on (e.g. ``put the
+    black bowl in the bottom drawer of the cabinet``) — in-distribution language,
+    unlike the mechanical region-name rendering of :func:`render_subgoal_nl`.
+    """
+    try:
+        with open(bddl_path) as f:
+            text = f.read()
+    except OSError:
+        return ""
+    m = _LANGUAGE_RE.search(text)
+    return m.group(1).strip() if m else ""
+
+
+def split_task_language(language, n_subgoals):
+    """Split a (possibly compound) task instruction into per-subgoal phrases.
+
+    Single-goal tasks map directly. Multi-goal tasks use " and " as the clause
+    separator, aligned with BDDL goal order (e.g. ``close the bottom drawer of the
+    cabinet and open the top drawer`` -> 2 phrases for the 2 parsed subgoals).
+    Returns None when the clause count does not match ``n_subgoals`` (caller falls
+    back to the mechanical rendering).
+    """
+    language = (language or "").strip()
+    if not language:
+        return None
+    if n_subgoals == 1:
+        return [language]
+    parts = [p.strip() for p in language.split(" and ") if p.strip()]
+    return parts if len(parts) == n_subgoals else None
+
+
+def build_canonical_nl_map(task_entries):
+    """AP name -> canonical (SFT-in-distribution) instruction phrase.
+
+    ``task_entries`` is an iterable of ``(ordered_subgoal_ap_names, language)``
+    from the scene's real tasks. First mapping per AP wins (single-goal tasks give
+    exact phrases; compound tasks contribute via :func:`split_task_language`).
+    Pure function (no env) so it is unit-testable.
+    """
+    out = {}
+    for subgoals, language in task_entries:
+        phrases = split_task_language(language, len(subgoals))
+        if not phrases:
+            continue
+        for ap, phrase in zip(subgoals, phrases):
+            out.setdefault(ap, phrase)
+    return out
 
 
 def render_proposition_ap(name, fmt="predicate"):
@@ -331,6 +525,13 @@ class LiberoCompositionEnv(LiberoEnv):
             comp.get("prompt_preamble", DEFAULT_PROMPT_PREAMBLE)
         )
         self._ap_format = str(comp.get("prompt_ap_format", "predicate"))
+        # NL prompts: render subgoals with the ORIGINAL LIBERO task language when a
+        # canonical phrase exists ("put the black bowl in the bottom drawer of the
+        # cabinet") — in-distribution for the SFT, unlike the mechanical region-name
+        # rendering ("...in the white cabinet bottom region"), which the frozen VLA
+        # can mis-ground (e.g. "top side" -> top-drawer behavior). False = legacy.
+        self._prompt_nl_canonical = bool(comp.get("prompt_nl_canonical", True))
+        self._canonical_nl = None  # AP -> phrase, built lazily from task BDDLs
         # Avoid penalty: reach -= avoid_beta * (# un-commanded goal-AP toggles).
         # 0.0 (default) = reach-only reward, bit-exact legacy behavior. Violations are
         # still COUNTED (env/avoid_violations metric) so the rate is visible either way.
@@ -346,6 +547,23 @@ class LiberoCompositionEnv(LiberoEnv):
         self._prev_labels = [None] * num_envs
         self._episode_violations = np.zeros(num_envs, dtype=np.float32)
         self._monitored_ap_names = None  # goal-alphabet names, resolved lazily
+        # Precondition guard state: chains are verified against the episode's FIRST
+        # ltl_label (the actual init state); infeasible/degenerate chains are
+        # resampled in sample mode (warn-only in task_goals mode).
+        self._feasibility_checked = np.zeros(num_envs, dtype=bool)
+        self._episode_resampled = np.zeros(num_envs, dtype=np.float32)
+        self._episode_expanded = np.zeros(num_envs, dtype=np.float32)
+        self._episode_precond_broken = np.zeros(num_envs, dtype=np.float32)
+        self._precond_models = {}  # cache keyed by monitored-AP tuple
+        self._infeasible_warnings = 0
+        # Depth-scaled episode limit: steps_per_subgoal x len(chain) per episode
+        # (0/absent = legacy fixed cfg.max_episode_steps). Grows automatically when
+        # precondition expansion deepens a chain. Episodes may span rollout epochs
+        # (auto_reset + bootstrap), so rollout tensor shapes are unaffected.
+        self._steps_per_subgoal = int(comp.get("steps_per_subgoal", 0) or 0)
+        self._episode_step_limit = np.full(
+            num_envs, int(cfg.max_episode_steps), dtype=np.int64
+        )
 
         super().__init__(cfg, num_envs, seed_offset, total_num_processes, worker_info)
 
@@ -379,14 +597,36 @@ class LiberoCompositionEnv(LiberoEnv):
             self._task_subgoal_cache[task_id] = parse_goal_subgoals(bddl)
         return self._task_subgoal_cache[task_id]
 
+    def _get_canonical_nl(self):
+        """AP -> canonical LIBERO task-language phrase, built once from the scene's
+        real task BDDLs (single-goal tasks map directly; compound languages split
+        by clause aligned with goal order)."""
+        if self._canonical_nl is None:
+            entries = []
+            for tid in self.allowed_task_ids:
+                try:
+                    bddl = self.task_suite.get_task_bddl_file_path(int(tid))
+                    subgoals, _prims = self._task_subgoals(int(tid))
+                    entries.append((subgoals, parse_task_language(bddl)))
+                except Exception:  # noqa: BLE001 — any unparsable task just skipped
+                    continue
+            self._canonical_nl = build_canonical_nl_map(entries)
+        return self._canonical_nl
+
     # ---- composition sampling / tracker ----
     def _set_subgoals_for_env(self, env_id, subgoals, primitives):
         self._subgoals[env_id] = list(subgoals)
         self._primitives[env_id] = list(primitives)
         self._ptr[env_id] = 0
+        if self._steps_per_subgoal > 0:
+            self._episode_step_limit[env_id] = self._steps_per_subgoal * max(
+                1, len(subgoals)
+            )
         if self._prompt_style == "nl":
+            canon = self._get_canonical_nl() if self._prompt_nl_canonical else {}
             self._subgoal_aps[env_id] = [
-                render_subgoal_nl(ap, primitives[i] if i < len(primitives) else None)
+                canon.get(ap)
+                or render_subgoal_nl(ap, primitives[i] if i < len(primitives) else None)
                 for i, ap in enumerate(subgoals)
             ]
         else:
@@ -410,6 +650,10 @@ class LiberoCompositionEnv(LiberoEnv):
             # fresh episode: no previous label (first step records only, no penalty)
             self._prev_labels[env_id] = None
             self._episode_violations[env_id] = 0.0
+            self._feasibility_checked[env_id] = False
+            self._episode_resampled[env_id] = 0.0
+            self._episode_expanded[env_id] = 0.0
+            self._episode_precond_broken[env_id] = 0.0
 
     def _monitored_aps(self, env_id):
         """Goal-alphabet AP *names* watched for un-commanded toggles.
@@ -428,6 +672,15 @@ class LiberoCompositionEnv(LiberoEnv):
                 )
             return self._monitored_ap_names
         return self._subgoals[env_id] or ()
+
+    def _precond_model_for(self, env_id):
+        """Cached gate/precondition model for this env's monitored alphabet."""
+        key = tuple(self._monitored_aps(env_id))
+        model = self._precond_models.get(key)
+        if model is None:
+            model = derive_precondition_model(key)
+            self._precond_models[key] = model
+        return model
 
     def _current_subgoal_ap(self, env_id):
         """The current (unachieved) subgoal AP string, or the done token."""
@@ -487,6 +740,73 @@ class LiberoCompositionEnv(LiberoEnv):
         if any_checked:
             self._identity_checked = True
 
+    def _check_chain_feasibility(self, ltl_labels):
+        """Once per episode (first label): validate the chain against the real init.
+
+        Sample mode, in order of preference:
+          1. EXPAND — insert the missing precondition subgoal(s) (e.g. ``open_top``
+             before a placement into the closed top drawer): the hidden composite
+             becomes an explicit ordered chain; the depth-scaled episode limit
+             (steps_per_subgoal x depth) grows with it. Counted in
+             ``env/comp_expanded``.
+          2. RESAMPLE — when expansion is impossible (degenerate chain, or the
+             precondition AP is not in the alphabet): draw a fresh composition
+             validated against the same label (<=10 tries). Counted in
+             ``env/comp_resampled``.
+        task_goals mode: real task goals are never mutated — warn only.
+        """
+        if ltl_labels is None:
+            return
+        for env_id in range(self.num_envs):
+            if self._feasibility_checked[env_id] or not self._subgoals[env_id]:
+                continue
+            label = ltl_labels[env_id] if env_id < len(ltl_labels) else None
+            if not isinstance(label, dict):
+                continue
+            self._feasibility_checked[env_id] = True
+            model = self._precond_model_for(env_id)
+            ok, reason = check_chain_feasible(self._subgoals[env_id], label, model)
+            if ok:
+                continue
+            if self._mode != "sample":
+                if self._infeasible_warnings < 5:
+                    self._infeasible_warnings += 1
+                    print(
+                        f"[LiberoCompositionEnv] env {env_id}: task chain "
+                        f"{self._subgoals[env_id]} not atomic at this init "
+                        f"({reason}); task_goals mode: keeping as-is."
+                    )
+                continue
+            expanded = expand_chain_with_preconditions(
+                self._subgoals[env_id], self._primitives[env_id], label, model
+            )
+            if expanded is not None:
+                new_sg, new_pr, n_inserted = expanded
+                if self._infeasible_warnings < 5:
+                    self._infeasible_warnings += 1
+                    print(
+                        f"[LiberoCompositionEnv] env {env_id}: {reason} -> expanded "
+                        f"{self._subgoals[env_id]} to {new_sg}"
+                    )
+                # same physical episode: prev-label/violation accumulators persist;
+                # only the commanded chain (pointer, prompt, episode limit) changes.
+                self._set_subgoals_for_env(env_id, new_sg, new_pr)
+                self._episode_expanded[env_id] += float(n_inserted)
+                continue
+            if self._infeasible_warnings < 5:
+                self._infeasible_warnings += 1
+                print(
+                    f"[LiberoCompositionEnv] env {env_id}: {reason}; not expandable "
+                    f"-> resampling {self._subgoals[env_id]}"
+                )
+            for _ in range(10):
+                comp = self._sampler.sample(self._comp_rng)
+                ok2, _ = check_chain_feasible(comp.subgoals, label, model)
+                if ok2:
+                    self._set_subgoals_for_env(env_id, comp.subgoals, comp.primitives)
+                    break
+            self._episode_resampled[env_id] += 1.0
+
     def _tracker_rewards(self, ltl_labels):
         """Advance each env's pointer; return (reach_rewards, safety_margins).
 
@@ -524,6 +844,13 @@ class LiberoCompositionEnv(LiberoEnv):
             if self._avoid_beta > 0.0 and violations:
                 reach_r -= self._avoid_beta * violations
                 safety[env_id] = 1.0  # hazard step for the (optional) cost channel
+            # mid-episode diagnostic: the CURRENT subgoal's gate got closed (policy
+            # broke its own precondition -> subgoal is now a live hidden composite)
+            if new_ptr < len(subgoals) and isinstance(label, dict):
+                model = self._precond_model_for(env_id)
+                gate = _placement_gate(subgoals[new_ptr], model)
+                if gate is not None and not region_open_in_label(gate, label, model):
+                    self._episode_precond_broken[env_id] += 1.0
             if isinstance(label, dict):
                 self._prev_labels[env_id] = label
             reach[env_id] = reach_r
@@ -556,10 +883,18 @@ class LiberoCompositionEnv(LiberoEnv):
         raw_obs, _reward, terminations, info_lists = self.env.step(actions)
         self.current_raw_obs = raw_obs
         infos = list_of_dict_to_dict_of_list(info_lists)
-        truncations = self.elapsed_steps >= self.cfg.max_episode_steps
+        # per-env depth-scaled limit (== cfg.max_episode_steps when the
+        # steps_per_subgoal knob is off)
+        truncations = self.elapsed_steps >= self._episode_step_limit
 
         ltl_labels = infos.get("ltl_label", None)
         self._validate_identity_once(ltl_labels)
+        # Precondition guard: verify each episode's chain against its FIRST label
+        # (the actual init state) BEFORE the tracker consumes it; infeasible or
+        # degenerate chains are resampled (sample mode) so the prompt emitted by
+        # _wrap_obs below is already the corrected one. The policy acted for at most
+        # one chunk under the old prompt. Never fires in audited KITCHEN_SCENE4.
+        self._check_chain_feasibility(ltl_labels)
 
         # ordered-tracker reward (advances pointers, may flag acceptance)
         ltl_reach_rewards, ltl_cost_signals = self._tracker_rewards(ltl_labels)
@@ -584,6 +919,16 @@ class LiberoCompositionEnv(LiberoEnv):
         # cumulative un-commanded goal-AP toggles this episode -> env/avoid_violations
         infos["episode"]["avoid_violations"] = to_tensor(
             self._episode_violations.copy()
+        ).float()
+        # precondition-guard diagnostics (all zero in the audited KITCHEN_SCENE4)
+        infos["episode"]["comp_expanded"] = to_tensor(
+            self._episode_expanded.copy()
+        ).float()
+        infos["episode"]["comp_resampled"] = to_tensor(
+            self._episode_resampled.copy()
+        ).float()
+        infos["episode"]["precond_broken"] = to_tensor(
+            self._episode_precond_broken.copy()
         ).float()
         if self.ignore_terminations:
             infos["episode"]["success_at_end"] = to_tensor(terminations)

@@ -486,3 +486,187 @@ def test_preprocess_accepts_3d_reach_rewards():
     assert flat.shape == (n_chunk, bsz)
     assert flat[1, 0].item() == 1.0  # the mid-chunk +1 survives the chunk sum
     assert flat.sum().item() == 1.0
+
+
+# --------------------------------------------------------------------------- #
+# Canonical NL prompts (original LIBERO task language)
+# --------------------------------------------------------------------------- #
+def test_split_task_language_single_and_compound():
+    from rlinf.envs.libero.libero_composition_env import split_task_language
+
+    assert split_task_language("put the black bowl on top of the cabinet", 1) == [
+        "put the black bowl on top of the cabinet"
+    ]
+    # compound close+open task splits by clause, aligned with goal order
+    assert split_task_language(
+        "close the bottom drawer of the cabinet and open the top drawer", 2
+    ) == ["close the bottom drawer of the cabinet", "open the top drawer"]
+    # count mismatch -> None (caller falls back to mechanical rendering)
+    assert split_task_language("do the thing", 2) is None
+    assert split_task_language("", 1) is None
+
+
+def test_build_canonical_nl_map_kitchen4():
+    from rlinf.envs.libero.libero_composition_env import build_canonical_nl_map
+
+    entries = [
+        (["close_white_cabinet_1_bottom_region", "open_white_cabinet_1_top_region"],
+         "close the bottom drawer of the cabinet and open the top drawer"),
+        (["in_akita_black_bowl_1_white_cabinet_1_bottom_region"],
+         "put the black bowl in the bottom drawer of the cabinet"),
+        (["on_akita_black_bowl_1_white_cabinet_1_top_side"],
+         "put the black bowl on top of the cabinet"),
+        (["bad_ap"], ""),  # empty language skipped
+    ]
+    m = build_canonical_nl_map(entries)
+    assert m["open_white_cabinet_1_top_region"] == "open the top drawer"
+    assert (
+        m["in_akita_black_bowl_1_white_cabinet_1_bottom_region"]
+        == "put the black bowl in the bottom drawer of the cabinet"
+    )
+    assert m["on_akita_black_bowl_1_white_cabinet_1_top_side"] == (
+        "put the black bowl on top of the cabinet"
+    )
+    assert "bad_ap" not in m
+
+
+def test_parse_task_language(tmp_path):
+    from rlinf.envs.libero.libero_composition_env import parse_task_language
+
+    b = tmp_path / "t.bddl"
+    b.write_text("(define (problem X)\n  (:language put the black bowl on top of the cabinet)\n)")
+    assert parse_task_language(str(b)) == "put the black bowl on top of the cabinet"
+    assert parse_task_language(str(tmp_path / "missing.bddl")) == ""
+
+
+# --------------------------------------------------------------------------- #
+# Precondition model + chain feasibility + expansion
+# --------------------------------------------------------------------------- #
+_K4_ALPHABET = [
+    "close_white_cabinet_1_bottom_region",
+    "in_akita_black_bowl_1_white_cabinet_1_bottom_region",
+    "in_wine_bottle_1_white_cabinet_1_bottom_region",
+    "on_akita_black_bowl_1_white_cabinet_1_top_side",
+    "on_wine_bottle_1_wine_rack_1_top_region",
+    "open_white_cabinet_1_top_region",
+]
+# the audited real init: bottom open (close_bottom false), top closed (open_top false)
+_K4_INIT = {ap: False for ap in _K4_ALPHABET}
+
+
+def test_precondition_model_derivation():
+    from rlinf.envs.libero.libero_composition_env import derive_precondition_model
+
+    m = derive_precondition_model(_K4_ALPHABET)
+    assert m["gated"] == {
+        "white_cabinet_1_bottom_region",
+        "white_cabinet_1_top_region",
+    }
+    # top_side (surface) and wine_rack are NOT gated
+    assert "white_cabinet_1_top_side" not in m["gated"]
+    assert m["open_ap"]["white_cabinet_1_top_region"] == "open_white_cabinet_1_top_region"
+    assert m["close_ap"]["white_cabinet_1_bottom_region"] == "close_white_cabinet_1_bottom_region"
+
+
+def test_chain_feasible_all_kitchen4_depth1():
+    from rlinf.envs.libero.libero_composition_env import (
+        check_chain_feasible,
+        derive_precondition_model,
+    )
+
+    m = derive_precondition_model(_K4_ALPHABET)
+    for ap in _K4_ALPHABET:  # audit result: every depth-1 chain atomic at real init
+        ok, reason = check_chain_feasible([ap], _K4_INIT, m)
+        assert ok, f"{ap}: {reason}"
+
+
+def test_chain_infeasible_place_into_closed_gate():
+    from rlinf.envs.libero.libero_composition_env import (
+        check_chain_feasible,
+        derive_precondition_model,
+    )
+
+    m = derive_precondition_model(_K4_ALPHABET)
+    # hypothetical init with the bottom drawer CLOSED -> placement is a hidden composite
+    init = dict(_K4_INIT, close_white_cabinet_1_bottom_region=True)
+    ok, reason = check_chain_feasible(
+        ["in_akita_black_bowl_1_white_cabinet_1_bottom_region"], init, m
+    )
+    assert not ok and "hidden composite" in reason
+    # close-then-place is infeasible even from the real (open) init
+    ok, reason = check_chain_feasible(
+        ["close_white_cabinet_1_bottom_region",
+         "in_akita_black_bowl_1_white_cabinet_1_bottom_region"], _K4_INIT, m)
+    assert not ok
+
+
+def test_chain_feasible_open_then_place_via_effect():
+    from rlinf.envs.libero.libero_composition_env import (
+        check_chain_feasible,
+        derive_precondition_model,
+    )
+
+    alphabet = _K4_ALPHABET + ["in_akita_black_bowl_1_white_cabinet_1_top_region"]
+    m = derive_precondition_model(alphabet)
+    init = {ap: False for ap in alphabet}  # top closed
+    # explicit composite: open the top drawer, then place into it -> feasible
+    ok, reason = check_chain_feasible(
+        ["open_white_cabinet_1_top_region",
+         "in_akita_black_bowl_1_white_cabinet_1_top_region"], init, m)
+    assert ok, reason
+    # placement alone is the hidden composite
+    ok, _ = check_chain_feasible(
+        ["in_akita_black_bowl_1_white_cabinet_1_top_region"], init, m)
+    assert not ok
+
+
+def test_chain_degenerate_already_true():
+    from rlinf.envs.libero.libero_composition_env import (
+        check_chain_feasible,
+        derive_precondition_model,
+    )
+
+    m = derive_precondition_model(_K4_ALPHABET)
+    init = dict(_K4_INIT, open_white_cabinet_1_top_region=True)
+    ok, reason = check_chain_feasible(["open_white_cabinet_1_top_region"], init, m)
+    assert not ok and "degenerate" in reason
+
+
+def test_expand_inserts_open_before_placement():
+    from rlinf.envs.libero.libero_composition_env import (
+        check_chain_feasible,
+        derive_precondition_model,
+        expand_chain_with_preconditions,
+    )
+
+    alphabet = _K4_ALPHABET + ["in_akita_black_bowl_1_white_cabinet_1_top_region"]
+    m = derive_precondition_model(alphabet)
+    init = {ap: False for ap in alphabet}  # top closed
+    out = expand_chain_with_preconditions(
+        ["in_akita_black_bowl_1_white_cabinet_1_top_region"],
+        [{"kind": "move", "obj": "akita_black_bowl_1",
+          "target": "white_cabinet_1_top_region"}],
+        init, m)
+    assert out is not None
+    sg, pr, n = out
+    assert n == 1
+    assert sg == ["open_white_cabinet_1_top_region",
+                  "in_akita_black_bowl_1_white_cabinet_1_top_region"]
+    assert pr[0]["kind"] == "open"  # renderable by render_subgoal_nl/ap unchanged
+    ok, reason = check_chain_feasible(sg, init, m)  # expanded chain is feasible
+    assert ok, reason
+
+
+def test_expand_fails_without_open_ap_in_alphabet():
+    from rlinf.envs.libero.libero_composition_env import (
+        derive_precondition_model,
+        expand_chain_with_preconditions,
+    )
+
+    # KITCHEN_SCENE4's bottom drawer has close_ only -> the open precondition is
+    # not expressible -> None (caller falls back to resampling)
+    m = derive_precondition_model(_K4_ALPHABET)
+    init = dict(_K4_INIT, close_white_cabinet_1_bottom_region=True)  # bottom closed
+    out = expand_chain_with_preconditions(
+        ["in_akita_black_bowl_1_white_cabinet_1_bottom_region"], [None], init, m)
+    assert out is None

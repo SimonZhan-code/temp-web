@@ -140,6 +140,34 @@ disaggregated block above to run them on a 2-GPU node.
 - **Unfrozen only**: watch for drift/collapse (bare PPO, no KL anchor). If it collapses, revisit adding a
   KL-to-SFT anchor (`kl_beta > 0`) + small `entropy_bonus`.
 
+## Atomicity audit + canonical NL prompts (2026-07-22)
+
+An audit of "are depth-1 subgoals really atomic given the initial state?" found the **task spec is
+sound**: LIBERO-Max's generator enforces open-before-place when enumerating compositions; all 132
+KITCHEN_SCENE4 chains are ordering-safe; and an empirical MuJoCo sweep of real init states shows every
+goal AP false at init in every trial (bottom drawer physically open, top drawer closed) — no hidden
+composites exist in the current setup (`tools/audit_init_atomicity.py` re-runs this for any scene).
+
+The observed "asked to place into a closed drawer" behavior traces to **OOD prompt language**, now fixed:
+
+- **Canonical NL prompts** (`composition.prompt_nl_canonical: True`, default): subgoals render in the
+  ORIGINAL LIBERO task language ("put the black bowl in the bottom drawer of the cabinet", "open the top
+  drawer", "put the black bowl on top of the cabinet") instead of mechanical region names ("...white
+  cabinet bottom region", "...top side") the SFT never saw. ⚠ **NL runs before/after this change are not
+  directly comparable** (prompt distribution changed); set `prompt_nl_canonical: False` to reproduce old
+  prompts. AP mode unaffected.
+- **Runtime precondition guard**: each episode's chain is verified against the ACTUAL first ltl_label.
+  A hidden composite is **expanded** (the missing `open_*` subgoal is inserted → explicit ordered chain,
+  `env/comp_expanded`); if not expressible in the alphabet, the chain is **resampled**
+  (`env/comp_resampled`). `env/precond_broken` counts mid-episode gate breakage (policy closed the
+  drawer its current subgoal needs). All three are zero in current KITCHEN_SCENE4 — the guard exists so
+  new scenes / randomized inits cannot silently corrupt training.
+- **Depth-scaled episode limits** (`composition.steps_per_subgoal`, e.g. 250): episode cap =
+  `steps_per_subgoal × chain depth` instead of a fixed `max_episode_steps` — depth-2 chains get 500
+  steps, and precondition expansion automatically lengthens the budget. Enabled in the `_b0` configs
+  (== 250 at depth-1, so their behavior is unchanged until deeper curricula). `0` = legacy fixed cap.
+  Episodes may span rollout epochs (auto-reset + bootstrap), so rollout tensor shapes are unaffected.
+
 ## Notes
 
 - **Reach channel is now LIVE (reach-avoid update).** Previously the per-subgoal

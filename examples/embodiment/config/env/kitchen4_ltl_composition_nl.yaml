@@ -31,6 +31,14 @@ composition:
   # (legacy). Violations are always counted -> env/avoid_violations metric. Do NOT
   # combine avoid_beta > 0 with a V-MPO safety_lambda (double-counted penalty).
   avoid_beta: 0.0
+  # NL prompt language: True (default) renders subgoals with the ORIGINAL LIBERO task
+  # language ("put the black bowl in the bottom drawer of the cabinet") - in-distribution
+  # for the SFT. False = legacy mechanical region names ("...white cabinet bottom region").
+  prompt_nl_canonical: True
+  # Depth-scaled episode limit: episode cap = steps_per_subgoal x chain depth
+  # (0 = legacy fixed max_episode_steps). Grows automatically if the precondition
+  # guard expands a chain (hidden composite -> explicit open-then-place).
+  steps_per_subgoal: 0
 
 # RLinf LiberoEnv specific settings
 reset_gripper_open: True
