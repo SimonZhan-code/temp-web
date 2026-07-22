@@ -72,10 +72,15 @@ drawer-close no subgoal asked for) subtracts β from the reach reward; undoing a
 
 | # | config | prompt | avoid_beta | launch |
 |---|---|---|---|---|
-| 5 | `kitchen4_composition_ppo_nl_frozen_b05`  | NL | **0.5**  | `bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen_b05` |
+| 5 | `kitchen4_composition_ppo_nl_frozen_b0`   | NL | **0.0** (explicit baseline) | `bash examples/embodiment/run_embodiment.sh kitchen4_composition_ppo_nl_frozen_b0` |
 | 6 | `kitchen4_composition_ppo_nl_frozen_b025` | NL | **0.25** | `... kitchen4_composition_ppo_nl_frozen_b025` |
-| 7 | `kitchen4_composition_ppo_ap_frozen_b05`  | AP | **0.5**  | `... kitchen4_composition_ppo_ap_frozen_b05` |
-| 8 | `kitchen4_composition_ppo_ap_frozen_b025` | AP | **0.25** | `... kitchen4_composition_ppo_ap_frozen_b025` |
+| 7 | `kitchen4_composition_ppo_nl_frozen_b05`  | NL | **0.5**  | `... kitchen4_composition_ppo_nl_frozen_b05` |
+| 8 | `kitchen4_composition_ppo_ap_frozen_b0`   | AP | **0.0** (explicit baseline) | `... kitchen4_composition_ppo_ap_frozen_b0` |
+| 9 | `kitchen4_composition_ppo_ap_frozen_b025` | AP | **0.25** | `... kitchen4_composition_ppo_ap_frozen_b025` |
+| 10 | `kitchen4_composition_ppo_ap_frozen_b05` | AP | **0.5**  | `... kitchen4_composition_ppo_ap_frozen_b05` |
+
+The `_b0` configs are reward-identical to the plain `_frozen` configs (#1/#2) — they exist so the
+{b0, b025, b05} sweep runs under parallel wandb experiment names for clean comparison.
 
 Same launch steps as below (model_path sed applies to these files too). What to compare vs the β=0
 baselines (#1/#2): **`env/avoid_violations` should fall** (the penalty working) while **`env/success_once` /
