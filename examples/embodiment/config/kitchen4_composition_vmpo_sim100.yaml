@@ -1,0 +1,211 @@
+# =============================================================================
+# ORIGINAL V-MPO (value-head best-of-N) in the REAL MuJoCo SIM — 100-epoch
+# verification run on a 2-GPU box (e.g. vast.ai 2x A100-80GB).
+#
+# PURPOSE: verify the core V-MPO idea decoupled from world-model fidelity.
+#   - Rollouts happen directly in the LIBERO sim (NOT the Wan world model).
+#   - Candidates are ranked by the CRITIC's value head (best_of_n_scorer=value,
+#     the default) at EVAL time (best_of_n_mode=eval) — the policy-improvement
+#     mechanism. The frozen pi0.5 policy is never gradient-updated; only the
+#     value head/critic trains (V-MPO critic-only).
+#   - value_after_vlm: False => the value is conditioned on the sampled action,
+#     so the value head CAN in principle discriminate candidate chunks.
+# If eval/success_once climbs over the 100 epochs, the value head is learning to
+# rank candidates and the idea holds; the remaining question is then whether the
+# Wan world model is precise enough to reproduce this selection in imagination.
+#
+# This is the 500-epoch NL config (kitchen4_composition_vmpo_fast_nl) with:
+#   - max_epochs cut 500 -> 100
+#   - parallelism scaled from 8 GPUs down to the proven 2-GPU shape
+#   - NL prompts kept (the fix for the AP-prompt-OOD zero-reward failure)
+#
+# Actor GPU0, rollout GPU1 -> weight sync over NCCL (no ptrace/CUDA-IPC), which
+# is the path that works in an unprivileged container.
+#
+# LAUNCH (needs the EGL vendor fix for headless render + wandb key):
+#   ulimit -n 65535
+#   export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+#   export WANDB_API_KEY=$(cat /root/.wandb_key)
+#   bash examples/embodiment/run_embodiment.sh kitchen4_composition_vmpo_sim100
+# =============================================================================
+defaults:
+  - env/kitchen4_ltl_composition_nl@env.train         # NL prompts (escape AP-OOD zero reward)
+  - env/kitchen4_compositional_eval_nl_d12@env.eval    # depth-1&2 blend eval (per-depth d1/d2 metrics)
+  - model/pi0_5@actor.model
+  - training_backend/fsdp@actor.fsdp_config
+  - override hydra/job_logging: stdout
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  searchpath:
+    - file://${oc.env:EMBODIED_PATH}/config/
+
+cluster:
+  num_nodes: 1
+  component_placement:
+    actor: 0          # GPU 0
+    rollout: 1        # GPU 1  (different device -> NCCL weight sync, no ptrace/IPC)
+    env: 0            # env sim/render shares GPU 0 (obs are CPU tensors)
+
+runner:
+  task_type: embodied
+  logger:
+    log_path: "../results"
+    project_name: neuralsym-vla
+    experiment_name: "kitchen4_vmpo_sim_valuebon_100ep"
+    logger_backends: ["tensorboard", "wandb"]   # set WANDB_API_KEY (or `wandb login`) on the box
+
+  max_epochs: 100                # cut from the 500-epoch reference for a faster verification
+  max_steps: -1
+
+  only_eval: False
+  eval_policy_path: null
+  val_check_interval: 10         # eval every 10 epochs to track the value-BoN learning curve
+  save_interval: 50              # checkpoint at 50/100 (divisible by val_check_interval)
+  eval_at_start: True            # eval at epoch 0 (untrained-critic baseline)
+  seq_length: 4096
+  max_prompt_length: 50
+
+  resume_dir: null
+
+algorithm:
+  normalize_advantages: True
+  kl_penalty: kl
+  group_size: 1
+  reward_coef: 1.0
+  rollout_epoch: 1
+  eval_rollout_epoch: 1
+
+  reward_type: chunk_level
+  logprob_type: chunk_level
+  entropy_type: token_level
+  update_epoch: 1
+  # --- V-MPO single-critic method (critic-only; policy stays frozen) ---
+  adv_type: vmpo
+  loss_type: vmpo
+  loss_agg_func: "token-mean"
+  kl_beta: 0.0
+  entropy_bonus: 0
+  clip_ratio_high: 0.2
+  clip_ratio_low: 0.2
+  clip_ratio_c: 3.0
+  value_clip: 0.2
+  huber_delta: 10.0
+
+  gamma: 0.99
+  gae_lambda: 0.97
+
+  vmpo:
+    eta_init: 1.0
+    eta_min: 0.01
+    epsilon_eta: 0.1
+    lr_eta: 0.01
+    safety_mode: fixed
+    beta: 0.0
+    lambda_init: 0.0
+    epsilon_1: 0.0
+    alpha_lambda: 0.05
+    lambda_max: 100.0
+
+  filter_rewards: False
+  rewards_lower_bound: 0.1
+  rewards_upper_bound: 0.9
+  sampling_params:
+    do_sample: True
+    temperature_train: 1.0
+    temperature_eval: 0.6
+    top_k: 50
+    top_p: 1.0
+    repetition_penalty: 1.0
+    add_BOS: False
+
+  length_params:
+    max_new_token: null
+    max_length: 1024
+    min_length: 1
+
+env:
+  group_name: "EnvGroup"
+  enable_offload: False
+
+  train:
+    total_num_envs: 16              # parallel sim data per rollout (2-GPU shape)
+    max_episode_steps: 250          # depth-1 finishes well under 250 (250/10=25 chunks, divisible)
+    max_steps_per_rollout_epoch: 250
+    reward_coef: ${algorithm.reward_coef}
+    composition:
+      max_depth: 1                  # CURRICULUM: single-subgoal only (achievable by frozen SFT) —
+                                    # matches fast_nl / ppo_nl_frozen; without this the env samples
+                                    # depth 1-3 and the unachievable depth-2/3 tasks zero out reward
+  eval:
+    total_num_envs: 16              # 16 fixed init states / eval (smoother SR)
+    auto_reset: True
+    ignore_terminations: False      # terminate on success -> eval/episode_len = time-to-success
+    max_episode_steps: 400          # blended depth-2 tasks need a longer horizon (400/10=40)
+    max_steps_per_rollout_epoch: 400
+    group_size: 1
+    use_fixed_reset_state_ids: True
+    is_eval: True
+    video_cfg:
+      save_video: True
+      video_base_dir: ${runner.logger.log_path}/video/eval
+
+rollout:
+  group_name: "RolloutGroup"
+  generation_backend: "huggingface"
+  recompute_logprobs: False
+  unnorm_key: libero_10
+  enable_offload: False
+  pipeline_stage_num: 1
+
+  model:
+    model_path: "${oc.env:REPO_PATH}/models/Pi05-LIBERO-SFT"
+    precision: ${actor.model.precision}
+
+actor:
+  group_name: "ActorGroup"
+  training_backend: "fsdp"
+  micro_batch_size: 8
+  global_batch_size: 16           # global % (micro * actor_world_size) == 0
+  seed: 42
+  enable_offload: False
+
+  model:
+    model_path: "${oc.env:REPO_PATH}/models/Pi05-LIBERO-SFT"
+    model_type: "openpi"
+    add_value_head: True
+    add_cost_head: False
+    openpi:
+      value_after_vlm: False     # value depends on the sampled action -> best-of-N can discriminate
+      best_of_n: 8               # eval-time value-guided selection (the policy-improvement mechanism)
+      best_of_n_scorer: value    # the critic's value head ranks candidates (the default)
+      best_of_n_mode: eval       # BoN at eval only; training rollouts sample normally (default)
+      best_of_n_eta: 1.0
+      best_of_n_lambda: 0.0
+
+  optim:
+    lr: 5.0e-6
+    value_lr: 1.0e-4
+    adam_beta1: 0.9
+    adam_beta2: 0.95
+    adam_eps: 1.0e-05
+    weight_decay: 0.01
+    clip_grad: 1.0
+    critic_warmup_steps: 0
+
+  fsdp_config:
+    strategy: "fsdp"
+    sharding_strategy: "no_shard"   # single GPU per actor -> no sharding needed
+    gradient_checkpointing: False
+    mixed_precision:
+      param_dtype: ${actor.model.precision}
+      reduce_dtype: ${actor.model.precision}
+      buffer_dtype: ${actor.model.precision}
+
+reward:
+  use_reward_model: False
+
+critic:
+  use_critic_model: False

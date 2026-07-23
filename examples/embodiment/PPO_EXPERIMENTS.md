@@ -174,6 +174,64 @@ The observed "asked to place into a closed drawer" behavior traces to **OOD prom
   (== 250 at depth-1, so their behavior is unchanged until deeper curricula). `0` = legacy fixed cap.
   Episodes may span rollout epochs (auto-reset + bootstrap), so rollout tensor shapes are unaffected.
 
+## V-MPO value-head best-of-N — sim verification (2026-07-23)
+
+The PPO results above show the *decomposition* is learnable but leave the V-MPO question open: does
+**value-head best-of-N** (V-MPO's actual policy-improvement mechanism) work if the critic is trained
+long enough? The Wan world-model path is meant to score candidates by *imagined outcomes*, but the
+pi0.5↔Wan gap is large (WM trained on OpenVLA-OFT actions, no proprio/wrist, binary-saturated reward
+model, in-WM eval ≠ real sim). To **de-risk the idea before investing in WM fidelity**, run the exact
+V-MPO mechanism with the **real MuJoCo sim as the rollout env** (perfect dynamics) and the **critic's
+value head as the candidate scorer** — no world model in the loop. If `eval/success_once` climbs over a
+full training session, the value head is learning to rank chunks and the idea holds; the remaining
+problem is then *only* WM precision. If it stays flat even with perfect sim dynamics, the bottleneck is
+the value-head/BoN scoring itself (consistent with the PPO-vs-V-MPO contrast above), not the WM.
+
+Config: **`kitchen4_composition_vmpo_sim100`** — the 500-epoch NL reference
+(`kitchen4_composition_vmpo_fast_nl`) with `max_epochs` cut to **100** and the parallelism scaled from
+8 GPUs down to the proven 2-GPU disaggregated shape.
+
+| knob | value | why |
+|---|---|---|
+| `adv_type` / `loss_type` | `vmpo` / `vmpo` | V-MPO critic-only (policy stays frozen; no actor gradient) |
+| `best_of_n_scorer` | `value` (default) | the critic's value head ranks the N candidate chunks |
+| `best_of_n_mode` | `eval` (default) | BoN applied at eval; training rollouts sample normally |
+| `best_of_n` | **8** | candidates per decision (matches the fast_nl reference) |
+| `value_after_vlm` | **False** | value is conditioned on the sampled action → BoN *can* discriminate |
+| rollout env | **real LIBERO sim** | `env/kitchen4_ltl_composition_nl`, **`composition.max_depth: 1`** (NOT the Wan WM) |
+| eval env | `env/kitchen4_compositional_eval_nl_d12` | depth-1&2 blend, per-depth `eval/*_d1`/`*_d2`, 16 fixed init states |
+| `max_epochs` / `val_check_interval` | 100 / 10 | eval every 10 epochs → 11-point learning curve incl. epoch-0 baseline |
+| placement | actor GPU0, rollout GPU1, env GPU0 | NCCL weight sync (no ptrace/CUDA-IPC) — the unprivileged-container path |
+| envs / batch | 16 train, 16 eval / micro 8, global 16 | 2-GPU shape (scale envs up on bigger boxes for denser success sampling) |
+
+**Launch** (2-GPU node; `run_embodiment.sh` forwards ONLY the config name, so all knobs incl. placement
+and `model_path` live in the config — CLI hydra overrides do NOT apply):
+
+```bash
+# model_path is already set in-config to ${REPO_PATH}/models/Pi05-LIBERO-SFT; if your checkpoint is
+# elsewhere, sed both model_path lines (rollout.model + actor.model) as for the PPO configs above.
+ulimit -n 65535
+export MUJOCO_GL=egl
+export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+export WANDB_API_KEY=$(cat /root/.wandb_key)     # project: neuralsym-vla
+export NCCL_P2P_DISABLE=1                          # omit on NVLink boxes
+bash examples/embodiment/run_embodiment.sh kitchen4_composition_vmpo_sim100
+```
+
+**What to watch** (wandb `neuralsym-vla`, run `kitchen4_vmpo_sim_valuebon_100ep`):
+- **`eval/success_once`** across the 11 eval points — the headline. Rising above the epoch-0 baseline ⇒
+  the value head is learning to rank; flat ⇒ scoring is the bottleneck.
+- **`env/success_once` + `rollout/rewards`** — must be **non-zero** (NL prompts fix the AP-OOD zero-reward
+  failure; if zero, the prompt/label path regressed).
+- **`train/critic/value_loss`, `explained_variance`** — the critic should actually fit (contrast V-MPO's
+  historically collapsed ≈1e-3 / noisy-≈0). A useful value head is the precondition for value-BoN to work.
+- **eval-vs-baseline gap** measures the *selection ceiling* of value-BoN, directly comparable to the
+  Phase-I oracle-BoN ceiling (SFT 20.8% → oracle 23.1%) and to the PPO-frozen learning curve.
+
+> Runs on the real sim, so training rollouts are slower than a WM (16 envs × 250 steps × best-of-8 at
+> eval). Result pending — this section documents the config to run; fill the outcome (learning curve +
+> verdict) once the 100-epoch run completes.
+
 ## Notes
 
 - **Reach channel is now LIVE (reach-avoid update).** Previously the per-subgoal
