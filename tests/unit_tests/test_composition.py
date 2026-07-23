@@ -670,3 +670,35 @@ def test_expand_fails_without_open_ap_in_alphabet():
     out = expand_chain_with_preconditions(
         ["in_akita_black_bowl_1_white_cabinet_1_bottom_region"], [None], init, m)
     assert out is None
+
+
+# --------------------------------------------------------------------------- #
+# Oracle best-of-N candidate scoring (pure)
+# --------------------------------------------------------------------------- #
+def test_oracle_score_counts_events_with_time_discount():
+    from rlinf.envs.libero.libero_composition_env import LiberoCompositionEnv
+
+    score = LiberoCompositionEnv.score_candidate_events
+    sub = ["a", "b"]
+    # candidate completing 'a' at step 0 beats one completing it at step 5
+    early = score(sub, 0, [{"a": True}] + [{}] * 9)
+    late = score(sub, 0, [{}] * 5 + [{"a": True}] + [{}] * 4)
+    assert early > late > 0
+    # completing both subgoals scores higher than one
+    both = score(sub, 0, [{"a": True}, {"a": True, "b": True}])
+    assert both > early
+    # no events -> 0; None labels tolerated
+    assert score(sub, 0, [None, {}, {"a": False}]) == 0.0
+    # pointer respects ordering: 'b' true before 'a' scores nothing
+    assert score(sub, 0, [{"b": True}] * 3) == 0.0
+    # empty subgoal chain -> 0
+    assert score([], 0, [{"a": True}]) == 0.0
+
+
+def test_oracle_score_does_not_mutate_caller_state():
+    from rlinf.envs.libero.libero_composition_env import LiberoCompositionEnv
+
+    sub = ["a", "b"]
+    ptr = 0
+    LiberoCompositionEnv.score_candidate_events(sub, ptr, [{"a": True, "b": True}])
+    assert ptr == 0 and sub == ["a", "b"]  # pure function contract

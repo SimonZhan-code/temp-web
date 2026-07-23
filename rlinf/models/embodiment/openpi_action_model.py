@@ -66,6 +66,17 @@ class OpenPi0Config(Pi0Config):
     # best-of-N sampling (V-MPO M-step)
     best_of_n: int = 1  # number of candidates; 1 = disabled
     best_of_n_eta: float = 1.0  # η* temperature for the V-MPO best-of-N score
+    # Candidate SELECTION backend:
+    #   "value"    -- value-head argmax inside the model (legacy behavior);
+    #   "external" -- the model exposes ALL N candidates (candidate_actions/_values)
+    #                 and selection happens outside (env-side oracle sim-rollout, or a
+    #                 world-model scorer). With external scoring the value head is no
+    #                 longer the selector -> pair with value_after_vlm=True (state value).
+    best_of_n_scorer: str = "value"
+    # When to run best-of-N: "eval" (legacy, eval rollouts only) or "train_eval"
+    # (training rollouts too -- the selected policy becomes the behavior policy;
+    # V-MPO-only: the BoN path returns dummy logprobs that PPO's actor loss would need).
+    best_of_n_mode: str = "eval"
 
 
 class OpenPi0ForRLActionPrediction(BasePolicy, PI0Pytorch):
@@ -372,6 +383,21 @@ class OpenPi0ForRLActionPrediction(BasePolicy, PI0Pytorch):
             {"actions": outputs["actions"], "state": observation.state}
         )["actions"].numpy()
 
+        # External best-of-N: transform ALL candidates to env-action space so the
+        # worker/env-side selector picks among executable chunks. [B, N, chunk, env_dim]
+        candidate_env_actions = None
+        if "candidate_actions" in outputs:
+            cand = outputs["candidate_actions"]
+            bsize, n_cand = cand.shape[:2]
+            flat = cand.reshape(bsize * n_cand, *cand.shape[2:])
+            state_rep = observation.state.repeat_interleave(n_cand, dim=0)
+            flat_env = self.output_transform({"actions": flat, "state": state_rep})[
+                "actions"
+            ].numpy()
+            candidate_env_actions = flat_env.reshape(
+                bsize, n_cand, *flat_env.shape[1:]
+            )
+
         forward_inputs = {
             "chains": outputs["chains"],
             "denoise_inds": outputs["denoise_inds"],
@@ -385,6 +411,10 @@ class OpenPi0ForRLActionPrediction(BasePolicy, PI0Pytorch):
             "prev_values": outputs["prev_values"],
             "forward_inputs": forward_inputs,
         }
+        if candidate_env_actions is not None:
+            # 4-D action payload: the env worker routes it to oracle_chunk_step
+            # (env-side selection); the returned "actions" stays the placeholder.
+            actions = candidate_env_actions
         return actions, result
 
     @torch.no_grad()
@@ -396,8 +426,14 @@ class OpenPi0ForRLActionPrediction(BasePolicy, PI0Pytorch):
         compute_values=True,
     ) -> torch.Tensor:
         """Do a full inference forward and compute the action (batch_size x num_steps x num_motors)"""
-        # Best-of-N eval: separate path that reuses prefix KV cache across N candidates
-        if mode == "eval" and self.config.best_of_n > 1 and noise is None:
+        # Best-of-N: separate path that reuses prefix KV cache across N candidates.
+        # Legacy: eval-only. best_of_n_mode="train_eval" extends it to training rollouts
+        # (selection-improved behavior policy; V-MPO critic-only training).
+        if (
+            self.config.best_of_n > 1
+            and noise is None
+            and (mode == "eval" or self.config.best_of_n_mode == "train_eval")
+        ):
             return self._sample_actions_best_of_n(observation, mode=mode)
 
         bsize = observation.state.shape[0]
@@ -705,6 +741,26 @@ class OpenPi0ForRLActionPrediction(BasePolicy, PI0Pytorch):
         # Reshape to [bsize, N, ...]
         values = values.view(bsize, N)
         x_0 = x_0.view(bsize, N, self.config.action_horizon, self.config.action_dim)
+
+        if self.config.best_of_n_scorer == "external":
+            # Defer selection to the worker/env side (oracle sim-rollout or a world-model
+            # scorer): expose ALL candidates. "actions" is a placeholder (candidate 0)
+            # that the external selector replaces before execution. prev_values is the
+            # candidate-mean (== the state value when value_after_vlm=True, the intended
+            # pairing -- the value head is no longer the selector).
+            dummy_logprobs = torch.zeros(
+                bsize, self.config.action_chunk, self.config.action_env_dim, device=device
+            )
+            dummy_denoise_inds = torch.tensor([-1] * num_steps)[None].repeat(bsize, 1)
+            return {
+                "actions": x_0[:, 0],
+                "chains": x_0[:, 0].unsqueeze(1),
+                "prev_logprobs": dummy_logprobs,
+                "prev_values": values.mean(dim=1, keepdim=True),  # [bsize, 1]
+                "denoise_inds": dummy_denoise_inds,
+                "candidate_actions": x_0,  # [bsize, N, action_horizon, action_dim]
+                "candidate_values": values,  # [bsize, N]
+            }
 
         # V-MPO best-of-N score: V_{r̃} / η*  (λ is folded into the reward, not the score)
         eta = self.dual_eta.clamp(min=0.01)

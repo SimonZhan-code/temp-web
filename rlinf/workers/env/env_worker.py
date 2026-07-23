@@ -185,9 +185,16 @@ class EnvWorker(Worker):
         )
         env_info = {}
 
-        extracted_obs, chunk_rewards, chunk_terminations, chunk_truncations, infos = (
-            self.env_list[stage_id].chunk_step(chunk_actions)
-        )
+        # 4-D payload [B, N, chunk, dim] = external best-of-N candidates -> the env
+        # selects via oracle sim-rollout (see LiberoCompositionEnv.oracle_chunk_step)
+        if getattr(chunk_actions, "ndim", 3) == 4:
+            extracted_obs, chunk_rewards, chunk_terminations, chunk_truncations, infos = (
+                self.env_list[stage_id].oracle_chunk_step(chunk_actions)
+            )
+        else:
+            extracted_obs, chunk_rewards, chunk_terminations, chunk_truncations, infos = (
+                self.env_list[stage_id].chunk_step(chunk_actions)
+            )
         chunk_dones = torch.logical_or(chunk_terminations, chunk_truncations)
         if not self.cfg.env.train.auto_reset:
             if self.cfg.env.train.ignore_terminations:
@@ -250,9 +257,14 @@ class EnvWorker(Worker):
         )
         env_info = {}
 
-        extracted_obs, chunk_rewards, chunk_terminations, chunk_truncations, infos = (
-            self.eval_env_list[stage_id].chunk_step(chunk_actions)
-        )
+        if getattr(chunk_actions, "ndim", 3) == 4:  # external best-of-N candidates
+            extracted_obs, chunk_rewards, chunk_terminations, chunk_truncations, infos = (
+                self.eval_env_list[stage_id].oracle_chunk_step(chunk_actions)
+            )
+        else:
+            extracted_obs, chunk_rewards, chunk_terminations, chunk_truncations, infos = (
+                self.eval_env_list[stage_id].chunk_step(chunk_actions)
+            )
         chunk_dones = torch.logical_or(chunk_terminations, chunk_truncations)
         self._log_goal_props(infos, stage_id)
 

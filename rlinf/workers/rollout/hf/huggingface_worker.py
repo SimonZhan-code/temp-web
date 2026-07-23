@@ -49,6 +49,19 @@ class MultiStepRolloutWorker(Worker):
         self.actor_weight_src_rank = self._rank % actor_world_size
 
     def init_worker(self):
+        # Train-rollout best-of-N is V-MPO-only: the BoN path returns dummy logprobs,
+        # which the critic-only V-MPO loss never consumes but PPO's actor loss would.
+        _opi = self.cfg.actor.model.get("openpi", None)
+        if (
+            _opi is not None
+            and _opi.get("best_of_n_mode", "eval") == "train_eval"
+            and self.cfg.algorithm.adv_type != "vmpo"
+        ):
+            raise ValueError(
+                "openpi.best_of_n_mode='train_eval' requires algorithm.adv_type='vmpo' "
+                "(BoN rollouts carry no real logprobs for a PPO actor loss)."
+            )
+
         rollout_model_config = copy.deepcopy(self.cfg.actor.model)
         with open_dict(rollout_model_config):
             rollout_model_config.precision = self.cfg.rollout.model.precision

@@ -564,6 +564,10 @@ class LiberoCompositionEnv(LiberoEnv):
         self._episode_step_limit = np.full(
             num_envs, int(cfg.max_episode_steps), dtype=np.int64
         )
+        # Oracle best-of-N diagnostics (env-side candidate selection):
+        # decisions taken / decisions with a discriminative score spread this episode.
+        self._episode_bon_decisions = np.zeros(num_envs, dtype=np.float32)
+        self._episode_bon_disc = np.zeros(num_envs, dtype=np.float32)
 
         super().__init__(cfg, num_envs, seed_offset, total_num_processes, worker_info)
 
@@ -654,6 +658,8 @@ class LiberoCompositionEnv(LiberoEnv):
             self._episode_resampled[env_id] = 0.0
             self._episode_expanded[env_id] = 0.0
             self._episode_precond_broken[env_id] = 0.0
+            self._episode_bon_decisions[env_id] = 0.0
+            self._episode_bon_disc[env_id] = 0.0
 
     def _monitored_aps(self, env_id):
         """Goal-alphabet AP *names* watched for un-commanded toggles.
@@ -858,6 +864,85 @@ class LiberoCompositionEnv(LiberoEnv):
         self._last_accepted = accepted
         return torch.from_numpy(reach), torch.from_numpy(safety)
 
+    # ---- oracle best-of-N (env-side candidate selection) ----
+    @staticmethod
+    def score_candidate_events(subgoals, ptr, labels_per_step, time_discount=0.01):
+        """Score one candidate rollout by its subgoal events (pure, unit-testable).
+
+        ``labels_per_step``: list over sim steps of AP-label dicts. Score = Σ events,
+        each discounted by how late in the chunk it fires (earlier completion wins
+        ties). Pointer advances locally — caller state is untouched.
+        """
+        p = int(ptr)
+        score = 0.0
+        for t, label in enumerate(labels_per_step):
+            new_p, r, _acc = advance_ordered_subgoals(subgoals, p, label)
+            if r > 0:
+                score += r * (1.0 - time_discount * t)
+            p = new_p
+        return score
+
+    def oracle_chunk_step(self, candidates):
+        """Best-of-N with the SIMULATOR as a perfect world model.
+
+        ``candidates``: [B, N, chunk, action_dim]. Per decision: snapshot each env's
+        MuJoCo state; roll out every candidate through the RAW venv (no composition
+        state is touched — tracker pointers advance only in local copies); score by
+        true subgoal reach events; restore; execute the argmax candidate through the
+        NORMAL chunk_step (all reward channels / metrics / auto-reset intact).
+        Ties keep the lowest index, i.e. undiscriminated decisions reduce to
+        plain first-sample behavior. This is the ceiling measurement for any learned
+        world-model scorer (same selection interface, perfect dynamics).
+        """
+        candidates = np.asarray(
+            candidates.detach().cpu().numpy()
+            if torch.is_tensor(candidates)
+            else candidates
+        )
+        n_envs, n_cand, chunk_len = candidates.shape[:3]
+        assert n_envs == self.num_envs, (
+            f"candidate batch {n_envs} != num_envs {self.num_envs}"
+        )
+
+        # snapshot: per-env MuJoCo state (tracker state is never mutated below)
+        sim_states = [self.env.workers[j].get_sim_state() for j in range(n_envs)]
+
+        scores = np.zeros((n_envs, n_cand), dtype=np.float32)
+        for n in range(n_cand):
+            if n > 0:  # first candidate starts from the live state
+                for j in range(n_envs):
+                    self.env.workers[j].set_init_state(sim_states[j])
+            labels_by_env = [[] for _ in range(n_envs)]
+            for t in range(chunk_len):
+                # RAW venv step: sim only; the terminated-episode guard of robosuite is
+                # irrelevant here (underlying BDDL all-goals success ~never fires
+                # mid-scoring on the all-goals BDDL).
+                _raw, _r, _terms, info_lists = self.env.step(candidates[:, n, t])
+                infos_n = list_of_dict_to_dict_of_list(info_lists)
+                labels = infos_n.get("ltl_label", None)
+                for e in range(n_envs):
+                    labels_by_env[e].append(
+                        labels[e] if (labels is not None and e < len(labels)) else None
+                    )
+            for e in range(n_envs):
+                if self._subgoals[e]:
+                    scores[e, n] = self.score_candidate_events(
+                        self._subgoals[e], int(self._ptr[e]), labels_by_env[e]
+                    )
+        # restore the true state before real execution
+        for j in range(n_envs):
+            self.env.workers[j].set_init_state(sim_states[j])
+
+        chosen = scores.argmax(axis=1)  # ties -> index 0 (first sample)
+        spread = scores.max(axis=1) - scores.min(axis=1)
+        # accumulate BEFORE chunk_step: step() emits the episode metric each sim step,
+        # so auto-reset's final_info capture includes this decision.
+        self._episode_bon_decisions += 1.0
+        self._episode_bon_disc += (spread > 0).astype(np.float32)
+
+        chosen_actions = candidates[np.arange(n_envs), chosen]  # [B, chunk, dim]
+        return self.chunk_step(torch.from_numpy(np.ascontiguousarray(chosen_actions)))
+
     # ---- obs / reset / step ----
     def _wrap_obs(self, obs_list):
         obs = super()._wrap_obs(obs_list)
@@ -919,6 +1004,10 @@ class LiberoCompositionEnv(LiberoEnv):
         # cumulative un-commanded goal-AP toggles this episode -> env/avoid_violations
         infos["episode"]["avoid_violations"] = to_tensor(
             self._episode_violations.copy()
+        ).float()
+        # oracle best-of-N diagnostics (0/0 -> 0 when BoN is off)
+        infos["episode"]["bon_disc_frac"] = to_tensor(
+            self._episode_bon_disc / np.maximum(1.0, self._episode_bon_decisions)
         ).float()
         # precondition-guard diagnostics (all zero in the audited KITCHEN_SCENE4)
         infos["episode"]["comp_expanded"] = to_tensor(
