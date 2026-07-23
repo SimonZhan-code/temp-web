@@ -904,34 +904,45 @@ class LiberoCompositionEnv(LiberoEnv):
             f"candidate batch {n_envs} != num_envs {self.num_envs}"
         )
 
-        # snapshot: per-env MuJoCo state (tracker state is never mutated below)
-        sim_states = [self.env.workers[j].get_sim_state() for j in range(n_envs)]
+        # snapshot: per-env MuJoCo state + robosuite timestep (tracker state is never
+        # mutated below; restore also clears the latched done flag)
+        sim_states = [self.env.workers[j].get_sim_snapshot() for j in range(n_envs)]
 
         scores = np.zeros((n_envs, n_cand), dtype=np.float32)
         for n in range(n_cand):
             if n > 0:  # first candidate starts from the live state
                 for j in range(n_envs):
-                    self.env.workers[j].set_init_state(sim_states[j])
+                    self.env.workers[j].set_sim_snapshot(sim_states[j])
             labels_by_env = [[] for _ in range(n_envs)]
+            # Masked stepping: a candidate that COMPLETES its task mid-scoring
+            # terminates the underlying robosuite env (task_goals eval mode) and any
+            # further step would raise "executing action in terminated episode" —
+            # stop stepping that env; its completing event is already in its labels.
+            alive = np.ones(n_envs, dtype=bool)
             for t in range(chunk_len):
-                # RAW venv step: sim only; the terminated-episode guard of robosuite is
-                # irrelevant here (underlying BDDL all-goals success ~never fires
-                # mid-scoring on the all-goals BDDL).
-                _raw, _r, _terms, info_lists = self.env.step(candidates[:, n, t])
-                infos_n = list_of_dict_to_dict_of_list(info_lists)
+                ids = np.nonzero(alive)[0]
+                if len(ids) == 0:
+                    break
+                _raw, _r, terms_sub, info_sub = self.env.step(
+                    candidates[ids, n, t], id=ids.tolist()
+                )
+                infos_n = list_of_dict_to_dict_of_list(info_sub)
                 labels = infos_n.get("ltl_label", None)
-                for e in range(n_envs):
+                terms_sub = np.asarray(terms_sub).reshape(-1)
+                for k, e in enumerate(ids):
                     labels_by_env[e].append(
-                        labels[e] if (labels is not None and e < len(labels)) else None
+                        labels[k] if (labels is not None and k < len(labels)) else None
                     )
+                    if bool(terms_sub[k]):
+                        alive[e] = False
             for e in range(n_envs):
                 if self._subgoals[e]:
                     scores[e, n] = self.score_candidate_events(
                         self._subgoals[e], int(self._ptr[e]), labels_by_env[e]
                     )
-        # restore the true state before real execution
+        # restore the true state (incl. timestep, done cleared) before real execution
         for j in range(n_envs):
-            self.env.workers[j].set_init_state(sim_states[j])
+            self.env.workers[j].set_sim_snapshot(sim_states[j])
 
         chosen = scores.argmax(axis=1)  # ties -> index 0 (first sample)
         spread = scores.max(axis=1) - scores.min(axis=1)

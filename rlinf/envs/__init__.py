@@ -44,5 +44,11 @@ def get_env_cls(env_type, env_cfg=None):
         from rlinf.envs.realworld.realworld_env import RealWorldEnv
 
         return RealWorldEnv
+    elif env_type == "wan_wm":
+        # Wan world-model rollout backend (file-IPC client; server runs in the
+        # wanspike venv -- see tools/wan_spike/wan_rollout_server.py)
+        from rlinf.envs.world_model.wan_client_env import WanClientEnv
+
+        return WanClientEnv
     else:
         raise NotImplementedError(f"Environment type {env_type} not implemented")

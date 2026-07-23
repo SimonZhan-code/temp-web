@@ -46,7 +46,7 @@ def prepare_actions(
             raw_chunk_actions=raw_chunk_actions,
             model_type=model_type,
         )
-    elif env_type in ("robotwin", "realworld"):
+    elif env_type in ("robotwin", "realworld", "wan_wm"):
         chunk_actions = raw_chunk_actions
     else:
         raise NotImplementedError

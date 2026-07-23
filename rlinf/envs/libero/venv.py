@@ -114,6 +114,34 @@ def _worker(
                 p.send(env.get_sim_state())
             elif cmd == "set_init_state":
                 obs = env.set_init_state(data)
+                # Restoring a snapshot must also clear robosuite's latched done flag:
+                # regenerate_obs_from_state() resets sim state but NOT MujocoEnv.done,
+                # so after a terminated rollout (e.g. an oracle-BoN candidate that
+                # completed the task during scoring) every later step would raise
+                # "executing action in terminated episode".
+                try:
+                    env.env.done = False
+                except AttributeError:
+                    pass
+                p.send(obs)
+            elif cmd == "get_sim_snapshot":
+                # Full restore point for oracle best-of-N scoring: MuJoCo state PLUS
+                # robosuite's step counter (set_state does not touch env.timestep, so
+                # candidate rollouts would inflate it ~Nx and hit the horizon early,
+                # latching done -> "executing action in terminated episode").
+                p.send(
+                    {
+                        "state": env.get_sim_state(),
+                        "timestep": getattr(env.env, "timestep", 0),
+                    }
+                )
+            elif cmd == "set_sim_snapshot":
+                obs = env.set_init_state(data["state"])
+                try:
+                    env.env.timestep = data["timestep"]
+                    env.env.done = False
+                except AttributeError:
+                    pass
                 p.send(obs)
             elif cmd == "reconfigure":
                 env.close()
@@ -153,6 +181,16 @@ class ReconfigureSubprocEnvWorker(SubprocEnvWorker):
 
     def reconfigure_env_fn(self, env_fn_param):
         self.parent_remote.send(["reconfigure", env_fn_param])
+        return self.parent_remote.recv()
+
+    def get_sim_snapshot(self):
+        """MuJoCo state + robosuite timestep (oracle-BoN restore point)."""
+        self.parent_remote.send(["get_sim_snapshot", None])
+        return self.parent_remote.recv()
+
+    def set_sim_snapshot(self, snapshot):
+        """Restore state + timestep and clear the latched done flag."""
+        self.parent_remote.send(["set_sim_snapshot", snapshot])
         return self.parent_remote.recv()
 
 
