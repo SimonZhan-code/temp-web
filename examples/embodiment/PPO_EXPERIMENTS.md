@@ -108,6 +108,12 @@ source .venv/bin/activate            # or wherever the openpi venv lives
 ulimit -n 65535   # REQUIRED at >=64 envs: each MuJoCo env opens many asset files; the default
                   # soft limit (1024) crashes env creation with "MjModel.from_xml_string:
                   # Caught an unknown exception!"
+# VAST.AI CONTAINERS ONLY: cap envs at <=8 PER ENV-WORKER PROCESS. Empirically (2-GPU vast
+# nodes, driver 580.95): 2/8 envs per process work, 32+ crash in MuJoCo scene construction
+# (libc++abi terminating) regardless of render backend (EGL and osmesa) and with ulimit
+# raised — a container quirk, NOT memory. Real 8xH100 hardware runs the production layout
+# (256 envs = 32/rank) fine. Also: global_batch must divide the rollout sample count
+# (num_envs x rollout_steps / num_action_chunks), e.g. 8 envs x 25 chunks = 200 -> use 100.
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
 export WANDB_API_KEY=...
