@@ -198,6 +198,7 @@ Config: **`kitchen4_composition_vmpo_sim100`** — the 500-epoch NL reference
 | `best_of_n_mode` | `eval` (default) | BoN applied at eval; training rollouts sample normally |
 | `best_of_n` | **8** | candidates per decision (matches the fast_nl reference) |
 | `value_after_vlm` | **False** | value is conditioned on the sampled action → BoN *can* discriminate |
+| `detach_critic_input` | **True** | critic grad must NOT flow into the shared action-expert trunk (keeps the SFT policy frozen — critic-only V-MPO); default is False, must be set |
 | rollout env | **real LIBERO sim** | `env/kitchen4_ltl_composition_nl`, **`composition.max_depth: 1`** (NOT the Wan WM) |
 | eval env | `env/kitchen4_compositional_eval_nl_d12` | depth-1&2 blend, per-depth `eval/*_d1`/`*_d2`, 16 fixed init states |
 | `max_epochs` / `val_check_interval` | 100 / 10 | eval every 10 epochs → 11-point learning curve incl. epoch-0 baseline |
@@ -228,9 +229,23 @@ bash examples/embodiment/run_embodiment.sh kitchen4_composition_vmpo_sim100
 - **eval-vs-baseline gap** measures the *selection ceiling* of value-BoN, directly comparable to the
   Phase-I oracle-BoN ceiling (SFT 20.8% → oracle 23.1%) and to the PPO-frozen learning curve.
 
-> Runs on the real sim, so training rollouts are slower than a WM (16 envs × 250 steps × best-of-8 at
-> eval). Result pending — this section documents the config to run; fill the outcome (learning curve +
-> verdict) once the 100-epoch run completes.
+### Validated ✅ (2-GPU, 2×A100-80GB) — ready to scale on 8×H100
+
+The pipeline was validated end-to-end on a 2-GPU node (`kitchen4_composition_vmpo_sim100`, run
+`2y4akwbq`): model load → NCCL weight sync (`sync_weights≈0.8s`) → epoch-0 eval → V-MPO critic training,
+all clean. **Epoch-0 baseline (frozen SFT + value-BoN, untrained critic): `eval/success_once_d1 = 0.50`,
+`_d2 = 0.00`, blended 0.47.** Train rollout `env/success_once ≈ 0.12–0.19` (depth-1, reach rewards
+firing), critic `explained_variance` climbing −19 → −0.4 in 5 steps, `value_loss ≈ 0.02–0.04`. This
+confirms the mechanism runs and the critic fits; the full learning-curve run happens at scale.
+
+**Large-scale run → `kitchen4_composition_vmpo_nl_8xh100`** (this validated recipe scaled to 8×H100:
+256 train envs, `micro 128`/`global 2048`, `rollout_epoch 8`, `update_epoch 4`, 500 epochs, collocated
+CUDA-IPC placement — needs `sudo sysctl -w kernel.yama.ptrace_scope=0`). Same NL + depth-1 + d12-eval +
+`detach_critic_input: True` + value-BoN recipe. Launch:
+`bash examples/embodiment/run_embodiment.sh kitchen4_composition_vmpo_nl_8xh100` (set both `model_path`s
+first). Watch `eval/success_once_d1` across the eval points vs the 0.50 baseline — rising ⇒ the value
+head learns to rank (idea holds; WM precision is the only remaining gap); flat ⇒ value-BoN scoring is
+the bottleneck (matches the PPO-vs-V-MPO contrast).
 
 ## Notes
 

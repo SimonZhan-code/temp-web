@@ -179,6 +179,8 @@ actor:
     add_cost_head: False
     openpi:
       value_after_vlm: False     # value depends on the sampled action -> best-of-N can discriminate
+      detach_critic_input: True  # CRITICAL: critic grad must NOT flow into the shared action-expert
+                                 # trunk or it corrupts the frozen SFT policy (critic-only V-MPO)
       best_of_n: 8               # eval-time value-guided selection (the policy-improvement mechanism)
       best_of_n_scorer: value    # the critic's value head ranks candidates (the default)
       best_of_n_mode: eval       # BoN at eval only; training rollouts sample normally (default)
