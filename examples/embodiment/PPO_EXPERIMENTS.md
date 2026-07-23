@@ -174,78 +174,14 @@ The observed "asked to place into a closed drawer" behavior traces to **OOD prom
   (== 250 at depth-1, so their behavior is unchanged until deeper curricula). `0` = legacy fixed cap.
   Episodes may span rollout epochs (auto-reset + bootstrap), so rollout tensor shapes are unaffected.
 
-## V-MPO value-head best-of-N — sim verification (2026-07-23)
+## V-MPO experiments → see `VMPO_EXPERIMENTS.md`
 
-The PPO results above show the *decomposition* is learnable but leave the V-MPO question open: does
-**value-head best-of-N** (V-MPO's actual policy-improvement mechanism) work if the critic is trained
-long enough? The Wan world-model path is meant to score candidates by *imagined outcomes*, but the
-pi0.5↔Wan gap is large (WM trained on OpenVLA-OFT actions, no proprio/wrist, binary-saturated reward
-model, in-WM eval ≠ real sim). To **de-risk the idea before investing in WM fidelity**, run the exact
-V-MPO mechanism with the **real MuJoCo sim as the rollout env** (perfect dynamics) and the **critic's
-value head as the candidate scorer** — no world model in the loop. If `eval/success_once` climbs over a
-full training session, the value head is learning to rank chunks and the idea holds; the remaining
-problem is then *only* WM precision. If it stays flat even with perfect sim dynamics, the bottleneck is
-the value-head/BoN scoring itself (consistent with the PPO-vs-V-MPO contrast above), not the WM.
-
-Config: **`kitchen4_composition_vmpo_sim100`** — the 500-epoch NL reference
-(`kitchen4_composition_vmpo_fast_nl`) with `max_epochs` cut to **100** and the parallelism scaled from
-8 GPUs down to the proven 2-GPU disaggregated shape.
-
-| knob | value | why |
-|---|---|---|
-| `adv_type` / `loss_type` | `vmpo` / `vmpo` | V-MPO critic-only (policy stays frozen; no actor gradient) |
-| `best_of_n_scorer` | `value` (default) | the critic's value head ranks the N candidate chunks |
-| `best_of_n_mode` | `eval` (default) | BoN applied at eval; training rollouts sample normally |
-| `best_of_n` | **8** | candidates per decision (matches the fast_nl reference) |
-| `value_after_vlm` | **False** | value is conditioned on the sampled action → BoN *can* discriminate |
-| `detach_critic_input` | **True** | critic grad must NOT flow into the shared action-expert trunk (keeps the SFT policy frozen — critic-only V-MPO); default is False, must be set |
-| rollout env | **real LIBERO sim** | `env/kitchen4_ltl_composition_nl`, **`composition.max_depth: 1`** (NOT the Wan WM) |
-| eval env | `env/kitchen4_compositional_eval_nl_d12` | depth-1&2 blend, per-depth `eval/*_d1`/`*_d2`, 16 fixed init states |
-| `max_epochs` / `val_check_interval` | 100 / 10 | eval every 10 epochs → 11-point learning curve incl. epoch-0 baseline |
-| placement | actor GPU0, rollout GPU1, env GPU0 | NCCL weight sync (no ptrace/CUDA-IPC) — the unprivileged-container path |
-| envs / batch | 16 train, 16 eval / micro 8, global 16 | 2-GPU shape (scale envs up on bigger boxes for denser success sampling) |
-
-**Launch** (2-GPU node; `run_embodiment.sh` forwards ONLY the config name, so all knobs incl. placement
-and `model_path` live in the config — CLI hydra overrides do NOT apply):
-
-```bash
-# model_path is already set in-config to ${REPO_PATH}/models/Pi05-LIBERO-SFT; if your checkpoint is
-# elsewhere, sed both model_path lines (rollout.model + actor.model) as for the PPO configs above.
-ulimit -n 65535
-export MUJOCO_GL=egl
-export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
-export WANDB_API_KEY=$(cat /root/.wandb_key)     # project: neuralsym-vla
-export NCCL_P2P_DISABLE=1                          # omit on NVLink boxes
-bash examples/embodiment/run_embodiment.sh kitchen4_composition_vmpo_sim100
-```
-
-**What to watch** (wandb `neuralsym-vla`, run `kitchen4_vmpo_sim_valuebon_100ep`):
-- **`eval/success_once`** across the 11 eval points — the headline. Rising above the epoch-0 baseline ⇒
-  the value head is learning to rank; flat ⇒ scoring is the bottleneck.
-- **`env/success_once` + `rollout/rewards`** — must be **non-zero** (NL prompts fix the AP-OOD zero-reward
-  failure; if zero, the prompt/label path regressed).
-- **`train/critic/value_loss`, `explained_variance`** — the critic should actually fit (contrast V-MPO's
-  historically collapsed ≈1e-3 / noisy-≈0). A useful value head is the precondition for value-BoN to work.
-- **eval-vs-baseline gap** measures the *selection ceiling* of value-BoN, directly comparable to the
-  Phase-I oracle-BoN ceiling (SFT 20.8% → oracle 23.1%) and to the PPO-frozen learning curve.
-
-### Validated ✅ (2-GPU, 2×A100-80GB) — ready to scale on 8×H100
-
-The pipeline was validated end-to-end on a 2-GPU node (`kitchen4_composition_vmpo_sim100`, run
-`2y4akwbq`): model load → NCCL weight sync (`sync_weights≈0.8s`) → epoch-0 eval → V-MPO critic training,
-all clean. **Epoch-0 baseline (frozen SFT + value-BoN, untrained critic): `eval/success_once_d1 = 0.50`,
-`_d2 = 0.00`, blended 0.47.** Train rollout `env/success_once ≈ 0.12–0.19` (depth-1, reach rewards
-firing), critic `explained_variance` climbing −19 → −0.4 in 5 steps, `value_loss ≈ 0.02–0.04`. This
-confirms the mechanism runs and the critic fits; the full learning-curve run happens at scale.
-
-**Large-scale run → `kitchen4_composition_vmpo_nl_8xh100`** (this validated recipe scaled to 8×H100:
-256 train envs, `micro 128`/`global 2048`, `rollout_epoch 8`, `update_epoch 4`, 500 epochs, collocated
-CUDA-IPC placement — needs `sudo sysctl -w kernel.yama.ptrace_scope=0`). Same NL + depth-1 + d12-eval +
-`detach_critic_input: True` + value-BoN recipe. Launch:
-`bash examples/embodiment/run_embodiment.sh kitchen4_composition_vmpo_nl_8xh100` (set both `model_path`s
-first). Watch `eval/success_once_d1` across the eval points vs the 0.50 baseline — rising ⇒ the value
-head learns to rank (idea holds; WM precision is the only remaining gap); flat ⇒ value-BoN scoring is
-the bottleneck (matches the PPO-vs-V-MPO contrast).
+The PPO runs above are the *contrast* to V-MPO (critic-only, frozen policy, best-of-N selection). The
+V-MPO experiments — value-head best-of-N in the real sim (validated 2-GPU, epoch-0 `eval/success_once_d1`
+= 0.50), the 8×H100 large-scale config `kitchen4_composition_vmpo_nl_8xh100`, the oracle-BoN ceiling, and
+the Wan world-model imagination path — with their train commands and the non-negotiable knobs
+(`composition.max_depth: 1`, `detach_critic_input: True`, NL prompts) now live in their own doc:
+[`VMPO_EXPERIMENTS.md`](VMPO_EXPERIMENTS.md).
 
 ## Notes
 
